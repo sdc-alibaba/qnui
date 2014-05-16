@@ -48,6 +48,14 @@ block content
           each dir in placement
             li
               a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+
+        ul.example
+          li
+            a(href='#', data-placement='top', data-toggle='tooltip', title='默认类型的tooltip') 默认类型
+          - var types = ['primary', 'info', 'attention']
+          each type in types
+            li
+              a(href='#', data-placement='top', data-toggle='tooltip', data-type='#{type}', title='类型为<b>#{type}</b>的tooltip') 看#{type}
         ul.example
           - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
           - var widthtype = ['true', 'false']
