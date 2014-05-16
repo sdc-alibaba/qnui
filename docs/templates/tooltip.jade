@@ -48,6 +48,14 @@ block content
           each dir in placement
             li
               a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+
+        ul.example
+          li
+            a(href='#', data-placement='top', data-toggle='tooltip', title='默认类型的tooltip') 默认类型
+          - var types = ['primary', 'info', 'attention']
+          each type in types
+            li
+              a(href='#', data-placement='top', data-toggle='tooltip', data-type='#{type}', title='类型为<b>#{type}</b>的tooltip') 看#{type}
         ul.example
           - var bigdata =  'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
           - var widthtype = ['true', 'false']
@@ -87,7 +95,7 @@ block content
       pre.prettyprint.linenums.
         {
             animation: true  //是否以动画效果淡入淡出tooltip
-          , type: 'normal'   //tip 类型 {string} 'normal'|'attention'|'confirm' ,区别见demo
+          , type: 'default'   //tip 类型 {string} 'default'|'primary'|'info'|'attention'|'confirm' ,区别见demo
           , placement: 'top'
           , selector: false  //通常要配合调用方法使用，如果tooltip元素很多，用此途径进行事件委托减少事件监听数量: $('body').tooltip({selector: '.tips'})
           , trigger: 'hover focus'   //触发方式，多选：click hover focus，如果希望手动触发，则传入'manual'
@@ -136,7 +144,7 @@ block content
   div.tab-content
     div.tab-pane.active#demo3
       div.bs-docs-example
-        div.tooltip-only-arrow.normal.bottom(style="width:300px")
+        div.tooltip-only-arrow.default.bottom(style="width:300px")
           div.tooltip-arrow
             div.tooltip-arrow.cover
           div.tooltip-inner 使用SUI可以轻松搭建一个漂亮的页面，她有丰富的组件库可以像搭积木一样轻松搭建一个页面。

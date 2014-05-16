@@ -13,12 +13,16 @@
     .ie7-inline-block();
 //    text-shadow: 0 1px 0 @white;
     + li:before {
-      content: "/\00a0";
+      content: "\003E";
       padding: 0 5px;
       color: #ccc;
     }
   }
   > .active {
     color: @grayLight;
+  }
+
+  &.breadcrumb-dark {
+    background: #f5f5f5;
   }
 }

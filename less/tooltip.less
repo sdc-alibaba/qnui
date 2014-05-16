@@ -3,15 +3,30 @@
 // --------------------------------------------------
 
 @attentionBg: #fef1e3;
+@primaryBg: @linkColor;
+@infoBg: #ecf7ff;
+@attentionBg: #fef1e3;
 @tipBorderWidth: 2px;
 @arrowOffset: 7px;
 @attentionArrowOffset: @arrowOffset - @tipBorderWidth;
 
 .type-style {
-  &.normal, &.confirm {
+  &.default, &.normal, &.confirm {  //normal 是为了兼容以前的版本
     .tooltip-inner {
       background-color: @white;
       color: @grayDarker;
+    }
+  }
+  &.primary {
+    .tooltip-inner {
+      background-color: @primaryBg;
+      color: @white;
+    }
+  }
+  &.info {
+    .tooltip-inner {
+      background-color: @infoBg;
+      color: @linkColor;
     }
   }
   &.attention {
@@ -68,7 +83,7 @@
   .type-style();
 }
 .sui-tooltip ,.tooltip-only-arrow{
-  &.attention {
+  &.attention, &.primary, &.info {
     border: none;
     & .cover {
       display: none
@@ -91,6 +106,14 @@
     border-top-color: @attentionBg;
     bottom: -@attentionArrowOffset
   }
+  &.top.primary .tooltip-arrow {
+    border-top-color: @primaryBg;
+    bottom: -@attentionArrowOffset
+  }
+  &.top.info .tooltip-arrow {
+    border-top-color: @infoBg;
+    bottom: -@attentionArrowOffset
+  }
   //------------------------------------------.right
   &.right .tooltip-arrow {
     top: 50%;
@@ -106,7 +129,15 @@
   }
   &.right.attention .tooltip-arrow {
     border-right-color: @attentionBg;
-    left: -@attentionArrowOffset
+    left: -@attentionArrowOffset;
+  }
+  &.right.primary .tooltip-arrow {
+    border-right-color: @primaryBg;
+    left: -@attentionArrowOffset;
+  }
+  &.right.info .tooltip-arrow {
+    border-right-color: @infoBg;
+    left: -@attentionArrowOffset;
   }
   //------------------------------------------.left
   &.left .tooltip-arrow {
@@ -125,6 +156,14 @@
     border-left-color: @attentionBg;
     right: -@attentionArrowOffset
   }
+  &.left.primary .tooltip-arrow {
+    border-left-color: @primaryBg;
+    right: -@attentionArrowOffset
+  }
+  &.left.info .tooltip-arrow {
+    border-left-color: @infoBg;
+    right: -@attentionArrowOffset
+  }
   //------------------------------------------.bottom
   &.bottom .tooltip-arrow {
     top: -@arrowOffset;
@@ -140,6 +179,14 @@
   }
   &.bottom.attention .tooltip-arrow {
     border-bottom-color: @attentionBg;
+    top: -@attentionArrowOffset
+  }
+  &.bottom.primary .tooltip-arrow {
+    border-bottom-color: @primaryBg;
+    top: -@attentionArrowOffset
+  }
+  &.bottom.info .tooltip-arrow {
+    border-bottom-color: @infoBg;
     top: -@attentionArrowOffset
   }
   // ---- end 
