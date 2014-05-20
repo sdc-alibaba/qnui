@@ -65,7 +65,11 @@
 
 	> .msg-con {
 		.border-radius(@msgBorderRadius);
-		p { font-weight: normal; }
+		p {
+      font-weight: normal;
+      margin-bottom: 0;
+      margin-top: @baseLineHeight / 2;
+    }
 	}
 	> .msg-icon {
 		display: inline-block;
@@ -119,32 +123,56 @@
   &.msg-warning {
     color: #d16f00;
     > .msg-con {
-      border: 1px solid #fdebdc;
-      background-color: #fef1e2;
+      border: 1px solid #ffebdc;
+      background-color: #fff1e2;
     }
   }
   &.msg-notice,
   &.msg-tips,
   {
-    color: #cc9b4d;
+    color: #cd9c4f;
     > .msg-con {
-      border: 1px solid #fdf9de;
-      background-color: #f9f5d9;
+      border: 1px solid #faf5da;
+      background-color: #fdf8df;
     }
   }
 
   &.msg-info {
     color: #3387ae;
     > .msg-con {
-      border: 1px solid #e2f0f9;
-      background-color: #e3f2f8;
+      border: 1px solid #e1f0f8;
+      background-color: #e4f2fa;
     }
   }
   &.msg-question {
     color: #333;
     > .msg-con {
       border: 1px solid #eaeaea;
-      background-color: #f0f0f0;
+      background-color: #f2f0f0;
+    }
+    .msg-icon {
+      color: #999;
+    }
+  }
+
+  //无背景下，文字颜色会变浅
+  &.msg-naked {
+    &.msg-error,
+    &.msg-stop,
+    {
+      color: #ea4a36;
+    }
+    &.msg-success {
+      color: #22cd6e;
+    }
+    &.msg-warning,
+    &.msg-notice,
+    &.msg-tips {
+      color: #ff7300;
+    }
+
+    &.msg-info {
+      color: #76b8ea;
     }
   }
 

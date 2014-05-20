@@ -39,12 +39,14 @@
 
     .round {
         display: inline-block;
-        width: @baseFontSize + 4;  
-        height: @baseFontSize + 4;
-        .border-radius((@baseFontSize + 4) / 2);
+        width: @baseLineHeight;  
+        height: @baseLineHeight;
+        .border-radius(@baseLineHeight / 2);
         text-align: center;
-        line-height: @baseFontSize + 4;
-
+        line-height: @baseLineHeight;
+        .sui-icon {
+          vertical-align: -1px;
+        }
     }
     .round + span:before {
         content: '\00a0';

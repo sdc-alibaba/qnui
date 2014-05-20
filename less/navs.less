@@ -243,12 +243,19 @@
     }
     &.tab-navbar {
       display: inline-block;
-      border: 1px solid #ddd;
+      border: 1px solid #ececec;
+      background-color: #eee;
       border-radius: @borderRadiusSmall;
       padding-left: 0;
       > li {
         margin-bottom: 0;
         margin-left: 0;
+        + li {
+          border-left: 1px solid #ddd;
+          &.active, &.active + li {
+            border-left: 0;
+          }
+        }
         > a {
           margin-left: 0;
           border-radius: 0;
@@ -273,6 +280,13 @@
 
       &.tab-vertical {
         > li {
+          + li {
+            border-top: 1px solid #ddd;
+            border-left: 0;
+            &.active, &.active + li {
+              border-top: 0;
+            }
+          }
           a {
             border: 0;
           }
