@@ -18,6 +18,7 @@
   vertical-align: middle;
   cursor: pointer;
   .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark);
+  border-color: #ececec;
   .border-radius(@borderRadiusMini);
   .user-select(none);
 
@@ -55,7 +56,6 @@
   .sui-icon:after {
     content: " ";
   }
-
 }
 
 
@@ -115,6 +115,11 @@ input[type="button"] {
 // -------------------------
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+  //reset in qn
+  border-color: #7cb4df;
+  &:hover {
+    border-color: #2597dd;
+  }
 }
 // Warning appears are orange
 .btn-warning {
@@ -173,29 +178,48 @@ input[type="submit"].btn {
 // --------------------------------------------------
 
 // Make a button look and behave like a link
-.btn-link,
-.btn-link:active,
-.btn-link[disabled] {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  .box-shadow(none);
-}
 .btn-link {
-  border-color: transparent;
-  cursor: pointer;
-  color: @linkColor;
-  .border-radius(0);
+  &, 
+  &:active,
+  &[disabled] {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    .box-shadow(none);
+  }
+  & {
+    border-color: transparent;
+    cursor: pointer;
+    color: @linkColor;
+    .border-radius(0);
+  }
+  &:hover,
+  &:focus {
+    color: @linkColorHover;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: @grayDark;
+    text-decoration: none;
+  }
+  &:active {
+    color: #1e8ccf;
+  }
 }
-.btn-link:hover,
-.btn-link:focus {
-  color: @linkColorHover;
-  text-decoration: underline;
-  background-color: transparent;
-  border-color: transparent;
-}
-.btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: @grayDark;
-  text-decoration: none;
+
+.btn-text {
+  .btn-link;
+  color: #666;
+  text-decoration: none!important;
+  .sui-icon {
+    color: #999;
+  }
+  &:hover, &:active {
+    .sui-icon {
+      color: inherit;
+    }
+  }
 }
