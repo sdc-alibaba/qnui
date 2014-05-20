@@ -155,6 +155,27 @@
     }
   }
 
+  //无背景下，文字颜色会变浅
+  &.msg-naked {
+    &.msg-error,
+    &.msg-stop,
+    {
+      color: #ea4a36;
+    }
+    &.msg-success {
+      color: #22cd6e;
+    }
+    &.msg-warning,
+    &.msg-notice,
+    &.msg-tips {
+      color: #ff7300;
+    }
+
+    &.msg-info {
+      color: #76b8ea;
+    }
+  }
+
   // 成块级
   &.msg-block {
     display: block;
