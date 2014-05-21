@@ -1,18 +1,53 @@
 extends base
 
 block title
-  title 工具栏规范
+  title 工具栏Toolbar规范
 
 block sidebar
   +sidebar('toolbar')
 
 block content
+  h1 工具栏Toolbar
 
+  h2.sui-page-header 设计规范
   div.docs-description
       img(src='pictures/docs/toolbar.jpg')
 
   ul.demo-operations.clearfix
     li
-        a(href='#') 下载psd文件
+      a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+    li
+      a(href='#doc1', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo1
+      h3 Icon导航
+      div.bs-docs-example
+        style.
+          .qn-body{
+            width: 790px;
+            background: rgb(7, 107, 2)
+          }
+        div.qn-body
+          header
+            div.logo
+              img(src='http://gtms03.alicdn.com/tps/i3/T1YphpFPRXXXXK3ITg-44-44.png',title='插件名称',alt='插件名称')
+              b 插件名称
+            nav sdaf
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1>div')
+    div.tab-pane#doc1
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
 
 

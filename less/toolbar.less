@@ -1,0 +1,42 @@
+//插件统一工具栏
+body {
+  header:first-child {
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100%;
+    height: 56px;
+    margin: 0;
+    .logo {
+      display: inline-block;
+      margin-left: 18px;
+      max-width: 160px;
+      height: 44px;
+      img {
+        width: 44px;
+        height: 100%;
+        margin-right: 10px;
+        border-radius: 4px
+      }
+      b {
+        color: #fff;
+        font-size: 18px;
+        vertical-align: middle;
+      }
+    }
+    nav {
+      display: inline-block;
+      margin-left: 18px;
+      font-size: 0;
+      .nav-item {
+        display: inline-block;
+        font-size: 14px;
+        padding: 0 20px;
+        border: 1px solid #000;
+        border-color: rgba(0, 0, 0, 0.06);
+      }
+      &.with-icon {
+        margin-left: 50px;
+      
+      }
+    }
+  }
+}
