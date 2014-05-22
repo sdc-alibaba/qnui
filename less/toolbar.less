@@ -1,6 +1,7 @@
 //插件统一工具栏
 body {
   header:first-child {
+    position: relative;
     background-color: rgba(255, 255, 255, 0.15);
     width: 100%;
     height: 56px;
@@ -24,6 +25,8 @@ body {
     }
     nav {
       display: inline-block;
+      position: absolute;
+      bottom: 0;
       margin-left: 18px;
       font-size: 0;
       .nav-item {
@@ -31,8 +34,9 @@ body {
         font-size: 14px;
         margin-right: 4px;
         padding: 0 20px;
+        height: 38px;
         background: rgba(0, 0, 0, 0.06);
-        border: 1px solid rgba(0, 0, 0, 0.2);;
+        //border: 1px solid rgba(0, 0, 0, 0.2);;
         &.selected {
           background: #fff 
         }
