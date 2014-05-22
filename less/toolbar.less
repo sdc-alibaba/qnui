@@ -29,9 +29,13 @@ body {
       .nav-item {
         display: inline-block;
         font-size: 14px;
+        margin-right: 4px;
         padding: 0 20px;
-        border: 1px solid #000;
-        border-color: rgba(0, 0, 0, 0.06);
+        background: rgba(0, 0, 0, 0.06);
+        border: 1px solid rgba(0, 0, 0, 0.2);;
+        &.selected {
+          background: #fff 
+        }
       }
       &.with-icon {
         margin-left: 50px;
