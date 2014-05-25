@@ -31,10 +31,11 @@ block content
     div.tab-pane.active#demo1
       h3 Icon导航
       div.bs-docs-example
+        'div.qn-body' 模拟的是千牛插件内嵌HTML的body元素
         style.
           .qn-body{
             width: 790px;
-            background: rgb(7, 107, 2)
+            background: url(http://gtms02.alicdn.com/tps/i2/T1bkyrFrxhXXXkGU3X-1200-900.jpg) no-repeat;
           }
         div.qn-body
           header
@@ -47,17 +48,21 @@ block content
               div.nav-item 顾客数据
             ul.assist.unstyled
               li
-                i.sui-icon.icon-pc-list
-                日志
+                a(href="#")
+                  i.sui-icon.icon-pc-list
+                  日志
               li
-                i.sui-icon.icon-pc-settings
-                设置
+                a(href="#")
+                  i.sui-icon.icon-pc-settings
+                  设置
               li
-                i.sui-icon.icon-pc-ww
-                反馈
+                a(href="#")
+                  i.sui-icon.icon-pc-ww
+                  反馈
               li
-                i.sui-icon.icon-pc-question-circle
-                帮助
+                a(href="#")
+                  i.sui-icon.icon-pc-question-circle
+                  帮助
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
