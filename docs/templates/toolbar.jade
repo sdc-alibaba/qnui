@@ -21,7 +21,6 @@ block content
   style.
     .qn-body{
       width: 790px;
-      background: url(http://gtms02.alicdn.com/tps/i2/T1bkyrFrxhXXXkGU3X-1200-900.jpg) no-repeat;
     }
   div 注意事项
   ol
@@ -41,7 +40,7 @@ block content
     div.tab-pane.active#demo1
       h3 文字导航工具栏
       div.bs-docs-example
-        div.qn-body
+        div.qn-body(style="background:url(http://gtms02.alicdn.com/tps/i2/T1SfrPFwJaXXbNn0QU-1500-1200.jpg) no-repeat")
           header.sui-header
             div.logo
               img(src='http://gtms03.alicdn.com/tps/i3/T1YphpFPRXXXXK3ITg-44-44.png',title='插件名称',alt='插件名称')
@@ -88,7 +87,7 @@ block content
     div.tab-pane.active#demo2
       h3 文字导航工具栏——tab过多的情况
       div.bs-docs-example(style="height: 150px")
-        div.qn-body
+        div.qn-body(style="background:url(http://gtms03.alicdn.com/tps/i3/T1NRawFw0fXXXkGU3X-1200-900.jpg) no-repeat")
           header.sui-header
             div.logo
               img(src='http://gtms03.alicdn.com/tps/i3/T1YphpFPRXXXXK3ITg-44-44.png',title='插件名称',alt='插件名称')
@@ -125,5 +124,132 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo3', data-toggle='tab') 示例
+    li
+      a(href='#code3', data-toggle='tab') 代码
+    li
+      a(href='#doc3', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo3
+      h3 Icon+文字导航工具栏
+      div.bs-docs-example
+        div.qn-body(style="background:url(http://gtms02.alicdn.com/tps/i2/T1bkyrFrxhXXXkGU3X-1200-900.jpg) no-repeat")
+          header.sui-header
+            div.logo
+              img(src='http://gtms03.alicdn.com/tps/i3/T1YphpFPRXXXXK3ITg-44-44.png',title='插件名称',alt='插件名称')
+              b 插件名称
+            nav.with-icon
+              a.nav-item(href="#")
+                b.item-icon
+                span 销售分析
+              a.nav-item.selected
+                b.item-icon
+                span 访问统计
+              a.nav-item(href="#")
+                b.item-icon
+                span 顾客数据
+            ul.assist.unstyled
+              li
+                a(href="#")
+                  i.sui-icon.icon-pc-list
+                  日志
+              li
+                a(href="#")
+                  i.sui-icon.icon-pc-settings
+                  设置
+              li
+                a(href="#")
+                  i.sui-icon.icon-pc-ww
+                  反馈
+              li
+                a(href="#")
+                  i.sui-icon.icon-pc-question-circle
+                  帮助
+    div.tab-pane#code3
+      pre.prettyprint.linenums(data-target='#demo3>div')
+    div.tab-pane#doc3
+      p 直接把HTML代码撸进插件页面头部就好
+      h4 注意icon图片！
+      ol
+        li 图片需要选中和未选中2个状态
+        li 每个icon区域宽高都为28px
+        li 各icon打包进sprite，左右区分选中状态，上下表示不同icon。如<a href="http://gtms02.alicdn.com/tps/i2/T1JMdVFJpXXXXYTuPj-56-84.png">icon图片sprite</a>(图片是白色，所以打开页面可能会觉得看不见图片，设置下背景色或下载查看即可)
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo3>div') 复制代码
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo4', data-toggle='tab') 示例
+    li
+      a(href='#code4', data-toggle='tab') 代码
+    li
+      a(href='#doc4', data-toggle='tab') 文档
+
+  div.tab-content
+    div.tab-pane.active#demo4
+      h3 Icon+文字导航工具栏——tab过多的情况
+      div.bs-docs-example(style="height: 150px")
+        div.qn-body(style="background:url(http://gtms04.alicdn.com/tps/i4/T17w5xFr4dXXXt9EcX-1200-800.jpg) no-repeat")
+          header.sui-header
+            div.logo
+              img(src='http://gtms03.alicdn.com/tps/i3/T1YphpFPRXXXXK3ITg-44-44.png',title='插件名称',alt='插件名称')
+              b 插件名称
+            nav.with-icon
+              a.nav-item(href="#")
+                b.item-icon
+                span 销售分析
+              a.nav-item.selected
+                b.item-icon
+                span 访问统计
+              a.nav-item(href="#")
+                b.item-icon
+                span 顾客数据
+              a.nav-item(href="#")
+                b.item-icon
+                span xxx
+              a.nav-item(href="#")
+                b.item-icon
+                span yyyyy
+            span.assist.sui-dropdown
+              span.dropdown-inner
+                a.dropdown-toggle#drop1(role="button" data-toggle="dropdown" href="#")
+                  i.sui-icon.icon-pc-list
+                  日志
+                  i.caret
+                ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#")
+                      i.sui-icon.icon-pc-settings
+                      设置
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#")
+                      i.sui-icon.icon-pc-ww
+                      反馈
+                  li(role="presentation")
+                    a(role="menuitem" tabindex="-1" href="#")
+                      i.sui-icon.icon-pc-question-circle
+                      帮助
+
+    div.tab-pane#code4
+      pre.prettyprint.linenums(data-target='#demo4>div')
+    div.tab-pane#doc4
+      p 直接把HTML代码撸进插件页面头部就好
+      h4 注意icon图片！
+      ol
+        li 图片需要选中和未选中2个状态
+        li 每个icon区域宽高都为28px
+        li 各icon打包进sprite，左右区分选中状态，上下表示不同icon。如<a href="http://gtms02.alicdn.com/tps/i2/T1JMdVFJpXXXXYTuPj-56-84.png">icon图片sprite</a>(图片是白色，所以打开页面可能会觉得看不见图片，设置下背景色或下载查看即可)
+        li 不同icon的<code>background-position-y</code>需要用户自己设置，因为不同插件icon导航数不一样
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo4>div') 复制代码
+
 
 

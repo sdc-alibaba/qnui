@@ -31,6 +31,7 @@ header.sui-header {
     .nav-item {
       display: inline-block;
       font-size: 14px;
+      text-align: center;
       color: #333;
       text-decoration: none;
       margin-right: 5px;
@@ -44,12 +45,40 @@ header.sui-header {
       &.selected {
         background: #fff;
         cursor: default;
-        box-shadow: 0px -1px 2px 0px rgba(0,0,0, 0.5);
+        box-shadow: 0px -1px 1px 0px rgba(0,0,0, 0.5);
       }
     }
     &.with-icon {
-      margin-left: 50px;
-    
+      margin-left: 10px;
+      .nav-item {
+        margin: 0 0 0 40px;
+        padding: 0;
+        height: auto;
+        line-height: normal;
+        border-radius: 0;
+        box-shadow: none;
+        background: none;
+        vertical-align: sub;
+        .item-icon {
+          display: inline-block;
+          overflow: hidden;
+          width: 28px;
+          height: 28px;
+          background: url(http://gtms02.alicdn.com/tps/i2/T1JMdVFJpXXXXYTuPj-56-84.png) no-repeat;
+          opacity: 0.7;
+        }
+        span {
+          display: block;
+          color: #fff;
+        }
+        &.selected {
+          .item-icon {
+            opacity: 1;
+            background-position-x: -28px;
+          }
+       
+        }
+      }
     }
   }
   .assist {
@@ -93,3 +122,4 @@ header.sui-header {
     }
   }
 }
+
