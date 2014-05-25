@@ -55,31 +55,40 @@ header.sui-header {
     position: absolute;
     right: 2px;
     top: 31px;
-    &.fold-assist {
-      width: 50px;
-      overflow: hidden;
-      &:hover {
-        overflow: visible;
-      }
-      li {
-        margin-bottom: 5px;
-      }
+    &.sui-dropdown {
+      right: 10px;
     }
-    li {
-      a {
-        color: #333;
-        font-size: 12px;
-        text-decoration: none;
-      }
-      i {
-        margin-right: 2px;
-        vertical-align: text-bottom;
-        color: #000;
-        font-size: 16px;
-        opacity: 0.5;
-      }
+    //平铺式的情况下
+    &>li {
       display: inline-block;
       margin-right: 7px;
+    }
+    a {
+      color: #333!important;
+      font-size: 12px;
+      text-decoration: none;
+    }
+    .sui-icon {
+      //修正dropdown对iconfont添加的默认浮动
+      float: none;
+
+      margin-right: 2px;
+      vertical-align: text-bottom;
+      color: #000;
+      font-size: 16px;
+      opacity: 0.5;
+    }
+    .sui-dropdown-menu {
+      min-width: 58px;
+      a {
+        padding: 3px;
+      }
+    }
+    //修正dropdown对下拉箭头添加的颜色
+    &.open {
+      .caret {
+        color: #000;
+      }
     }
   }
 }
