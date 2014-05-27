@@ -42,10 +42,13 @@ header.sui-header {
       background: rgba(255, 255, 255, 0.6);
       border-radius: 1px 1px 0 0;
       box-shadow: 0px -1px 1px 0px rgba(0,0,0, 0.1);
+      &:hover {
+        background: rgba(255, 255, 255, 0.7);
+      }
       &.selected {
         background: #fff;
         cursor: default;
-        box-shadow: 0px -1px 1px 0px rgba(0,0,0, 0.5);
+        box-shadow: 0px -1px 1px 0px rgba(0,0,0, 0.2);
       }
     }
     &.with-icon {
@@ -59,21 +62,24 @@ header.sui-header {
         box-shadow: none;
         background: none;
         vertical-align: sub;
+        opacity: 0.7;
         .item-icon {
           display: inline-block;
           overflow: hidden;
           width: 28px;
           height: 28px;
           background: url(http://gtms02.alicdn.com/tps/i2/T1JMdVFJpXXXXYTuPj-56-84.png) no-repeat;
-          opacity: 0.7;
         }
         span {
           display: block;
           color: #fff;
         }
+        &:hover {
+          opacity: 1;
+        }
         &.selected {
+          opacity: 1;
           .item-icon {
-            opacity: 1;
             background-position-x: -28px;
           }
        
@@ -86,7 +92,7 @@ header.sui-header {
     right: 2px;
     top: 31px;
     &.sui-dropdown {
-      right: 10px;
+      right: 15px;
     }
     //平铺式的情况下
     &>li {
@@ -109,7 +115,7 @@ header.sui-header {
       opacity: 0.5;
     }
     .sui-dropdown-menu {
-      min-width: 58px;
+      min-width: 54px;
       a {
         padding: 3px;
       }
