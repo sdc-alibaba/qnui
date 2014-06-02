@@ -68,12 +68,10 @@ block content
               a(href='#')
                 i.sui-icon.icon-pc-settings
                 | &nbsp;设置
-            li
-              a(href='#')
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
                 i.sui-icon.icon-pc-question-circle
                 | &nbsp;帮助
-            li.sui-dropdown
-              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover') 其他 <i class="caret"></i>
               ul.sui-dropdown-menu(role='menu')
                 li(role="presentation")
                   a(role="menuitem" tabindex="-1" href="#") 关于
