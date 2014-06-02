@@ -16,10 +16,10 @@
     min-height: @navbarHeight;
     padding-left:  20px;
     padding-right: 20px;
-    background: @navbarBackground;
-    border: 1px solid @navbarBorder;
-    .border-radius(@baseBorderRadius);
-    .box-shadow(0 1px 4px rgba(0,0,0,.065));
+    background: transparent;
+    border: 0;
+    .border-radius(0);
+    .box-shadow(none);
 
     // Prevent floats from breaking the navbar
     .clearfix();
@@ -45,14 +45,18 @@
   float: left;
   display: block;
   // Vertically center the text given @navbarHeight
-  padding: ((@navbarHeight - @baseLineHeight) / 2) 20px ((@navbarHeight - @baseLineHeight) / 2);
+  padding: 0 20px;
   margin-left: -20px; // negative indent to left-align the text down the page
   font-size: 20px;
   font-weight: normal;
   color: @navbarBrandColor;
+  line-height: 44px;
   &:hover,
   &:focus {
     text-decoration: none;
+  }
+  img {
+    margin-right: 10px;
   }
 }
 
@@ -203,21 +207,6 @@
 .navbar-fixed-top {
   top: 0;
 }
-.navbar-fixed-top,
-.navbar-static-top {
-  .navbar-inner {
-    .box-shadow(~"0 1px 10px rgba(0,0,0,.1)");
-  }
-}
-
-// Fixed to bottom
-.navbar-fixed-bottom {
-  bottom: 0;
-  .navbar-inner {
-    .box-shadow(~"0 -1px 10px rgba(0,0,0,.1)");
-  }
-}
-
 
 
 // NAVIGATION
@@ -228,23 +217,34 @@
   left: 0;
   display: block;
   float: left;
-  margin: 0 10px 0 0;
+  margin: 15px 10px 0 0;
+  font-size: @fontSizeLarge;
   &.pull-right {
     float: right; // redeclare due to specificity
     margin-right: 0; // remove margin on float right nav
   }
   > li {
     float: left;
+    + li {
+      margin-left: 4px;
+    }
+    &.active > a {
+      background: @navbarLinkBackgroundActive;
+      opacity: 1;
+    }
   }
 
   // Links
   > li > a {
+    .border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+    background: rgba(255,255,255,.2);
     float: none;
     // Vertically center the text given @navbarHeight
-    padding: ((@navbarHeight - @baseLineHeight) / 2) 15px ((@navbarHeight - @baseLineHeight) / 2);
+    padding: 15px 15px 10px 15px;
     color: @navbarLinkColor;
     text-decoration: none;
     text-shadow: none;
+    .box-shadow(0 -1px 1px 0px rgba(0,0,0,.06));
     &:focus,
     &:hover {
       background-color: @navbarLinkBackgroundHover; // "transparent" is default to differentiate :hover/:focus from .active
@@ -269,7 +269,56 @@
     }
   }
 
+  &.nav-links {
+    font-size: @baseFontSize;
 
+    .sui-dropdown.open .dropdown-toggle,
+    > li > a {
+      &, &:hover {
+        border: 0;
+        background: none;
+        .box-shadow(none);
+        color: @navbarText;
+      }
+      &:hover {
+        color: @navbarText;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.nav-withicon {
+    .nav-links;
+    margin-top: 0;
+    text-align: center;
+    font-size: 14px;
+    margin-left: 40px;
+    > li > a {
+      opacity: .8;
+      padding: 0 20px 5px 0;
+      &, &:hover {
+        color: #fff;
+        text-decoration: none;
+      }
+      &:hover {
+        opacity: 1;
+      }
+    }
+    .sui-dropdown.open .dropdown-toggle,
+    > .active > a {
+      opacity: 1;
+    }
+    > li > a > img {
+      display: block;
+      margin: auto;
+      margin-bottom: 5px;
+    }
+
+  }
+
+  .sui-dropdown-menu {
+    min-width: 70px;
+  }
 }
 
 // Navbar button for toggling navbar items in responsive layouts
