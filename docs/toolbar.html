@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>工具栏Toolbar规范</title>
+    <title>工具栏</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -22,9 +22,32 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style>
+      .sui-navbar {
+        z-index: 99999;
+      }
+      
+      .sui-navbar .navbar-inner {
+        background: #6da467;
+      }
+      
+      #demo2 .sui-nav .icon {
+        background: url(assets/imgs/toolbar.png) no-repeat;
+        height: 28px;
+        width: 28px;
+      }
+      #demo2 .sui-nav .icon-bookmark {
+        background-position: 0 -28px;
+      }
+      #demo2 .sui-nav .icon-gift {
+        background-position: 0 -56px;
+      }
+      
+      
+    </style>
   </head>
   <body>
-        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+        <div class="sui-navbar navbar-fixed-top">
           <div class="navbar-inner">
             <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>QNUI</a>
               <ul class="sui-nav">
@@ -90,163 +113,92 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1>工具栏Toolbar</h1>
+          <h1>工具栏</h1>
           <h2 class="sui-page-header">设计规范</h2>
           <div class="docs-description"><img src="pictures/docs/toolbar.jpg"></div>
           <ul class="demo-operations clearfix">
             <li><a href="#">下载psd文件</a></li>
           </ul>
           <h2 class="sui-page-header">开发者文档</h2>
-          <style>
-            .qn-body{
-              width: 790px;
-            }
-          </style>
-          <div>注意事项</div>
-          <ol>
-            <li>demo的html代码里<code>div.qn-body</code> 表示千牛插件内嵌HTML的body元素,使用时不需此层结构。</li>
-            <li>因为菜单栏属于千牛native代码控制，demo里没有显示，看起来会比较怪，套入千牛中不会有这种“秃顶”的感觉。</li>
-          </ol><br>
+          <p class="sui-lead">
+            <ul class="unstyled">
+              <li>工具栏默认背景是透明的，一般看到的背景是整个插件的默认背景。当然也可以自己重载背景。</li>
+              <li>为了和插件容器的顶部更好融合，工具栏里的内容距顶部没有间距，在demo中不是很好看，但是放入千牛容器就会很好看。</li>
+            </ul>
+          </p>
+          <h2>纯文本</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
-            <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
-            <div id="demo1" class="tab-pane active">
-              <h3>文字导航工具栏</h3>
-              <div class="bs-docs-example">
-                <div style="background:url(http://gtms02.alicdn.com/tps/i2/T1SfrPFwJaXXbNn0QU-1500-1200.jpg) no-repeat" class="qn-body">
-                  <header class="sui-header">
-                    <div class="logo"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png" title="插件名称" alt="插件名称"><b>插件名称</b></div>
-                    <nav><a class="nav-item selected">销售分析</a><a href="#" class="nav-item">访问统计</a><a href="#" class="nav-item">顾客数据</a></nav>
-                    <ul class="assist unstyled">
-                      <li><a href="#"><i class="sui-icon icon-pc-list"></i>日志</a></li>
-                      <li><a href="#"><i class="sui-icon icon-pc-settings"></i>设置</a></li>
-                      <li><a href="#"><i class="sui-icon icon-pc-ww"></i>反馈</a></li>
-                      <li><a href="#"><i class="sui-icon icon-pc-question-circle"></i>帮助</a></li>
-                    </ul>
-                  </header>
+            <div id="demo1" style="padding-bottom: 50px;" class="tab-pane active">
+              <div class="sui-navbar">
+                <div class="navbar-inner"><a href="#" class="sui-brand"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png">千牛云盘</a>
+                  <ul class="sui-nav">
+                    <li class="active sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">文件管理<i class="sui-icon icon-pc-chevron-bottom"></i></a>
+                      <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">我的文件</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">共享文件</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">数据统计</a></li>
+                    <li><a href="javascript:void(0);">数据分析</a></li>
+                  </ul>
+                  <ul class="sui-nav pull-right nav-links">
+                    <li class="active"><a href="#"><i class="sui-icon icon-pc-list"></i>&nbsp;日志</a></li>
+                    <li><a href="#"><i class="sui-icon icon-pc-settings"></i>&nbsp;设置</a></li>
+                    <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle"><i class="sui-icon icon-pc-question-circle"></i>&nbsp;帮助</a>
+                      <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">版权</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div id="code1" class="tab-pane">
-              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc1" class="tab-pane">
-              <p>直接把HTML代码撸进插件页面头部就好</p>
+              <pre data-target="#demo1" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>带图标的导航</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
-            <li><a href="#doc2" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
-            <div id="demo2" class="tab-pane active">
-              <h3>文字导航工具栏——tab过多的情况</h3>
-              <div style="height: 150px" class="bs-docs-example">
-                <div style="background:url(http://gtms03.alicdn.com/tps/i3/T1NRawFw0fXXXkGU3X-1200-900.jpg) no-repeat" class="qn-body">
-                  <header class="sui-header">
-                    <div class="logo"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png" title="插件名称" alt="插件名称"><b>插件名称</b></div>
-                    <nav><a href="#" class="nav-item">销售分析</a><a href="#" class="nav-item">访问统计</a><a class="nav-item selected">文案</a><a href="#" class="nav-item">顾客数据</a><a href="#" class="nav-item">文案案</a></nav><span class="assist sui-dropdown"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" data-trigger="hover" class="dropdown-toggle"><i class="sui-icon icon-pc-list"></i>日志</a>
-                        <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="sui-icon icon-pc-settings"></i>设置</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="sui-icon icon-pc-ww"></i>反馈</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="sui-icon icon-pc-question-circle"></i>帮助</a></li>
-                        </ul></span></span>
-                  </header>
+            <div id="demo2" style="padding-bottom: 50px;" class="tab-pane active">
+              <div class="sui-navbar">
+                <div class="navbar-inner"><a href="#" class="sui-brand"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png">旺铺数据</a>
+                  <ul class="sui-nav nav-withicon">
+                    <li class="active"><a href="#"><i class="icon icon-user"></i>数据报表</a></li>
+                    <li><a href="#"><i class="icon icon-bookmark"></i>渠道管理</a></li>
+                    <li><a href="#"><i class="icon icon-gift"></i>顾客数据</a></li>
+                  </ul>
+                  <ul class="sui-nav pull-right nav-links">
+                    <li class="active"><a href="#"><i class="sui-icon icon-pc-list"></i>&nbsp;日志</a></li>
+                    <li><a href="#"><i class="sui-icon icon-pc-settings"></i>&nbsp;设置</a></li>
+                    <li><a href="#"><i class="sui-icon icon-pc-question-circle"></i>&nbsp;帮助</a></li>
+                    <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">其他 <i class="caret"></i></a>
+                      <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">版权</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div id="code2" class="tab-pane">
-              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc2" class="tab-pane"></div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
-            <li><a href="#code3" data-toggle="tab">代码</a></li>
-            <li><a href="#doc3" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo3" class="tab-pane active">
-              <h3>Icon+文字导航工具栏</h3>
-              <div class="bs-docs-example">
-                <div style="background:url(http://gtms02.alicdn.com/tps/i2/T1bkyrFrxhXXXkGU3X-1200-900.jpg) no-repeat" class="qn-body">
-                  <header class="sui-header">
-                    <div class="logo"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png" title="插件名称" alt="插件名称"><b>插件名称</b></div>
-                    <nav class="with-icon"><a href="#" class="nav-item"><b class="item-icon"></b><span>销售分析</span></a><a class="nav-item selected"><b class="item-icon"></b><span>访问统计</span></a><a href="#" class="nav-item"><b class="item-icon"></b><span>顾客数据</span></a></nav>
-                    <ul class="assist unstyled">
-                      <li><a href="#"><i class="sui-icon icon-pc-list"></i>日志</a></li>
-                      <li><a href="#"><i class="sui-icon icon-pc-settings"></i>设置</a></li>
-                      <li><a href="#"><i class="sui-icon icon-pc-ww"></i>反馈</a></li>
-                      <li><a href="#"><i class="sui-icon icon-pc-question-circle"></i>帮助</a></li>
-                    </ul>
-                  </header>
-                </div>
-              </div>
-            </div>
-            <div id="code3" class="tab-pane">
-              <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc3" class="tab-pane">
-              <p>直接把HTML代码撸进插件页面头部就好</p>
-              <h4>注意icon图片！</h4>
-              <ol>
-                <li>图片需要选中和未选中2个状态</li>
-                <li>每个icon区域宽高都为28px</li>
-                <li>各icon打包进sprite，左右区分选中状态，上下表示不同icon。如<a href="http://gtms02.alicdn.com/tps/i2/T1JMdVFJpXXXXYTuPj-56-84.png">icon图片sprite</a>(图片是白色，所以打开页面可能会觉得看不见图片，设置下背景色或下载查看即可)</li>
-              </ol>
+              <pre data-target="#demo2" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
-          <ul class="sui-nav nav-tabs nav-large">
-            <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
-            <li><a href="#code4" data-toggle="tab">代码</a></li>
-            <li><a href="#doc4" data-toggle="tab">文档</a></li>
-          </ul>
-          <div class="tab-content">
-            <div id="demo4" class="tab-pane active">
-              <h3>Icon+文字导航工具栏——tab过多的情况</h3>
-              <div style="height: 150px" class="bs-docs-example">
-                <div style="background:url(http://gtms04.alicdn.com/tps/i4/T17w5xFr4dXXXt9EcX-1200-800.jpg) no-repeat" class="qn-body">
-                  <header class="sui-header">
-                    <div class="logo"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png" title="插件名称" alt="插件名称"><b>插件名称</b></div>
-                    <nav class="with-icon"><a href="#" class="nav-item"><b class="item-icon"></b><span>销售分析</span></a><a class="nav-item selected"><b class="item-icon"></b><span>访问统计</span></a><a href="#" class="nav-item"><b class="item-icon"></b><span>顾客数据</span></a><a href="#" class="nav-item"><b class="item-icon"></b><span>xxx</span></a><a href="#" class="nav-item"><b class="item-icon"></b><span>yyyyy</span></a></nav><span class="assist sui-dropdown"><span class="dropdown-inner"><a id="drop1" role="button" data-toggle="dropdown" href="#" data-trigger="hover" class="dropdown-toggle"><i class="sui-icon icon-pc-list"></i>日志</a>
-                        <ul id="menu1" role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="sui-icon icon-pc-settings"></i>设置</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="sui-icon icon-pc-ww"></i>反馈</a></li>
-                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="sui-icon icon-pc-question-circle"></i>帮助</a></li>
-                        </ul></span></span>
-                  </header>
-                </div>
-              </div>
-            </div>
-            <div id="code4" class="tab-pane">
-              <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc4" class="tab-pane">
-              <p>直接把HTML代码撸进插件页面头部就好</p>
-              <h4>注意icon图片！</h4>
-              <ol>
-                <li>图片需要选中和未选中2个状态</li>
-                <li>每个icon区域宽高都为28px</li>
-                <li>各icon打包进sprite，左右区分选中状态，上下表示不同icon。如<a href="http://gtms02.alicdn.com/tps/i2/T1JMdVFJpXXXXYTuPj-56-84.png">icon图片sprite</a>(图片是白色，所以打开页面可能会觉得看不见图片，设置下背景色或下载查看即可)</li>
-                <li>不同icon的<code>background-position-y</code>需要用户自己设置，因为不同插件icon导航数不一样</li>
-              </ol>
-            </div>
-          </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
           </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">

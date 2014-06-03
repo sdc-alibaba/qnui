@@ -4402,7 +4402,7 @@ TimePicker.prototype = {
 		var element, text, minute, hour;
 		hour = this.hourAttr.current;
 		minute =  this.minuteAttr.current;
-		text = this._beautifyNum(hour)+' : '+ this._beautifyNum(minute);
+		text = this._beautifyNum(hour)+':'+ this._beautifyNum(minute);
 
 		if (this.isInput){
 			element = this.element;
