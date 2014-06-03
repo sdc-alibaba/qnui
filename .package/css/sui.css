@@ -8052,9 +8052,9 @@ input[type="submit"].btn.btn-mini {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.06) inset;
+  -moz-box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.06) inset;
+  box-shadow: 0 -1px 1px 1px rgba(0, 0, 0, 0.06) inset;
   *zoom: 1;
 }
 .sui-navbar .navbar-inner:before,
@@ -8068,6 +8068,10 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-navbar .sui-navbar .sui-container {
   width: auto;
+}
+.sui-navbar .sui-nav .sui-dropdown-menu {
+  min-width: 100%;
+  box-sizing: border-box;
 }
 .nav-collapse.collapse {
   height: auto;
@@ -8349,14 +8353,12 @@ input[type="submit"].btn.btn-mini {
 .sui-navbar .sui-nav.nav-withicon .sui-dropdown.open .dropdown-toggle,
 .sui-navbar .sui-nav.nav-withicon > .active > a {
   opacity: 1;
+  color: #fff;
 }
 .sui-navbar .sui-nav.nav-withicon > li > a > .icon {
   display: block;
   margin: auto;
   margin-bottom: 5px;
-}
-.sui-navbar .sui-nav .sui-dropdown-menu {
-  min-width: 70px;
 }
 .sui-navbar .btn-navbar {
   display: none;
