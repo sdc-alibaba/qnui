@@ -18,13 +18,13 @@ mixin header(highlight)
     - classAbout = 'active'
   else
     - classIndex = 'active'
-  div.sui-navbar.navbar-fixed-top
+  div.sui-navbar.navbar-fixed-top.navbar-inverse
     div.navbar-inner
       .sui-container
         a.sui-brand(href="./index.html")
           i.sui-icon.icon-github-alt &nbsp;
           | QNUI
-        ul.sui-nav
+        ul.sui-nav.nav-links
           li(class=classIndex)
             a(href="./index.html") 首页
           li(class=classDemos)
