@@ -30,6 +30,11 @@
   .sui-navbar .sui-container {
     width: auto;
   }
+
+  .sui-nav .sui-dropdown-menu {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 // Override the default collapsed state
@@ -290,6 +295,7 @@
         opacity: .8;
       }
     }
+
   }
 
   &.nav-withicon {
@@ -312,6 +318,7 @@
     .sui-dropdown.open .dropdown-toggle,
     > .active > a {
       opacity: 1;
+      color: #fff;
     }
     > li > a > .icon {
       display: block;
@@ -321,9 +328,6 @@
 
   }
 
-  .sui-dropdown-menu {
-    min-width: 70px;
-  }
 }
 
 // Navbar button for toggling navbar items in responsive layouts

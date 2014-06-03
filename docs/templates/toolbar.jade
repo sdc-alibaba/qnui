@@ -120,10 +120,15 @@ block content
             img(src='http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png')
             | 旺铺数据
           ul.sui-nav.nav-withicon
-            li.active
-              a(href='#')
+            li.active.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
                 i.icon.icon-user
-                | 数据报表
+                | 文件管理
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 我的文件
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 共享文件
             li
               a(href='#')
                 i.icon.icon-bookmark
