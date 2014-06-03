@@ -16,6 +16,19 @@ block head
       background: #6da467;
     }
 
+    #demo2 .sui-nav .icon {
+      background: url(assets/imgs/toolbar.png) no-repeat;
+      height: 28px;
+      width: 28px;
+    }
+    #demo2 .sui-nav .icon-bookmark {
+      background-position: 0 -28px;
+    }
+    #demo2 .sui-nav .icon-gift {
+      background-position: 0 -56px;
+    }
+
+
 block content
 
   h1 工具栏
@@ -109,16 +122,16 @@ block content
           ul.sui-nav.nav-withicon
             li.active
               a(href='#')
-                img(src='assets/imgs/chart.png')
+                i.icon.icon-user
                 | 数据报表
             li
               a(href='#')
-                img(src='assets/imgs/settings.png')
+                i.icon.icon-bookmark
                 | 渠道管理
             li
               a(href='#')
-                img(src='assets/imgs/settings.png')
-                | 渠道管理
+                i.icon.icon-gift
+                | 顾客数据
 
           ul.sui-nav.pull-right.nav-links
 
