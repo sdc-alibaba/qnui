@@ -225,18 +225,17 @@
 // -------------------------
 
 @navbarHeight:                    40px;
-@navbarBackgroundHighlight:       #ffffff;
-@navbarBackground:                darken(@navbarBackgroundHighlight, 5%);
-@navbarBorder:                    darken(@navbarBackground, 12%);
+@navbarBackground:                @white;
+@navbarBorder:                    darken(@navbarBackground, 10%);
 
-@navbarText:                      #777;
-@navbarLinkColor:                 #777;
+@navbarText:                      @textColor;
+@navbarLinkColor:                 @textColor;
 @navbarLinkColorHover:            @grayDark;
 @navbarLinkColorActive:           @gray;
-@navbarLinkBackgroundHover:       transparent;
-@navbarLinkBackgroundActive:      darken(@navbarBackground, 5%);
+@navbarLinkBackgroundHover:       rgba(255,255,255,.4);
+@navbarLinkBackgroundActive:      #fff;
 
-@navbarBrandColor:                @navbarLinkColor;
+@navbarBrandColor:                @white;
 
 // Inverted navbar
 @navbarInverseBackground:                #111111;
