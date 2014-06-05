@@ -165,3 +165,28 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
+  h2 如何实现导航换肤
+  p 创建theme.less，加入以下代码
+  div
+    pre.prettyprint.linenums.
+      @color-base: #ffffff;
+      @theme-background-image: url(#);
+      body {
+          background: @theme-background-image @color-base 0px -30px no-repeat;
+      }
+  p 在页面中引入theme.less以及千牛的jssdk.js和less.js
+  div
+    pre.prettyprint.linenums
+      = '<link rel="stylesheet/less" href="path/to/theme.less">\n<script type="text/javascript" charset="utf-8" src="http://g.alicdn.com/sj/qn/??jssdk.js,lib/js/less.js"></script>'
+  p 调用jssdk的换肤初始化代码
+  div
+    pre.prettyprint.linenums.
+      $(window).on('load', function() {
+          QN.initTheme();
+      });
+  h3 换肤注意事项
+  p 如果您使用了cdn，资源文件存放的位置和页面的域不一样，则需要给你您的cdn服务器进行一些配置，在response header 里加上 <code>Access-Control-Allow-Origin: *</code> 以保证您的less文件可以通过ajax访问得到。
+  p 引用theme.less时，其的<code>rel</code>属性值必须为<code>stylesheet/less</code>，才能被less识别。
+  p 如果你的服务器不支持<code>.less</code>扩展名的文件，你可以将theme.less改为theme.css或其他您的服务器支持的扩展名。
+  p 更多换肤参考和注意事项，请阅读
+    a(target='_blank', href="https://github.com/coderlambda/QNThemeHelper/blob/master/README.md") 千牛换肤文档。
