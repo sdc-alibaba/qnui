@@ -205,6 +205,31 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>如何实现导航换肤</h2>
+          <p>创建theme.less，加入以下代码</p>
+          <div>
+            <pre class="prettyprint linenums">@color-base: #ffffff;
+@theme-background-image: url(#);
+body {
+    background: @theme-background-image @color-base 0px -30px no-repeat;
+}</pre>
+          </div>
+          <p>在页面中引入theme.less以及千牛的jssdk.js和less.js</p>
+          <div>
+            <pre class="prettyprint linenums">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;path/to/theme.less&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;http://g.alicdn.com/sj/qn/??jssdk.js,lib/js/less.js&quot;&gt;&lt;/script&gt;</pre>
+          </div>
+          <p>调用jssdk的换肤初始化代码</p>
+          <div>
+            <pre class="prettyprint linenums">$(window).on('load', function() {
+    QN.initTheme();
+});</pre>
+          </div>
+          <h3>换肤注意事项</h3>
+          <p>如果您使用了cdn，资源文件存放的位置和页面的域不一样，则需要给你您的cdn服务器进行一些配置，在response header 里加上 <code>Access-Control-Allow-Origin: *</code> 以保证您的less文件可以通过ajax访问得到。</p>
+          <p>引用theme.less时，其的<code>rel</code>属性值必须为<code>stylesheet/less</code>，才能被less识别。</p>
+          <p>如果你的服务器不支持<code>.less</code>扩展名的文件，你可以将theme.less改为theme.css或其他您的服务器支持的扩展名。</p>
+          <p>更多换肤参考和注意事项，请阅读<a target="_blank" href="https://github.com/coderlambda/QNThemeHelper/blob/master/README.md">千牛换肤文档。</a></p>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
