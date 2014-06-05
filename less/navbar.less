@@ -14,8 +14,7 @@
   // Inner for background effects
   .navbar-inner {
     min-height: @navbarHeight;
-    padding-left:  20px;
-    padding-right: 20px;
+    padding: 4px 20px 0 20px;
     background: transparent;
     border: 0;
     .border-radius(0);
@@ -52,6 +51,7 @@
   // Vertically center the text given @navbarHeight
   padding: 0 20px;
   margin-left: -20px; // negative indent to left-align the text down the page
+  margin-top: 4px;
   font-size: 20px;
   font-weight: normal;
   color: @navbarBrandColor;
@@ -245,7 +245,7 @@
     background: rgba(255,255,255,.2);
     float: none;
     // Vertically center the text given @navbarHeight
-    padding: 15px 15px 10px 15px;
+    padding: 10px 15px;
     color: @navbarLinkColor;
     text-decoration: none;
     text-shadow: none;
@@ -279,6 +279,12 @@
 
     .sui-dropdown.open .dropdown-toggle,
     > li > a {
+      .sui-icon {
+        font-size: 16px;
+        vertical-align: -3px;
+        opacity: .6;
+        color: black;
+      }
       &, &:hover {
         border: 0;
         background: none;
@@ -288,14 +294,12 @@
       &:hover {
         color: @white;
         text-decoration: none;
-      }
-      .sui-icon {
-        font-size: 16px;
-        vertical-align: -3px;
-        opacity: .8;
+        .sui-icon {
+          color: @white;
+          opacity: .9;
+        }
       }
     }
-
   }
 
   &.nav-withicon {
@@ -306,7 +310,7 @@
     margin-left: 40px;
     > li > a {
       opacity: .8;
-      padding: 0 20px 5px 0;
+      padding: 2px 20px 5px 0;
       &, &:hover {
         color: #fff;
         text-decoration: none;
