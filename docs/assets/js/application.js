@@ -25,7 +25,7 @@
   $('.prettyprint').each(function() {
     var $this = $(this)
     var $target = $($this.data("target"))
-    if(!$target[0]) return;
+    if(!$target[0]) $target = $this;
     $this.text(parseCode($target.html()))
   })
   $(function() {
