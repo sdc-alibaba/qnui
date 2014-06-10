@@ -14,7 +14,7 @@
   // Inner for background effects
   .navbar-inner {
     min-height: @navbarHeight;
-    padding: 4px 20px 0 20px;
+    padding: 4px 5px 0 18px;
     background: transparent;
     border: 0;
     .border-radius(0);
@@ -222,7 +222,7 @@
   left: 0;
   display: block;
   float: left;
-  margin: 15px 10px 0 0;
+  margin: 20px 10px 0 0;
   font-size: @fontSizeLarge;
   &.pull-right {
     float: right; // redeclare due to specificity
@@ -241,11 +241,11 @@
 
   // Links
   > li > a {
-    .border-radius(@baseBorderRadius @baseBorderRadius 0 0);
+    .border-radius(@borderRadiusMini @borderRadiusMini 0 0);
     background: rgba(255,255,255,.2);
     float: none;
     // Vertically center the text given @navbarHeight
-    padding: 10px 15px;
+    padding: 11px 15px 9px 15px;
     color: @navbarLinkColor;
     text-decoration: none;
     text-shadow: none;
@@ -274,6 +274,12 @@
     }
   }
 
+  .sui-dropdown-menu {
+    > li > a {
+      padding: 7px 10px;
+    }
+  }
+
   &.nav-links {
     font-size: @baseFontSize;
 
@@ -298,6 +304,23 @@
           color: @white;
           opacity: .9;
         }
+      }
+    }
+    .sui-dropdown.open .dropdown-toggle {
+      color: @white;
+      .sui-icon {
+        opacity: 1;
+        color: white;
+      }
+    }
+    > li > a {
+      padding: 13px 4px 7px 4px;
+    }
+
+    .sui-dropdown-menu {
+      min-width: 60px;
+      > li > a {
+        padding: 3px 5px;
       }
     }
   }

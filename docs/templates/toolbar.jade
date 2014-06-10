@@ -28,6 +28,10 @@ block head
       background-position: 0 -56px;
     }
 
+    .tab-content .sui-navbar {
+      width: 790px;
+    }
+
 
 block content
 
@@ -140,25 +144,10 @@ block content
 
           ul.sui-nav.pull-right.nav-links
 
-            li.active
-              a(href='#')
-                i.sui-icon.icon-pc-list
-                | &nbsp;日志
             li
-              a(href='#')
-                i.sui-icon.icon-pc-settings
-                | &nbsp;设置
-            li
-              a(href='#')
+              a
                 i.sui-icon.icon-pc-question-circle
                 | &nbsp;帮助
-            li.sui-dropdown
-              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover') 其他 <i class="caret"></i>
-              ul.sui-dropdown-menu(role='menu')
-                li(role="presentation")
-                  a(role="menuitem" tabindex="-1" href="#") 关于
-                li(role="presentation")
-                  a(role="menuitem" tabindex="-1" href="#") 版权
 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2')
