@@ -8284,8 +8284,20 @@ input[type="submit"].btn.btn-mini {
   text-decoration: none;
   background-color: #ffffff;
 }
+.sui-navbar .sui-nav .sui-dropdown.open .dropdown-toggle {
+  position: relative;
+  z-index: 999999;
+}
+.sui-navbar .sui-nav .sui-dropdown.open .dropdown-toggle,
+.sui-navbar .sui-nav .sui-dropdown.open .dropdown-toggle:hover {
+  background: transparent;
+}
+.sui-navbar .sui-nav .sui-dropdown-menu {
+  padding-top: 38px;
+  top: 0;
+}
 .sui-navbar .sui-nav .sui-dropdown-menu > li > a {
-  padding: 7px 10px;
+  padding: 7px 13px;
 }
 .sui-navbar .sui-nav.nav-links {
   font-size: 12px;
@@ -8332,14 +8344,14 @@ input[type="submit"].btn.btn-mini {
   min-width: 60px;
 }
 .sui-navbar .sui-nav.nav-links .sui-dropdown-menu > li > a {
-  padding: 3px 5px;
+  padding: 3px 8px;
 }
 .sui-navbar .sui-nav.nav-withicon {
   font-size: 12px;
   margin-top: 0;
   text-align: center;
   font-size: 14px;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 .sui-navbar .sui-nav.nav-withicon .sui-dropdown.open .dropdown-toggle .sui-icon,
 .sui-navbar .sui-nav.nav-withicon > li > a .sui-icon {
@@ -8383,11 +8395,18 @@ input[type="submit"].btn.btn-mini {
   min-width: 60px;
 }
 .sui-navbar .sui-nav.nav-withicon .sui-dropdown-menu > li > a {
-  padding: 3px 5px;
+  padding: 3px 8px;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown.open .dropdown-toggle {
+  position: static;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown-menu {
+  padding-top: 0;
+  top: 100%;
 }
 .sui-navbar .sui-nav.nav-withicon > li > a {
   opacity: .8;
-  padding: 2px 20px 5px 0;
+  padding: 2px 12px 5px 12px;
 }
 .sui-navbar .sui-nav.nav-withicon > li > a,
 .sui-navbar .sui-nav.nav-withicon > li > a:hover {
@@ -8406,6 +8425,18 @@ input[type="submit"].btn.btn-mini {
   display: block;
   margin: auto;
   margin-bottom: 5px;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown-menu > li > a {
+  padding: 7px 10px;
+}
+.sui-navbar .sui-nav.nav-links .sui-dropdown.open .dropdown-toggle,
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown.open .dropdown-toggle {
+  position: static;
+}
+.sui-navbar .sui-nav.nav-links .sui-dropdown-menu,
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown-menu {
+  padding-top: 0;
+  top: 100%;
 }
 .sui-navbar .btn-navbar {
   display: none;
