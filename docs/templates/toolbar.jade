@@ -92,15 +92,11 @@ block content
               a(href='#')
                 i.sui-icon.icon-pc-settings
                 | &nbsp;设置
-            li.sui-dropdown
-              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
+            li
+              a(href='#')
                 i.sui-icon.icon-pc-question-circle
                 | &nbsp;帮助
-              ul.sui-dropdown-menu(role='menu')
-                li(role="presentation")
-                  a(role="menuitem" tabindex="-1" href="#") 关于
-                li(role="presentation")
-                  a(role="menuitem" tabindex="-1" href="#") 版权
+
 
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1')
@@ -144,10 +140,15 @@ block content
 
           ul.sui-nav.pull-right.nav-links
 
-            li
-              a
+            li.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
                 i.sui-icon.icon-pc-question-circle
                 | &nbsp;帮助
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权
 
     div.tab-pane#code2
       pre.prettyprint.linenums(data-target='#demo2')
