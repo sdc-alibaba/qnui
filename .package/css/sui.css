@@ -8045,7 +8045,7 @@ input[type="submit"].btn.btn-mini {
 }
 .sui-navbar .navbar-inner {
   min-height: 40px;
-  padding: 4px 20px 0 20px;
+  padding: 4px 5px 0 18px;
   background: transparent;
   border: 0;
   -webkit-border-radius: 0;
@@ -8234,7 +8234,7 @@ input[type="submit"].btn.btn-mini {
   left: 0;
   display: block;
   float: left;
-  margin: 15px 10px 0 0;
+  margin: 20px 10px 0 0;
   font-size: 14px;
 }
 .sui-navbar .sui-nav.pull-right {
@@ -8252,12 +8252,12 @@ input[type="submit"].btn.btn-mini {
   opacity: 1;
 }
 .sui-navbar .sui-nav > li > a {
-  -webkit-border-radius: 4px 4px 0 0;
-  -moz-border-radius: 4px 4px 0 0;
-  border-radius: 4px 4px 0 0;
+  -webkit-border-radius: 2px 2px 0 0;
+  -moz-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
   background: rgba(255, 255, 255, 0.2);
   float: none;
-  padding: 10px 15px;
+  padding: 11px 15px 9px 15px;
   color: #333333;
   text-decoration: none;
   text-shadow: none;
@@ -8283,6 +8283,9 @@ input[type="submit"].btn.btn-mini {
   color: #555555;
   text-decoration: none;
   background-color: #ffffff;
+}
+.sui-navbar .sui-nav .sui-dropdown-menu > li > a {
+  padding: 7px 10px;
 }
 .sui-navbar .sui-nav.nav-links {
   font-size: 12px;
@@ -8314,6 +8317,22 @@ input[type="submit"].btn.btn-mini {
 .sui-navbar .sui-nav.nav-links > li > a:hover .sui-icon {
   color: #ffffff;
   opacity: .9;
+}
+.sui-navbar .sui-nav.nav-links .sui-dropdown.open .dropdown-toggle {
+  color: #ffffff;
+}
+.sui-navbar .sui-nav.nav-links .sui-dropdown.open .dropdown-toggle .sui-icon {
+  opacity: 1;
+  color: white;
+}
+.sui-navbar .sui-nav.nav-links > li > a {
+  padding: 13px 4px 7px 4px;
+}
+.sui-navbar .sui-nav.nav-links .sui-dropdown-menu {
+  min-width: 60px;
+}
+.sui-navbar .sui-nav.nav-links .sui-dropdown-menu > li > a {
+  padding: 3px 5px;
 }
 .sui-navbar .sui-nav.nav-withicon {
   font-size: 12px;
@@ -8349,6 +8368,22 @@ input[type="submit"].btn.btn-mini {
 .sui-navbar .sui-nav.nav-withicon > li > a:hover .sui-icon {
   color: #ffffff;
   opacity: .9;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown.open .dropdown-toggle {
+  color: #ffffff;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown.open .dropdown-toggle .sui-icon {
+  opacity: 1;
+  color: white;
+}
+.sui-navbar .sui-nav.nav-withicon > li > a {
+  padding: 13px 4px 7px 4px;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown-menu {
+  min-width: 60px;
+}
+.sui-navbar .sui-nav.nav-withicon .sui-dropdown-menu > li > a {
+  padding: 3px 5px;
 }
 .sui-navbar .sui-nav.nav-withicon > li > a {
   opacity: .8;
