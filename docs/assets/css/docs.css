@@ -64,7 +64,7 @@ body > .sui-navbar > .navbar-inner {
 }
 body > .sui-navbar .sui-nav {
   margin-left: 50px;
-  margin-top: 5px;
+  margin-top: 10px;
 }
 body > .sui-navbar .sui-nav.nav-links > li > a {
   color: #fff;
