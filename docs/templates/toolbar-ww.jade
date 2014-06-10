@@ -1,0 +1,29 @@
+extends base
+
+block title
+  title 工具栏
+
+block sidebar
+  +sidebar('toolbar-ww')
+
+block head
+  style.
+    .sui-navbar {
+      z-index: 99999;
+    }
+
+    .sui-layout .sui-navbar .navbar-inner {
+      background: #6da467;
+    }
+
+block content
+
+  h1 工具栏
+
+  h2.sui-page-header 设计规范
+  div.docs-description
+      img(src='pictures/docs/toolbar-ww.png')
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
