@@ -69,6 +69,9 @@ body > .sui-navbar .sui-nav {
   margin-left: 50px;
   margin-top: 10px;
 }
+body > .sui-navbar .sui-nav.nav-links > li {
+  margin-left: 20px;
+}
 body > .sui-navbar .sui-nav.nav-links > li > a {
   color: #fff;
   font-size: 14px;
