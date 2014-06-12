@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>12 栏栅格</title>
+    <title>工具栏</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -22,16 +22,37 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
-    <style type="text/css">
-      .grid-demo .sui-row div,
-      .grid-demo .sui-row-fluid div {
-        background: #dfedfc;
-        min-height: 50px;
+    <style>
+      .sui-navbar {
+        z-index: 99999;
       }
-      .grid-demo .sui-row + .sui-row,
-      .grid-demo .sui-row-fluid + .sui-row-fluid {
-        margin-top: 10px;
+      
+      .sui-layout .sui-navbar .navbar-inner {
+        background: #6da467;
       }
+      
+      #demo2 .sui-nav .icon {
+        background: url(assets/imgs/toolbar.png) no-repeat;
+        height: 28px;
+        width: 28px;
+      }
+      
+      #demo2 .sui-nav .active .icon {
+        background-position-x: -28px;
+      }
+      #demo2 .sui-nav .icon-bookmark {
+        background-position: 0 -28px;
+      }
+      #demo2 .sui-nav .icon-gift {
+        background-position: 0 -56px;
+      }
+      
+      .tab-content .sui-navbar {
+        width: 790px;
+      }
+      
+      
+      
     </style>
   </head>
   <body>
@@ -54,9 +75,9 @@
             <ul class="sui-nav nav-tabs nav-stacked nav-xlarge docs-sidenav">
               <li><a href="global.html"><i class="sui-icon icon-globe">&nbsp;</i>全局样式</a>
               </li>
-              <li><a><i class="sui-icon icon-th">&nbsp;</i>插件规范<i class="sui-icon icon-angle-down pull-right"></i></a>
+              <li class="active"><a><i class="sui-icon icon-th">&nbsp;</i>插件规范<i class="sui-icon icon-angle-down pull-right"></i></a>
                 <ul class="sui-nav nav-tabs nav-stacked">
-                  <li><a href="toolbar.html">工具栏</a></li>
+                  <li class="active"><a href="toolbar.html">工具栏</a></li>
                   <li><a href="desktop.html">桌面</a></li>
                   <li><a href="toolbar-ww.html">旺旺工具栏</a></li>
                 </ul>
@@ -98,112 +119,119 @@
                 </ul>
               </li>
             </ul>
-            <script type="text/javascript">var disqus_identifier = 'disqus-id-grid';</script>
+            <script type="text/javascript">var disqus_identifier = 'disqus-id-toolbar';</script>
       </div>
       <div class="content">
         <div class="content-inner">
-          <h1>响应式栅格系统</h1>
+          <h1>工具栏</h1>
+          <h2 class="sui-page-header">设计规范</h2>
+          <div class="docs-description"><img src="pictures/docs/toolbar.png?2014.06.10"></div>
+          <ul class="demo-operations clearfix">
+            <li><a href="#">下载psd文件</a></li>
+          </ul>
           <h2 class="sui-page-header">开发者文档</h2>
           <p class="sui-lead">
-            响应式的12栏栅格系统，兼容三种主流屏幕尺寸 <strong>1024</strong>,<strong>1280/1366</strong>以及<strong>1440</strong>。实际上用户屏幕宽度在1024px以上的情况下会自动选择一个最佳的栅格宽度。<br />
-            如果想关闭响应式布局，只需要删除 <code>sui-responsive.less</code>文件即可。
+            <ul class="unstyled">
+              <li>工具栏默认背景是透明的，一般看到的背景是整个插件的默认背景。当然也可以自己重载背景。</li>
+              <li>为了和插件容器的顶部更好融合，工具栏里的内容距顶部没有间距，在demo中不是很好看，但是放入千牛容器就会很好看。</li>
+            </ul>
           </p>
-          <h2>1. 默认栅格系统</h2>
+          <h2>纯文本</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
-            <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
-            <div id="demo1" class="tab-pane active">
-              <div class="bs-docs-example">
-                <div class="grid-demo">
-                  <div class="sui-row">
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                  </div>
-                  <div class="sui-row">
-                    <div class="span1">1</div>
-                    <div class="span2">2</div>
-                    <div class="span2">2</div>
-                    <div class="span3">3</div>
-                  </div>
-                  <div class="sui-row">
-                    <div class="span4">4</div>
-                    <div class="span4">4</div>
-                  </div>
-                  <div class="sui-row">
-                    <div class="span2">2</div>
-                    <div class="span6">6</div>
-                  </div>
+            <div id="demo1" style="padding-bottom: 50px;" class="tab-pane active">
+              <header class="sui-navbar">
+                <div class="navbar-inner"><a href="#" class="sui-brand"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png">千牛云盘</a>
+                  <ul class="sui-nav">
+                    <li class="active sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">文件管理<i class="sui-icon icon-pc-chevron-bottom"></i></a>
+                      <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">我的文件</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">共享文件</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#">数据统计</a></li>
+                    <li><a href="javascript:void(0);">数据分析</a></li>
+                  </ul>
+                  <ul class="sui-nav pull-right nav-links">
+                    <li class="active"><a href="#"><i class="sui-icon icon-pc-list"></i>&nbsp;日志</a></li>
+                    <li><a href="#"><i class="sui-icon icon-pc-settings"></i>&nbsp;设置</a></li>
+                    <li><a href="#"><i class="sui-icon icon-pc-question-circle"></i>&nbsp;帮助</a></li>
+                  </ul>
                 </div>
-              </div>
+              </header>
             </div>
             <div id="code1" class="tab-pane">
-              <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc1" class="tab-pane">
-              <p>默认栅格系统每一栏是定宽的，并且宽度可以根据屏幕宽度在几个固定值之间变化，区别于流式栅格系统的百分比宽度。</p>
+              <pre data-target="#demo1" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo1" class="copy-btn">复制代码</a></li>
           </ul>
-          <h2>2. 流式栅格系统</h2>
+          <h2>带图标的导航</h2>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
             <li><a href="#code2" data-toggle="tab">代码</a></li>
-            <li><a href="#doc2" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
-            <div id="demo2" class="tab-pane active">
-              <div class="bs-docs-example">
-                <div class="grid-demo">
-                  <div class="sui-row-fluid">
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                    <div class="span1">1</div>
-                  </div>
-                  <div class="sui-row-fluid">
-                    <div class="span1">1</div>
-                    <div class="span2">2</div>
-                    <div class="span2">2</div>
-                    <div class="span3">3</div>
-                  </div>
-                  <div class="sui-row-fluid">
-                    <div class="span4">4</div>
-                    <div class="span4">4</div>
-                  </div>
-                  <div class="sui-row-fluid">
-                    <div class="span2">2</div>
-                    <div class="span6">6</div>
-                  </div>
+            <div id="demo2" style="padding-bottom: 50px;" class="tab-pane active">
+              <header class="sui-navbar">
+                <div class="navbar-inner"><a href="#" class="sui-brand"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png">旺铺数据</a>
+                  <ul class="sui-nav nav-withicon">
+                    <li class="active sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle"><i class="icon icon-user"></i>文件管理</a>
+                      <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">我的文件</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">共享文件</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="#"><i class="icon icon-bookmark"></i>渠道管理</a></li>
+                    <li><a href="#"><i class="icon icon-gift"></i>顾客数据</a></li>
+                  </ul>
+                  <ul class="sui-nav pull-right nav-links">
+                    <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle"><i class="sui-icon icon-pc-question-circle"></i>&nbsp;帮助</a>
+                      <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">关于</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">版权</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
-              </div>
+              </header>
             </div>
             <div id="code2" class="tab-pane">
-              <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-            </div>
-            <div id="doc2" class="tab-pane">
-              <p>流式栅格系统每一栏的宽度都是其容器的百分比，因此会随着屏幕宽度的变化而不断变化，没有一个固定的宽度像素值。</p>
+              <pre data-target="#demo2" class="prettyprint linenums"></pre>
             </div>
           </div>
           <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-            <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
+            <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>如何实现导航换肤</h2>
+          <p>创建theme.less，加入以下代码</p>
+          <div>
+            <pre class="prettyprint linenums">@color-base: #ffffff;
+@theme-background-image: url(#);
+body {
+    background: @theme-background-image @color-base 0px -30px no-repeat;
+}</pre>
+          </div>
+          <p>在页面中引入theme.less以及千牛的jssdk.js和less.js</p>
+          <div>
+            <pre class="prettyprint linenums">&lt;link rel=&quot;stylesheet/less&quot; href=&quot;path/to/theme.less&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; charset=&quot;utf-8&quot; src=&quot;http://g.alicdn.com/sj/qn/??jssdk.js,lib/js/less.js&quot;&gt;&lt;/script&gt;</pre>
+          </div>
+          <p>调用jssdk的换肤初始化代码</p>
+          <div>
+            <pre class="prettyprint linenums">$(window).on('load', function() {
+    QN.initTheme();
+});</pre>
+          </div>
+          <h3>换肤注意事项</h3>
+          <p>如果您使用了cdn，资源文件存放的位置和页面的域不一样，则需要给你您的cdn服务器进行一些配置，在response header 里加上 <code>Access-Control-Allow-Origin: *</code> 以保证您的less文件可以通过ajax访问得到。</p>
+          <p>引用theme.less时，其的<code>rel</code>属性值必须为<code>stylesheet/less</code>，才能被less识别。</p>
+          <p>如果你的服务器不支持<code>.less</code>扩展名的文件，你可以将theme.less改为theme.css或其他您的服务器支持的扩展名。</p>
+          <p>更多换肤参考和注意事项，请阅读<a target="_blank" href="https://github.com/coderlambda/QNThemeHelper/blob/master/README.md">千牛换肤文档。</a></p>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
