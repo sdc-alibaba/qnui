@@ -12243,24 +12243,24 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
 .steps-7 > div {
   width: 16%;
 }
-.sui-scrollbar::-webkit-scrollbar {
+::-webkit-scrollbar {
   background: transparent;
   width: 10px;
   height: 10px;
 }
-.sui-scrollbar::-webkit-scrollbar-track-piece {
+::-webkit-scrollbar-track-piece {
   display: none;
 }
-.sui-scrollbar::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
   background-color: #fafafa;
 }
-.sui-scrollbar::-webkit-scrollbar-track:hover::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-track:hover::-webkit-scrollbar-thumb {
   background-color: #d5d5d5;
 }
-.sui-scrollbar::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -12270,24 +12270,24 @@ fieldset[disabled] .datepicker table tr td span.active.disabled:hover.active {
   border: 2px solid transparent;
   background-clip: content-box;
 }
-.sui-scrollbar::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
   background-color: #d5d5d5;
 }
-.sui-scrollbar::-webkit-scrollbar-thumb:active {
+::-webkit-scrollbar-thumb:active {
   background-color: #c8c8c8;
 }
-.sui-scrollbar.scrollbar-small::-webkit-scrollbar {
+.scrollbar-small::-webkit-scrollbar {
   background: transparent;
   width: 8px;
   height: 8px;
 }
-.sui-scrollbar.scrollbar-small::-webkit-scrollbar-track {
+.scrollbar-small::-webkit-scrollbar-track {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
   background-color: transparent;
 }
-.sui-scrollbar.scrollbar-small::-webkit-scrollbar-thumb {
+.scrollbar-small::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   background-clip: content-box;
   -webkit-border-radius: 4px;
