@@ -1,4 +1,4 @@
-ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
+ul.sui-nav.nav-tabs.nav-stacked.docs-sidenav
   - var items = []
 
   - items.push({name: 'layouts', title:'插件规范', children:[], icon: 'sui-icon icon-th'})
@@ -68,7 +68,6 @@ ul.sui-nav.nav-tabs.nav-stacked.nav-xlarge.docs-sidenav
           |#{cat.title}
           i.sui-icon.icon-angle-down.pull-right
         ul.sui-nav.nav-tabs.nav-stacked
-
           for item,j in cat.children
             - var classname = ''
             if highlight == item.name
