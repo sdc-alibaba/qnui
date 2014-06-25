@@ -165,7 +165,7 @@ textarea {
 }
 body {
   margin: 0;
-  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
+  font-family: tahoma, "Microsoft Yahei", "SimSun", sans-serif;
   font-size: 12px;
   line-height: 18px;
   color: #333333;
@@ -8294,7 +8294,7 @@ input[type="submit"].btn.btn-mini {
 .sui-navbar .navbar-search .search-query {
   margin-bottom: 0;
   padding: 4px 14px;
-  font-family: Arial, "Microsoft Yahei", "SimSun", sans-serif;
+  font-family: tahoma, "Microsoft Yahei", "SimSun", sans-serif;
   font-size: 13px;
   font-weight: normal;
   line-height: 1;
