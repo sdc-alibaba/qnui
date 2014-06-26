@@ -10699,33 +10699,9 @@ input[type="submit"].btn.btn-mini {
 .datepicker table tr td.selected:hover,
 .datepicker table tr td.selected.disabled,
 .datepicker table tr td.selected.disabled:hover {
-  /*
-  color: @color;
-  background-color: @background;
-  border-color: @border;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    color: @color;
-    // background-color: darken(@background, 8%);
-    	background-color: @background;
-        border-color: darken(@border, 12%);
-  }
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] {
-    background-color: lighten(@background, 8%)!important;
-    border-color: @border!important;
-  }
-  */
+  color: #ffffff;
+  background-color: #b3b3b3;
+  border-color: #808080;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -10733,33 +10709,9 @@ input[type="submit"].btn.btn-mini {
 .datepicker table tr td.active:hover,
 .datepicker table tr td.active.disabled,
 .datepicker table tr td.active.disabled:hover {
-  /*
-  color: @color;
-  background-color: @background;
-  border-color: @border;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    color: @color;
-    // background-color: darken(@background, 8%);
-    	background-color: @background;
-        border-color: darken(@border, 12%);
-  }
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] {
-    background-color: lighten(@background, 8%)!important;
-    border-color: @border!important;
-  }
-  */
+  color: #ffffff;
+  background-color: #d094b6;
+  border-color: #d094a2;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
@@ -10788,33 +10740,9 @@ input[type="submit"].btn.btn-mini {
 .datepicker table tr td span.active:hover,
 .datepicker table tr td span.active.disabled,
 .datepicker table tr td span.active.disabled:hover {
-  /*
-  color: @color;
-  background-color: @background;
-  border-color: @border;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    color: @color;
-    // background-color: darken(@background, 8%);
-    	background-color: @background;
-        border-color: darken(@border, 12%);
-  }
-  &:active,
-  &.active,
-  .open .dropdown-toggle {
-    background-image: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] {
-    background-color: lighten(@background, 8%)!important;
-    border-color: @border!important;
-  }
-  */
+  color: #ffffff;
+  background-color: #d094b6;
+  border-color: #d094a2;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
