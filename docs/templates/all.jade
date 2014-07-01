@@ -1,0 +1,869 @@
+extends base_index
+
+block title
+  title 全部组件
+
+block head
+  style.
+    input:not([type="image"]) {
+      box-sizing: content-box;
+    }
+block header
+  +header('about')
+
+block content_wrap
+  .sui-container 
+    h1.sui-page-header 工具栏
+    header.sui-navbar(style='background: #6da467;')
+      div.navbar-inner
+        a.sui-brand(href='#') 
+          img(src='http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png')
+          | 千牛云盘
+        ul.sui-nav
+          li.active.sui-dropdown
+            a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
+              | 文件管理
+              i.sui-icon.icon-pc-chevron-bottom
+            ul.sui-dropdown-menu(role='menu')
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 我的文件
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 共享文件
+          li
+            a(href='#') 数据统计
+          li
+            a(href='javascript:void(0);') 数据分析
+
+        ul.sui-nav.pull-right.nav-links
+
+          li.active
+            a(href='#')
+              i.sui-icon.icon-pc-list
+              | &nbsp;日志
+          li
+            a(href='#')
+              i.sui-icon.icon-pc-settings
+              | &nbsp;设置
+          li
+            a(href='#')
+              i.sui-icon.icon-pc-question-circle
+              | &nbsp;帮助
+
+
+
+
+    h1.sui-page-header 表单
+    form.sui-form.form-horizontal
+      div.control-group
+        label.control-label.v-top
+          b(style="color: #f00;") *
+          | 
+          | 地点：
+        div.controls
+          span.sui-dropdown.dropdown-bordered.select
+            span.dropdown-inner
+              a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+                input(value='hz' name='city' type='hidden')
+                i.caret
+                span 杭州
+              ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+                li(role="presentation" class="divider")
+                li.active(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='hz') 杭州
+          div.sui-msg.msg-error.msg-clear.help-block
+            div.msg-con 该项为必填项
+            s.msg-icon
+      div.control-group
+        label.control-label.v-top
+          b(style="color: #f00;") *
+          | 
+          span(style="padding:0 24px 0 0;") 主
+          | 题：
+        div.controls
+          span.sui-dropdown.dropdown-bordered.select
+            span.dropdown-inner
+              a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+                input(value='1' name='zt' type='hidden')
+                i.caret
+                span 吃喝玩乐
+              ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                li.active(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='1') 吃喝玩乐
+          input.input-xlarge(type="text" value="")
+          div.sui-msg.msg-error.msg-clear.help-block
+            div.msg-con 该项为必填项
+            s.msg-icon
+      div.control-group
+        label.control-label.v-top
+          b(style="color: #f00;") *
+          | 
+          span(style="padding:0 24px 0 0;") 内
+          | 容：
+        div.controls
+          textarea.input-xxlarge(style="height: 190px;")
+          div.sui-msg.msg-tips.msg-default(style="vertical-align: top;")
+            div.msg-con
+              p(style="margin-bottom: 8px; font-weight: bold;") 消息渠道发送字数提示：
+              p 短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送
+              p 旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字
+              p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字
+              p &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字
+              p 站内信：XXXX个汉字
+            s.msg-icon
+          div.sui-msg.msg-error.msg-clear.help-block
+            div.msg-con 该项为必填项
+            s.msg-icon
+      div.control-group
+        label.control-label
+          span(style="padding:0 24px 0 0;") 链
+          | 
+          | 接：
+        div.controls
+          input.input-xxlarge(type="text" value="")
+      div.control-group
+        label.control-label.v-top
+          b(style="color: #f00;") *
+          | 
+          | 发送渠道：
+        div.controls
+          div.row-fluid
+            label.radio-pretty.inline.checked(data-toggle='radio')
+              input(type='radio' checked='checked' name='qudao')
+              span 商家中心
+            label.radio-pretty.inline(data-toggle='radio')
+              input(type='radio' name='qudao')
+              span 旺旺弹窗
+            label.radio-pretty.inline(data-toggle='radio')
+              input(type='radio' name='qudao')
+              span 站内信
+
+            div.sui-msg.msg-tips.msg-default.msg-clear.help-block
+              div.msg-con
+                是否向子账号发送消息：
+                label.radio-pretty.inline(data-toggle='radio')
+                  input(type='radio' name='zzh' value='1')
+                  span 是
+                label.radio-pretty.inline.checked(data-toggle='radio')
+                  input(type='radio' checked='checked' name='zzh' value='0')
+                  span 否
+              s.msg-icon
+          div.row-fluid
+            label.checkbox.inline
+              input(name="m1" type="checkbox" value="1" checked)
+              | 
+              | 短信发送给店长
+          div.row-fluid
+            label.checkbox.inline
+              input(name="m1" type="checkbox" value="2" checked)
+              | 
+              | 短信发送给电商决策人
+      div.control-group
+        label.control-label
+          b(style="color: #f00;") *
+          | 
+          | 审
+          span(style="padding: 0 6px;") 核
+          | 人：
+        div.controls
+          span.sui-dropdown.dropdown-bordered.select
+            span.dropdown-inner
+              a.dropdown-toggle#drop4(role="button" data-toggle="dropdown" href="#") 
+                input(value='1' name='zt' type='hidden')
+                i.caret
+                span 管理员
+              ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                li.active(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='1') 管理员
+      div.control-group
+        label.control-label
+        div.controls
+          button.sui-btn.btn-primary(type="submit") 提交审核
+          button.sui-btn(type="reset") 重置
+
+    h1.sui-page-header 按钮
+    - var SIZES = ['xlarge', 'large', '', 'small']
+    - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["danger", "危险"], ["link", "链接"], ["text", "文字按钮"]]
+    each s in SIZES
+      each r in ROLES
+        - var classname = 'sui-btn'
+        if s
+          - classname += ' btn-' + s
+        if r[0] 
+          - classname += ' btn-' + r[0]
+        | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}</a>
+        | 
+      br
+      br
+
+
+    h1.sui-page-header 选框
+    h3 复选框
+    label.checkbox-pretty.inline.checked
+      input(type='checkbox' checked='checked')
+      span 鸣人
+
+    label.checkbox-pretty.inline
+      input(type='checkbox')
+      span 佐助
+
+    h3 单选框
+    label.radio-pretty.inline.checked
+      input(type='radio' checked='checked' name='radio')
+      span 服装
+
+    label.radio-pretty.inline
+      input(type='radio' name='radio')
+      span 电器
+    label.radio-pretty.inline
+      input(type='radio' name='radio')
+      span 美食
+
+    h3 半选
+    label.checkbox-pretty.inline.halfchecked
+      input(type='checkbox')
+      span 半选
+
+    h3 禁用
+    label.checkbox-pretty.inline.checked.disabled
+      input(type='checkbox' checked='checked' disabled)
+      span 不可选
+
+
+
+    h1.sui-page-header 下拉菜单
+    h3 默认样式
+    span.sui-dropdown
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+          li(role="presentation" class="divider")
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+    h3 带边框
+    span.sui-dropdown.dropdown-bordered
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
+          i.caret
+          |杭州
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+          li(role="presentation" class="divider")
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 北京
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+              li(role="presentation" class="divider")
+              li(role="presentation")
+                a(role="menuitem" tabindex="-1" href="#") 莫斯科
+
+
+
+    span.sui-dropdown.dropdown-bordered.dropdown-large
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" data-toggle="dropdown" href="#")
+          i.caret
+          | 北京
+        ul#menu1.sui-dropdown-menu(role="menu" aria-labelledby="drop2")
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+          li(role="presentation" class="divider")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+
+    span.sui-dropdown.dropdown-bordered.dropdown-xlarge
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" data-toggle="dropdown" href="#")
+          i.caret
+          |更大一点的
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop3")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 圣彼得堡
+          li(role="presentation" class="divider")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 莫斯科
+
+
+    h3 点击触发
+    span.sui-dropdown
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 杭州 <i class='caret'></i>
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+    span.sui-dropdown.dropdown-bordered
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
+          i.caret
+          |杭州
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+
+    h3 hover触发
+    span.sui-dropdown
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li(role="presentation")
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+    span.sui-dropdown.dropdown-bordered
+      span.dropdown-inner
+        a.dropdown-toggle(role="button" href='javascript:void(0);' data-toggle="dropdown" data-trigger='hover') 杭州 <i class='caret'></i>
+        ul.sui-dropdown-menu(role="menu" aria-labelledby="drop1")
+          li(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 北京
+          li.active(role="presentation")
+            a(role="menuitem" tabindex="-1" href="#") 杭州
+
+
+
+    h1.sui-page-header 表单校验
+    form.sui-form.form-horizontal.sui-validate
+      div.control-group
+        label.control-label(for="inputEmail") 邮箱：
+        div.controls
+          input(type="text" id="inputEmail" name='name' placeholder="邮箱" data-rules='required|email')
+      div.control-group
+        label.control-label(for="inputPassword") 密码：
+        div.controls
+          input(type="password" id="inputPassword" name='password' placeholder="密码" data-rules='required' title='密码')
+      div.control-group
+        label.control-label(for="inputRepassword") 重复密码：
+        div.controls
+          input(type="password" id="inputRepassword" name='repassword' placeholder="重复密码" data-rules='required|match=password')
+      div.control-group
+        label.control-label(for="inputGender") 性别：
+        div.controls
+          label.radio-pretty.inline(data-toggle='radio')
+            input(type='radio' name='gender' value='1' data-rules='required')
+            span 男
+          label.radio-pretty.inline(data-toggle='radio')
+            input(type='radio' name='gender' value='2' data-rules='required')
+            span 女
+
+      div.control-group
+        label.control-label(for="inputGender") 地址：
+        div.controls
+          span.sui-dropdown.dropdown-bordered.select
+            span.dropdown-inner
+              a.dropdown-toggle(role="button" data-toggle="dropdown" href="#") 
+                input(name='city' type='hidden' data-rules='required')
+                i.caret
+                span 请选择
+              ul#menu4.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='bj') 北京
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='sb') 圣彼得堡
+      div.control-group
+        label.control-label.v-top(for="inputDes") 自我介绍：
+        div.controls
+          textarea(id="inputDes" name='des' placeholder="自我介绍" data-rules='required')
+      div.control-group
+        label.control-label()
+        div.controls
+          button.sui-btn.btn-primary(type="submit") 立即注册
+
+
+    h1.sui-page-header 日历和时间选择器
+    form.sui-form
+      input(type="text" data-toggle="datepicker" data-date-timepicker='true' value='2013-01-01')
+
+
+    h1.sui-page-header 自动补全
+    form.sui-form
+      input.input-large(type="text" id='auto-init-2' value='' data-toggle='autocomplete' data-lookup='["aaa", "bbb", "ccc", "ddd", "edfa", "wdasda", "tueiyhgk", "vjflcjx"]')
+
+
+
+    h1.sui-page-header 分页器
+    div.sui-pagination.pagination-small
+      ul
+        li.prev.disabled
+            a(href='#') «
+        li.active
+            a(href='#') 1
+        li
+            a(href='#') 2
+        li
+            a(href='#') 3
+        li
+            a(href='#') 4
+        li
+            a(href='#') 5
+        li.next
+            a(href='#') »
+    div.sui-pagination.pagination
+      ul
+        li.prev.disabled
+            a(href='#') «
+        li.active
+            a(href='#') 1
+        li
+            a(href='#') 2
+        li
+            a(href='#') 3
+        li
+            a(href='#') 4
+        li
+            a(href='#') 5
+        li.next
+            a(href='#') »
+
+    div.sui-pagination
+      ul
+        li.prev.disabled
+            a(href='#') «上一页
+        li.active
+            a(href='#') 1
+        li
+            a(href='#') 2
+        li
+            a(href='#') 3
+        li
+            a(href='#') 4
+        li
+            a(href='#') 5
+        li.dotted
+            span ...
+        li.next
+            a(href='#') 下一页»
+      div
+          span 共10页&nbsp;
+          span 
+               |到
+               |<input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+               |页
+
+
+
+    h1.sui-page-header 图标
+    style.
+      .icons-wrap i {
+        font-size: 24px;
+        margin-left: 10px;
+      }
+    p.icons-wrap
+      i.sui-icon.icon-pc-loading
+      i.sui-icon.icon-pc-enter
+      i.sui-icon.icon-pc-ww
+      i.sui-icon.icon-pc-sound
+      i.sui-icon.icon-pc-settings
+      i.sui-icon.icon-pc-right
+      i.sui-icon.icon-pc-right-circle
+      i.sui-icon.icon-pc-refresh
+      i.sui-icon.icon-pc-question-circle
+      i.sui-icon.icon-pc-prev
+      i.sui-icon.icon-pc-next
+      i.sui-icon.icon-pc-list
+      i.sui-icon.icon-pc-light
+      i.sui-icon.icon-pc-info-circle
+      br
+      i.sui-icon.icon-touch-ww
+      i.sui-icon.icon-touch-ww-sign
+      i.sui-icon.icon-touch-users2
+      i.sui-icon.icon-touch-users2-sign
+      i.sui-icon.icon-touch-users
+      i.sui-icon.icon-touch-users-sign
+      i.sui-icon.icon-touch-meeting
+      i.sui-icon.icon-touch-meeting-sign
+      i.sui-icon.icon-touch-user3
+      i.sui-icon.icon-touch-user3-sign
+      i.sui-icon.icon-touch-user2
+      i.sui-icon.icon-touch-user2-sign
+      i.sui-icon.icon-touch-user
+      i.sui-icon.icon-touch-user-sign
+      i.sui-icon.icon-touch-user-remove
+      i.sui-icon.icon-touch-user-remove-sign
+      i.sui-icon.icon-touch-user-info
+      i.sui-icon.icon-touch-user-info-sign
+
+
+
+    h1.sui-page-header 标签
+    - var cls = ['', 'success', 'warning', 'danger', 'info']
+    - var txt = ['默认', '上升', '持平', '下降', '公告']
+    style.
+      .labels-wrap {
+        overflow: hidden;
+      }
+      .labels-wrap li {
+        float: left;
+        margin-left: 10px;
+      }
+    ul.unstyled.labels-wrap
+      each clsi, i in cls
+        li
+          span.sui-label(class='label-#{clsi}') #{txt[i]}
+
+    ul.unstyled.labels-wrap
+      li
+        span 默认文本
+      each clsi, i in cls
+        li
+          span(class='sui-text-#{clsi}') #{txt[i]}
+
+    - var txt = ['Normal', 'logo设计', '店铺装修达人', '艺术', '公sdf告', '注意afs']
+    ul.sui-tag.tag-selected
+      each text, i in txt
+        if i % 2 == 0
+          li #{text}
+        else
+          li.tag-selected #{text}
+
+
+    h1.sui-page-header 表格
+    mixin table(className,header)
+      table(class=className)
+        if(header)
+          thead
+            tr
+              th ＃
+              th 待付款
+              th 宝宝数量
+              th 交易金额
+        tbody
+          tr
+            td 所有交易
+            td 9999.00
+            td 999
+            td 99999.00
+          tr
+            td 待付款
+            td 9999.00
+            td 999
+            td 99999.00
+          tr
+            td 已发货
+            td 9999.00
+            td 999
+            td 99999.00
+          tr
+            td 已成功
+            td 9999.00
+            td 999
+            td 99999.00
+    mixin table2(className)
+        table(class=className)
+            thead
+                tr
+                    th #
+                    th 新客户 uv
+                    th 新客户转化率（％）
+                    th 老客户 uv
+                    th 老客户转化率（％）
+            tbody
+                tr
+                    td 昨日
+                    td 1.0
+                    td 1.0
+                    td 1.0
+                    td 1.0
+                tr
+                    td 前日
+                    td 1.0
+                    td 0.0
+                    td 0.0
+                    td 0.0
+                tr
+                    td 前两天
+                    td 1.0
+                    td 1.0
+                    td 0.0
+                    td 0.0
+                tr
+                    td 行业平均
+                    td 50.73
+                    td 0.73
+                    td 0.73
+                    td 0.73
+                tr
+                    td 当前现状
+                    td 低于平均
+                    td 持平
+                    td 高于平均
+                    td 持平
+
+    +table("sui-table",true)
+    +table("sui-table table-bordered",true)
+    +table("sui-table table-nobordered",true)
+    +table("sui-table table-primary",true)
+
+
+    h1.sui-page-header 提示消息
+    div.sui-msg.msg-error
+      div.msg-con 错误信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-stop
+      div.msg-con 禁止信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-success
+      div.msg-con 成功信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-warning
+      div.msg-con 警示信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-notice
+      div.msg-con 公告信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-tips
+      div.msg-con 提示信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-info
+      div.msg-con 提醒信息提示
+      s.msg-icon
+
+    <br /><br />
+
+    div.sui-msg.msg-question
+      div.msg-con 疑问信息提示
+      s.msg-icon
+
+
+
+    h1.sui-page-header 步骤条
+    div.sui-steps.steps-auto
+      div.wrap
+          div.finished
+              label
+                  span.round
+                      <i class="sui-icon icon-pc-right"></i>
+                  span 第一步 #4AA4D5
+              i.triangle-right-bg
+              i.triangle-right
+      div.wrap
+          div.current
+              label
+                  span.round 2
+                  span 第二步 #333333
+              i.triangle-right-bg
+              i.triangle-right
+      div.wrap
+          div.todo
+              label
+                  span.round 3
+                  span 第三步 #999999
+
+    div.sui-steps-round.steps-round-auto
+      div.finished
+        div.wrap
+          div.round 1
+          div.bar
+        label 文文字描述文字描述文字描述文字描述字描述文字
+      div.current
+        div.wrap
+          div.round 1
+          div.bar
+        label 文字描述
+      div.todo
+        div.wrap
+          div.round 1
+          div.bar
+        label 文字描述
+      div.todo(style="width:5%")
+        div.wrap
+          div.round 3
+        label 文字描述
+
+
+
+
+    h1.sui-page-header 标签页
+    ul.sui-nav.nav-tabs
+      li.active
+        a 标签一
+      li
+        a(href='#') 标签二
+      li
+        a(href='#') 标签二
+
+    ul.sui-nav.nav-tabs.nav-large
+      li
+        a 语文
+      li.active
+        a(href='#') 数学
+      li
+        a(href='#') 英语
+
+    ul.sui-nav.nav-tabs.nav-xlarge
+      li
+        a 语文
+      li.active
+        a(href='#') 数学
+      li
+        a(href='#') 英语
+
+    h3 垂直
+    ul.sui-nav.nav-tabs.nav-large.tab-vertical
+      li
+        a 语文
+      li.active
+        a(href='#') 数学
+      li
+        a(href='#') 英语
+
+
+    ul.sui-nav.nav-tabs.nav-primary
+      li.active
+        a 标签一
+      li
+        a(href='#') 标签二
+      li
+        a(href='#') 标签二
+
+    ul.sui-nav.nav-tabs.nav-large.nav-primary
+      li
+        a 语文
+      li.active
+        a(href='#') 数学
+      li
+        a(href='#') 英语
+
+    ul.sui-nav.nav-tabs.nav-xlarge.nav-primary
+      li
+        a 前端
+      li.active
+        a(href='#') 后端
+      li
+        a(href='#') 运维
+
+    h3 垂直
+    ul.sui-nav.nav-tabs.nav-primary.nav-large.tab-vertical
+      li
+        a 标签一
+      li.active
+        a(href='#') 标签二
+      li
+        a(href='#') 标签二
+
+
+
+
+
+    h1.sui-page-header 新手引导
+    h1(data-step="1" data-intro="Hello all! :) 第一步：This project's called Intro.js." style="text-align:center") 1.Intro.js
+
+    p.lead(data-step="4" data-intro="第四步:Let's try it. It's free and open-source.") 4.更好的介绍网站和功,以便逐步为您指导项目。
+    
+    div.introjs-content
+      div.divcont(data-step="2" data-intro="第二步:Ok, wasn't that fun?" data-position="right")
+        h4 2.容易使用
+        p 包括js和css文件， 调价"data-step" 和 "data-intro" 到你的代码。
+
+      div.divcont(data-step="3" data-intro="第三步：More features, more fun." data-position="left")
+        h4 3.键盘 + 鼠标 控制 
+        p 用鼠标, 或键盘  "←"控制后退, "→"控制前进, "ENTER" 和 "ESC" 控制退出.
+
+      div.divcont(data-step="5" data-intro="第五步:Get it, use it.") 
+        h4 5.快 &amp; 小
+        p 仅需4 KB JavaScript 和 2.5 KB CSS (gzip).
+      div.divcont(data-step="6" data-intro="第六步:Last step.") 
+        h4 6.跨浏览器兼容性
+        p 它兼容最近版本的火狐,Chrome和IE8，更好的兼容性需要进一步开发。
+      a.sui-btn.btn-xlarge.btn-primary(href="javascript:void(0);" ) 展示操作
+    script.
+        $(".btn-primary").click(function(){
+            $.introJs().start();
+        })
+      
+
+
+    h1.sui-page-header 对话框
+    button.sui-btn.btn-primary.btn-lg(data-toggle="modal", data-target="#myModal", data-keyboard="false") 对话框已写入html
+    // Modal
+    div.sui-modal.hide.fade#myModal(tabindex='-1', role='dialog', data-hasfoot='false')
+      div.modal-dialog
+        div.modal-content
+          div.modal-header
+            button.sui-close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+            h4.modal-title#myModalLabel Modal title
+          div.modal-body 我是内容body
+          div.modal-footer
+            button.sui-btn.btn-primary.btn-large(type='button', data-ok='modal') 可自定ok
+            button.sui-btn.btn-default.btn-large(type='button', data-dismiss='modal') 可自定dismiss
+
+
+
+    h1.sui-page-header tooltip
+    style.
+      .example {
+        overflow: hidden;
+      }
+      .example li {
+        float: left;
+        margin-left: 10px;
+      }
+    ul.example.unstyled
+      - var placement = ['top', 'right', 'bottom', 'left', 'bottom']
+      each dir in placement
+        li
+          a(href='#', data-placement='#{dir}', data-toggle='tooltip', title='浮出在<b>#{dir}</b>的tooltip') 看#{dir}
+
+    ul.example.unstyled
+      li
+        a(href='#', data-placement='top', data-toggle='tooltip', title='默认类型的tooltip') 默认类型
+      - var types = ['primary', 'info', 'attention']
+      each type in types
+        li
+          a(href='#', data-placement='top', data-toggle='tooltip', data-type='#{type}', title='类型为<b>#{type}</b>的tooltip') 看#{type}
+
+
+
+
+    h1.sui-page-header 进度条
+    div.sui-progress
+      div.bar(style="width: 20%;") 20%
+    div.sui-progress.progress-danger
+      div.bar(style="width: 40%;") 40%
+    div.sui-progress.progress-success
+      div.bar(style="width: 60%;") 60%
+    div.sui-progress.progress-warning
+      div.bar(style="width: 80%;") 80%
+    div.sui-progress.progress-info
+      div.bar(style="width: 100%;") 100%
+
+
