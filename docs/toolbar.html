@@ -193,6 +193,7 @@
             <ul class="unstyled">
               <li>工具栏默认背景是透明的，一般看到的背景是整个插件的默认背景。当然也可以自己重载背景。</li>
               <li>为了和插件容器的顶部更好融合，工具栏里的内容距顶部没有间距，在demo中不是很好看，但是放入千牛容器就会很好看。</li>
+              <li>工具栏如何实现固定顶部？看这里 <a href='#fixed-top'>固定顶部布局</a></li>
             </ul>
           </p>
           <h2>纯文本</h2>
@@ -266,6 +267,8 @@
           <ul class="demo-operations clearfix">
             <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
           </ul>
+          <h2>如何实现工具栏固定在顶部</h2><a name="fixed-top" class="hidden-achor"></a>
+          <p class="sui-lead">添加 <code>.navbar-fixed-top</code> 可以让工具栏固定在顶部（因为是position:fixed实现的，注意需要在body上加一个 <code>padding-top: 62px</code>)。 <br>但是因为设计规范要求滚动条应该在工具栏下面出现，所以最好不要直接通过添加 <code>.navbar-fixed-top</code>来实现工具栏固定顶部，而是通过页面的布局来实现只有内容区滚动。<br>可以参考这个例子：<a href='examples/layout-demo.html'>工具栏固定顶部布局</a></p>
           <h2>如何实现导航换肤</h2>
           <p>创建theme.less，加入以下代码</p>
           <div>
