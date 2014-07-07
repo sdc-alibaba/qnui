@@ -43,12 +43,12 @@ mixin header(highlight)
           li(class=classAbout)
             a(href="./about.html") 关于
 
-        ul.sui-nav.pull-right
+        ul.sui-nav.pull-right(style='margin: 0;')
           li.sui-dropdown.select#themes-select.themes-select
             a.dropdown-toggle#select(role="button" href="javascript:void(0);" data-toggle="dropdown")
               input(value='sui.css' name='themes' type='hidden' id='themes-input')
               span 换肤
-            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop4")
+            ul.sui-dropdown-menu(role="menu" aria-labelledby="drop4" style='top: 100%; width: 95px;')
               li(role="presentation")
                 a.default(role="menuitem" tabindex="-1" href="javascript:void(0);" value='default') 默认
               li(role="presentation")
