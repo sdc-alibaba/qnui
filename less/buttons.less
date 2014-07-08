@@ -115,11 +115,6 @@ input[type="button"] {
 // -------------------------
 .btn-primary {
   .buttonBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
-  //reset in qn
-  border-color: #7cb4df;
-  &:hover {
-    border-color: #2597dd;
-  }
 }
 // Warning appears are orange
 .btn-warning {
@@ -195,7 +190,7 @@ input[type="submit"].btn {
   }
   &:hover,
   &:focus {
-    color: @linkColorHover;
+    color: @linkHoverColor;
     text-decoration: none;
     background-color: transparent;
     border-color: transparent;

@@ -6,7 +6,7 @@
 @tableBorder:                       #e6e6e6; // table and cell border
 @tableHeadBackground:               #f4f4f4;//table header background-color
 @tableHeadBackgroundLight:          @linkColor;
-@tableBorderLight:                  @linkColorHover;//light border color
+@tableBorderLight:                  @linkHoverColor;//light border color
 @tablePadding:                      6px 8px;
 
 // Buttons
@@ -19,7 +19,7 @@
 @btnBackgroundHighlight:            #f7f7f7; //lighten(@btnBackground, 10%);
 
 @btnPrimaryBackground:              @linkColor;
-@btnPrimaryBackgroundHighlight:     @linkColorHover;
+@btnPrimaryBackgroundHighlight:     @linkHoverColor;
 
 @btnInfoBackground:                 #5bc0de;
 @btnInfoBackgroundHighlight:        lighten(@btnInfoBackground, 10%);
@@ -84,7 +84,7 @@
 @dropdownOpenColor:             @linkColor;
 
 @dropdownLinkColor:             #666;
-@dropdownLinkColorHover:        @white;
+@dropdownLinkHoverColor:        @white;
 @dropdownLinkColorActive:       @white;
 
 @dropdownLinkBackgroundActive:  @linkColor;
@@ -136,7 +136,8 @@
 
 @navbarText:                      @textColor;
 @navbarLinkColor:                 @textColor;
-@navbarLinkColorHover:            @grayDark;
+@navbarLinkHoverColor:            @grayDark;
+
 @navbarLinkColorActive:           @gray;
 @navbarLinkBackgroundHover:       rgba(255,255,255,.6);
 @navbarLinkBackgroundActive:      #fff;
@@ -150,8 +151,8 @@
 
 @navbarInverseText:                      #aaa;
 @navbarInverseLinkColor:                 #aaa;
-@navbarInverseLinkColorHover:            @white;
-@navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
+@navbarInverseLinkHoverColor:            @white;
+@navbarInverseLinkColorActive:           @navbarInverseLinkHoverColor;
 @navbarInverseLinkBackgroundHover:       transparent;
 @navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
 
@@ -197,7 +198,7 @@
 // -------------------------
 
 @stepsFinishedColor: @linkColor;
-@stepsCurrentColor: @linkColorHover;
+@stepsCurrentColor: @linkHoverColor;
 @stepsTodoColor: #eeeeee;
 @stepsBaseHeight: 32px;
 @stepsBaseWidth: 195px;
@@ -211,7 +212,7 @@
 // tags
 @tagBackgroundColor: @btnBackgroundHighlight;
 @tagActiveColor: @linkColor;
-@tagActiveHoverColor: @linkColorHover;
+@tagActiveHoverColor: @linkHoverColor;
 @tagBorderColor: darken(@tagBackgroundColor, 10%);
 
 
@@ -337,6 +338,6 @@
 //checkbox
 @checkboxColor: #666;
 @checkboxCheckedColor: @linkColor;
-@checkboxHighlightColor: @linkColorHover;
+@checkboxHighlightColor: @linkHoverColor;
 @checkboxDisableColor: #aaa;
 @checkboxHoverColor: darken(@linkColor, 10%);
