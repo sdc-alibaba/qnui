@@ -7,6 +7,7 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - items.push({name: 'table', title: '表格', children:[], icon: 'sui-icon icon-th' })
   - items.push({name: 'nav', title: '导航和提醒', children:[], icon: 'sui-icon icon-globe'})
   - items.push({name: 'popover', title: '弹层', children:[], icon: 'sui-icon icon-picture'})
+  - items.push({name: 'jstool', title: 'JS工具', children:[], icon: 'sui-icon icon-shopping-cart'})
   - items.push({name: 'other', title: '其他', children:[], icon: 'sui-icon icon-shopping-cart'})
 
   - items[0].children.push({name: 'toolbar', title:'工具栏', url:'toolbar.html'})
@@ -46,9 +47,11 @@ ul.sui-nav.nav-stacked.docs-sidenav.docs-nav
   - items[5].children.push({name: 'dialog', title:'对话框', url:'dialog.html'})
   - items[5].children.push({name: 'tooltip', title:'tooltip', url:'tooltip.html'})
 
-  - items[6].children.push({name: 'Loading', title:'Loading', url:'loading.html'})
-  - items[6].children.push({name: 'progress', title:'进度条', url:'progress.html'})
-  - items[6].children.push({name: 'scrollbar', title:'滚动条', url:'scrollbar.html'})
+  - items[6].children.push({name: 'filesize', title:'filesize', url:'filesize.html'})
+
+  - items[7].children.push({name: 'Loading', title:'Loading', url:'loading.html'})
+  - items[7].children.push({name: 'progress', title:'进度条', url:'progress.html'})
+  - items[7].children.push({name: 'scrollbar', title:'滚动条', url:'scrollbar.html'})
 
   for cat, i in items
     - var classname = ''
