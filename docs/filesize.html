@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>全局样式</title>
+    <title>filesize </title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="assets/css/animate.css" rel="stylesheet">
@@ -88,9 +88,9 @@
                   <li><a href="tree-js.html">级联选择</a></li>
                 </ul>
               </li>
-              <li class="active"><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
+              <li><a><i class="docs-icon">&nbsp;</i>文字和图标</a>
                 <ul class="sui-nav nav-stacked docs-nav">
-                  <li class="active"><a href="global.html">全局文本样式</a></li>
+                  <li><a href="global.html">全局文本样式</a></li>
                   <li><a href="icons.html">图标</a></li>
                   <li><a href="label.html">Label</a></li>
                   <li><a href="tag.html">Tag</a></li>
@@ -119,9 +119,9 @@
                   <li><a href="tooltip.html">tooltip</a></li>
                 </ul>
               </li>
-              <li><a><i class="docs-icon">&nbsp;</i>JS工具</a>
+              <li class="active"><a><i class="docs-icon">&nbsp;</i>JS工具</a>
                 <ul class="sui-nav nav-stacked docs-nav">
-                  <li><a href="filesize.html">filesize</a></li>
+                  <li class="active"><a href="filesize.html">filesize</a></li>
                 </ul>
               </li>
               <li><a><i class="docs-icon">&nbsp;</i>其他</a>
@@ -133,7 +133,7 @@
               </li>
             </ul>
             <script type="text/javascript">
-              var disqus_identifier = 'disqus-id-global';
+              var disqus_identifier = 'disqus-id-filesize';
               function changeHeight(itemHeight){
                 if(!itemHeight) {
                   var height = $(window).height()-57;
@@ -163,40 +163,42 @@
       </div>
       <div class="content">
         <div class="content-inner">
-          <h2 class="sui-page-header">设计规范</h2>
-          <div class="docs-description"><img src="pictures/docs/text.png"></div>
-          <ul class="demo-operations clearfix">
-            <li><a href="#">下载psd文件</a></li>
-          </ul>
           <h2 class="sui-page-header">开发者文档</h2>
-          <h2>基础字体和颜色</h2>
+          <p class="sui-lead">一个超轻量的工具，将byte级别的正数（通常表征filesize）转成对人阅读更友好的格式。
+            <pre>$.filesize(333)
+$.filesize(333, {round: 1})
+/**
+* @param  {number | string}  可正确转为数字的数字（int、float）、字符串
+* @param  {Object} opt 可选的配置，目前只有保留的小数位数round参数，默认为2
+*/</pre>
+          </p>
           <ul class="sui-nav nav-tabs nav-large">
             <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
             <li><a href="#code1" data-toggle="tab">代码</a></li>
+            <li><a href="#doc1" data-toggle="tab">文档</a></li>
           </ul>
           <div class="tab-content">
             <div id="demo1" class="tab-pane active">
               <div class="bs-docs-example">
-                <p>
-                  段落
-                  基础字体：12px, #333, 微软雅黑
-                  基础行高: 18px
-                </p>
-                <h1>标题一</h1>
-                <h2>标题二</h2>
-                <h3>标题三</h3>
-                <h4>标题四</h4>
-                <h5>标题五</h5>
-                <p><a href="#">链接颜色</a></p>
+                <input id="filesize" type="text" placeholder="输入一个合法的非负数"><span id="ret"></span>
+                <script>
+                  $('#filesize').on('input', function(e){
+                    var val = $(this).val();
+                    $('#ret').html($.filesize(val))
+                  })
+                  
+                </script>
               </div>
             </div>
             <div id="code1" class="tab-pane">
               <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
             </div>
+            <div id="doc1" class="tab-pane">
+              <pre>$.filesize(500);               // "500B"
+$.filesize(265318);           // "259.10kB"
+$.filesize(265318, {round: 1}); // "259.1 kB"</pre>
+            </div>
           </div>
-          <ul class="demo-operations clearfix">
-            <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-          </ul>
           <div id="disqus_thread"></div>
           <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
