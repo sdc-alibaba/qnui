@@ -58,6 +58,10 @@ block content_wrap
     div.sui-form.form-horizontal
       div#less-section
         div.control-group
+          label.control-label 插件规范：
+          div.controls
+            +less("navbar", "工具栏", "navbar.less")
+        div.control-group
           label.control-label 表单：
           div.controls
             +less("forms", "表单", "forms.less")
@@ -77,15 +81,16 @@ block content_wrap
             +less("label", "label", "label.less")
             +less("tag", "tag", "tag.less")
         div.control-group
-          label.control-label 表格和布局：
+          label.control-label 表格：
           div.controls
             +less("tables", "表格", "tables.less")
-            +less("grid", "栅格", "grid.less,responsive.less,responsive-utilities.less")
-            +less("layouts", "布局", "layouts.less")
+            div(style='display: none;')
+              +less("grid", "栅格", "grid.less,responsive.less,responsive-utilities.less")
+              +less("layouts", "布局", "layouts.less")
+
         div.control-group
           label.control-label 导航和提醒：
           div.controls
-            +less("navbar", "导航栏", "navbar.less")
             +less("pagination", "分页器", "pagination.less, pagination.js")
             +less("msgs", "提示消息", "msgs.less, msgs.js")
             +less("steps", "步骤条", "steps.less")
@@ -102,6 +107,7 @@ block content_wrap
           div.controls
             +less("loading", "loading", "loading.less")
             +less("progress", "进度条", "progress-bars.less")
+            +less("scrollbar", "滚动条", "scrollbar.less")
 
         div.control-group
           label.control-label
