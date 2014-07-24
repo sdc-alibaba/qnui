@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <title>下载</title>
+    <title>更新日志</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="assets/css/animate.css" rel="stylesheet"/>
@@ -46,9 +46,9 @@
                 <li><a href="./gallery.html">组件库</a></li>
                 <li><a href="./examples.html">案例</a></li>
                 <li><a href="./download.html">下载</a></li>
-                <li class="active"><a href="./themes.html">换肤</a></li>
+                <li><a href="./themes.html">换肤</a></li>
                 <li><a href="./customize.html">自定义</a></li>
-                <li><a href="./changelog.html">更新日志</a></li>
+                <li class="active"><a href="./changelog.html">更新日志</a></li>
                 <li><a href="./about.html">关于</a></li>
               </ul>
               <ul style="margin: 0;" class="sui-nav pull-right">
@@ -66,32 +66,32 @@
           </div>
         </div>
     <div class="sui-container">
-      <h1 class="sui-page-header">组件换肤说明</h1>
-      <h2>换肤是什么</h2>
-      <p class="sui-lead">目前SUI的所有组件都有一个主色，这个主色同时也是链接色。在 <code>variables-base.less</code> 文件中定义了如下两个变量：
-        <ul class="unstyled">
-          <li><code>@linkColor: #76b8ea;</code> 链接色</li>
-          <li><code>@linkHoverColor: #37a7ec;</code> 链接高亮色</li>
-        </ul>
-      </p>
-      <p>这两个颜色大多数组件使用，通过修改这两个变量并重新编译，即可实现换肤。点击右上角的换肤按钮，可以在组件库中预览每种内置皮肤的效果。</p>
-      <h2>千牛中如何使用换肤</h2>
-      <p class="sui-lead">千牛中默认的换肤只能更换窗口标题和工具栏，如果使用了 QNUI 的代码之后，当用户点击换肤的时候会自动加载对应的皮肤文件。所以 QNUI 所有的组件默认就是支持换肤功能的，不需要做额外的设置。
-        <p><strong>但是有一个前提条件就是CSS必须引用的是线上 cdn 的地址，如果是下载到本地再使用，因为千牛客户端没有检测本地文件所以无法实现换肤。</strong></p>
-      </p>
-      <h2>非千牛客户端如何使用换肤功能</h2>
-      <p class="sui-lead">通过引用不同的css文件既可以轻松实现换肤功能。目前内置了四套不同颜色的皮肤，分别是：
-        <ul class="unstyled">
-          <li>默认皮肤 <a target='_blank' href='http://g.alicdn.com/sj/qnui/1.1.6/css/sui.min.css'>sui.min.css</a></li>
-          <li>粉色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/qnui/1.1.6/css/sui-themes-pink.min.css'>sui-themes-pink.min.css</a></li>
-          <li>绿色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/qnui/1.1.6/css/sui-themes-green.min.css'>sui-themes-green.min.css</a></li>
-          <li>深绿色皮肤 <a target='_blank' href='http://g.alicdn.com/sj/qnui/1.1.6/css/sui-themes-dark-green.min.css'>sui-themes-dark-green.min.css</a></li>
-        </ul>
-      </p>
-      <p><strong>注意，换肤功能从版本 1.1.1 开始支持，低于 1.1.1 的版本没有内置皮肤。</strong></p>
-      <p class="sui-lead">注意，皮肤文件包含了全部的样式，而不仅仅是换肤相关的样式，所以引入皮肤文件之后是不需要引入 sui.min.css 文件的。</p>
-      <h2>制作自己的皮肤</h2>
-      <p class="sui-lead">如果现有的皮肤不能满足需求，可以clone源码之后制作自己的皮肤。制作方法非常简单，直接修改 <code>@linkColor</code> 和 <code>@linkHoverColor</code> 并编译less即可。如果还希望保留默认的皮肤，可以参考 <code>sui-themes-pink.less</code> 的写法，复制一份文件为 <code>sui-themes-xxx.less</code>,修改其中的颜色变量并编译即可。</p>
+      <h1 class="sui-page-header">版本更新日志</h1>
+      <p class="sui-lead">目前我们使用三位版本号增量发布，已经发布的版本不会再有任何变化。 三位版本号为 x.y.z，其中，更新z表组件的bug修复或者功能更新，更新y表示新增组件，更新 x表示不兼容老版本的重要升级（这个目前不会有）。</p>
+      <ul class="unstyled">
+        <table class="sui-table">
+          <tr>
+            <th>版本号</th>
+            <th>更新内容</th>
+            <th>更新时间</th>
+          </tr>
+          <tr>
+            <td>1.1.6</td>
+            <td>修复了checkbox可能会导致页面滚动的bug，官网上增加了更新日志页面。</td>
+            <td>2014.07.24</td>
+          </tr>
+          <tr>
+            <td>1.1.5</td>
+            <td>下拉菜单增加了一个禁用状态，更新了jquery cdn地址，修复了官网换肤按钮在小屏幕上会被挡住的bug。</td>
+            <td>2014.07.22</td>
+          </tr>
+          <tr>
+            <td>1.1.4</td>
+            <td>提示消息增加了一个可选的关闭按钮，更新了表单文档。</td>
+            <td>2014.07.18</td>
+          </tr>
+        </table>
+      </ul>
     </div>
     <div class="footer">
       <ul class="unstyled">
