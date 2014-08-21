@@ -57,7 +57,7 @@
         , standardW = {
             small: 440  //默认宽度
             ,normal: 590
-            ,large: 790
+            ,large: 780
           }
       ele.delegate('[data-dismiss="modal"]', 'click.dismiss.modal', $.proxy(this.hide, this))
         .delegate(':not(.disabled)[data-ok="modal"]', 'click.ok.modal', $.proxy(this.okHide, this))
