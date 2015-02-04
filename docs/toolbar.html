@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>工具栏</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>工具栏</title>
     <link href="assets/css/animate.css" rel="stylesheet">
     <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
@@ -143,7 +143,6 @@
                 <li><a><i class="docs-icon">&nbsp;</i>表格</a>
                   <ul class="sui-nav nav-stacked docs-nav">
                     <li><a href="tables.html">表格</a></li>
-                    <li><a href="carousel.html">幻灯片</a></li>
                   </ul>
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
@@ -156,6 +155,8 @@
                     <li><a href="tab.html">标签页 - 样式</a></li>
                     <li><a href="tab-js.html">标签页 - JS</a></li>
                     <li><a href="intro.html">新手指引</a></li>
+                    <li><a href="navlist.html">导航列表</a></li>
+                    <li><a href="carousel.html">幻灯片</a></li>
                   </ul>
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
@@ -296,12 +297,56 @@
             <h2>如何实现工具栏固定在顶部</h2><a name="fixed-top" class="hidden-achor"></a>
             <p class="sui-lead">添加 <code>.navbar-fixed-top</code> 可以让工具栏固定在顶部（因为是position:fixed实现的，注意需要在body上加一个 <code>padding-top: 62px</code>)。 <br>但是因为设计规范要求滚动条应该在工具栏下面出现，所以最好不要直接通过添加 <code>.navbar-fixed-top</code>来实现工具栏固定顶部，而是通过页面的布局来实现只有内容区滚动。<br>可以参考这个例子：<a href='examples/layout-demo.html'>工具栏固定顶部布局</a></p>
             <h2>如何实现导航换肤</h2>
-            <p>创建theme.less，加入以下代码</p>
+            <p><b style="color: red;">重要更新：</b><b>从千牛3.0开始，换肤比之前多提供3个less变量：</b><code>@theme-bg-url</code><code>@theme-bg-x</code><code>@title-bar-height</code><b>，用于能够平滑升级背景图片的对齐。</b></p>
+            <p style="color: red;">注意：从千牛3.0开始，换肤不再需要为背景图片覆盖一层0.15透明度的白色蒙层。</p>
+            <h4>换肤可以使用的less变量（以蓝色主题为例）：
+              <pre class="prettyprint linenums">@color-base: #56b6f2;
+@palette-color-1: #ffffff;
+@palette-color-2: #ecf7fe;
+@palette-color-3: #d9effc;
+@palette-color-4: #c6e6fb;
+@palette-color-5: #b3def9;
+@palette-color-6: #a0d6f8;
+@palette-color-7: #8dcef6;
+@palette-color-8: #7ac6f5;
+@palette-color-9: #56b6f2; /* @palette-color-9 的值和 @color-base 相同，往上颜色越来越浅，往下颜色越来越深。*/
+@palette-color-10: #55b5f2;
+@palette-color-11: #42adf0;
+@palette-color-12: #2fa5ef;
+@palette-color-13: #1c9dee;
+@palette-color-14: #1193e3;
+@palette-color-15: #1086d0;
+@palette-color-16: #0f7abd;
+@palette-color-17: #0d6eaa;
+@palette-color-18: #0c6298;
+@palette-color-19: #0a5685;
+@palette-color-20: #094972;
+@palette-color-21: #073d5f;
+@palette-color-22: #06314c;
+@palette-color-23: #042539;
+@palette-color-24: #031826;
+@palette-color-25: #010c13;
+/* 从3.0开始，不推荐使用变量@theme-background-image */
+@theme-background-image: url(http://gtms04.alicdn.com/tps/i4/TB1X6noHXXXXXc5XFXXb4A9VXXX-1200-900.jpg)
+@theme-bg-img: url(http://gtms04.alicdn.com/tps/i4/TB1X6noHXXXXXc5XFXXb4A9VXXX-1200-900.jpg)
+@theme-bg-url: "http://gtms04.alicdn.com/tps/i4/TB1X6noHXXXXXc5XFXXb4A9VXXX-1200-900.jpg"
+@theme-bg-x: right; /* 背景图片X轴对齐方式 */
+@title-bar-height: 30px;</pre>
+            </h4>
+            <p>除了使用以下变量外，你还可以使用less函数生成新的颜色变量：
+              <pre class="prettyprint linenums">@color-lightness: lightness(@color-base, 0.8);
+@color-lighten: lighten(@palette-color-3, 4%);</pre>
+            </p>
+            <p>现在，正式开始编写换肤样式，先创建theme.less，在theme.less头部先声明要使用的变量，参照以下代码。</p>
+            <p>这些变量的值会在编译时被主题提供的变量值覆盖。如：<code>@color-base: #ffffff;</code>的值切换到蓝色主题时会被覆盖成<code>@color-base: #56b6f2;</code></p>
+            <p><b>注意：必须先声明要使用的变量，否则less编译时会报变量<code>undefined</code>的错误。</b></p>
+            <p>以下代码实现的是简单的窗口背景图片换肤</p>
             <div>
-              <pre class="prettyprint linenums">@color-base: #ffffff;
-@theme-background-image: url(#);
+              <pre class="prettyprint linenums">// 在文件头部先书写需要使用的变量，否则less编译时会报变量undefined的错误
+@color-base: #ffffff;
+@theme-background-image: url(about:blank;);
 body {
-    background: @theme-background-image @color-base 0px -30px no-repeat;
+    background: @theme-bg-img @color-base @theme-bg-x -@title-bar-height no-repeat;
 }</pre>
             </div>
             <p>在页面中引入theme.less以及千牛的jssdk.js和less.js</p>

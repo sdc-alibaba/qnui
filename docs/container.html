@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>进度条</title>
+    <title>响应式容器</title>
     <link href="assets/css/animate.css" rel="stylesheet">
     <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
@@ -38,12 +38,6 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
-    <style type="text/css">
-      .sui-progress {
-        max-width: 400px;
-      }
-      
-    </style>
   </head>
   <body class="sui-scrollbar">
         <div class="sui-navbar navbar-fixed-top navbar-inverse">
@@ -145,16 +139,16 @@
                     <li><a href="template.html">字符串模板</a></li>
                   </ul>
                 </li>
-                <li class="active"><a><i class="docs-icon">&nbsp;</i>其他</a>
+                <li><a><i class="docs-icon">&nbsp;</i>其他</a>
                   <ul class="sui-nav nav-stacked docs-nav">
                     <li><a href="loading.html">Loading</a></li>
-                    <li class="active"><a href="progress.html">进度条</a></li>
+                    <li><a href="progress.html">进度条</a></li>
                     <li><a href="scrollbar.html">滚动条</a></li>
                   </ul>
                 </li>
               </ul>
               <script type="text/javascript">
-                var disqus_identifier = 'disqus-id-progress';
+                var disqus_identifier = 'disqus-id-container';
                 function changeHeight(itemHeight){
                   if(!itemHeight) {
                     var height = $(window).height()-57;
@@ -184,162 +178,9 @@
         </div>
         <div class="content">
           <div class="content-inner">
-            <h2 class="sui-page-header">设计规范</h2>
-            <div class="docs-description"><img src="pictures/docs/progress.png"></div>
-            <ul class="demo-operations clearfix">
-              <li><a href="#">下载psd文件</a></li>
-            </ul>
-            <h2 class="sui-page-header">开发者文档</h2>
-            <p class="sui-lead">不同功能和样式的进度条。</p>
-            <h2>不同功能</h2>
-            <ul class="sui-nav nav-tabs nav-large">
-              <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
-              <li><a href="#code1" data-toggle="tab">代码</a></li>
-              <li><a href="#doc1" data-toggle="tab">文档</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="demo1" class="tab-pane active">
-                <div class="bs-docs-example">
-                  <div class="sui-progress">
-                    <div style="width: 20%;" class="bar">20%</div>
-                  </div>
-                  <div class="sui-progress progress-danger">
-                    <div style="width: 40%;" class="bar">40%</div>
-                  </div>
-                  <div class="sui-progress progress-success">
-                    <div style="width: 60%;" class="bar">60%</div>
-                  </div>
-                  <div class="sui-progress progress-warning">
-                    <div style="width: 80%;" class="bar">80%</div>
-                  </div>
-                  <div class="sui-progress progress-info">
-                    <div style="width: 100%;" class="bar">100%</div>
-                  </div>
-                </div>
-              </div>
-              <div id="code1" class="tab-pane">
-                <pre data-target="#demo1&gt;div" class="prettyprint linenums"></pre>
-              </div>
-              <div id="doc1" class="tab-pane">和button的高度和功能都是一一对应的。</div>
-            </div>
-            <ul class="demo-operations clearfix">
-              <li><a href="javascript:void(0)" data-target="#demo1&gt;div" class="copy-btn">复制代码</a></li>
-            </ul>
-            <h2>不同大小</h2>
-            <ul class="sui-nav nav-tabs nav-large">
-              <li class="active"><a href="#demo12" data-toggle="tab">示例</a></li>
-              <li><a href="#code12" data-toggle="tab">代码</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="demo12" class="tab-pane active">
-                <div class="bs-docs-example">
-                  <div class="sui-progress progress-small">
-                    <div style="width: 60%;" class="bar">60%</div>
-                  </div>
-                  <div class="sui-progress">
-                    <div style="width: 60%;" class="bar">60%</div>
-                  </div>
-                  <div class="sui-progress progress-large">
-                    <div style="width: 60%;" class="bar">60%</div>
-                  </div>
-                  <div class="sui-progress progress-xlarge">
-                    <div style="width: 60%;" class="bar">60%</div>
-                  </div>
-                </div>
-              </div>
-              <div id="code12" class="tab-pane">
-                <pre data-target="#demo12&gt;div" class="prettyprint linenums"></pre>
-              </div>
-            </div>
-            <ul class="demo-operations clearfix">
-              <li><a href="javascript:void(0)" data-target="#demo12&gt;div" class="copy-btn">复制代码</a></li>
-            </ul>
-            <h2>带条纹</h2>
-            <ul class="sui-nav nav-tabs nav-large">
-              <li class="active"><a href="#demo2" data-toggle="tab">示例</a></li>
-              <li><a href="#code2" data-toggle="tab">代码</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="demo2" class="tab-pane active">
-                <div class="bs-docs-example">
-                  <div class="sui-progress progress-striped">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-danger progress-striped">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-success progress-striped">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-warning progress-striped">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-info progress-striped">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="code2" class="tab-pane">
-                <pre data-target="#demo2&gt;div" class="prettyprint linenums"></pre>
-              </div>
-            </div>
-            <ul class="demo-operations clearfix">
-              <li><a href="javascript:void(0)" data-target="#demo2&gt;div" class="copy-btn">复制代码</a></li>
-            </ul>
-            <h2>动态进度条</h2>
-            <ul class="sui-nav nav-tabs nav-large">
-              <li class="active"><a href="#demo3" data-toggle="tab">示例</a></li>
-              <li><a href="#code3" data-toggle="tab">代码</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="demo3" class="tab-pane active">
-                <div class="bs-docs-example">
-                  <div class="sui-progress progress-striped active">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-danger progress-striped active">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-success progress-striped active">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-warning progress-striped active">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                  <div class="sui-progress progress-info progress-striped active">
-                    <div style="width: 60%;" class="bar"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="code3" class="tab-pane">
-                <pre data-target="#demo3&gt;div" class="prettyprint linenums"></pre>
-              </div>
-            </div>
-            <ul class="demo-operations clearfix">
-              <li><a href="javascript:void(0)" data-target="#demo3&gt;div" class="copy-btn">复制代码</a></li>
-            </ul>
-            <h2>分段</h2>
-            <ul class="sui-nav nav-tabs nav-large">
-              <li class="active"><a href="#demo4" data-toggle="tab">示例</a></li>
-              <li><a href="#code4" data-toggle="tab">代码</a></li>
-            </ul>
-            <div class="tab-content">
-              <div id="demo4" class="tab-pane active">
-                <div class="bs-docs-example">
-                  <div class="sui-progress">
-                    <div style="width: 40%;" class="bar bar-success"></div>
-                    <div style="width: 20%;" class="bar bar-danger"></div>
-                    <div style="width: 10%;" class="bar bar-warning"></div>
-                  </div>
-                </div>
-              </div>
-              <div id="code4" class="tab-pane">
-                <pre data-target="#demo4&gt;div" class="prettyprint linenums"></pre>
-              </div>
-            </div>
-            <ul class="demo-operations clearfix">
-              <li><a href="javascript:void(0)" data-target="#demo4&gt;div" class="copy-btn">复制代码</a></li>
-            </ul>
+            <h2 class="sui-page-header">响应式容器</h2>
+            <p class="sui-lead"><code>.sui-container</code> 是一个响应式容器，它会自动左右居中，并且根据页面的宽度来调整自身宽度，左右两边有合理的边距。很合适作为整个页面内容的容器。</p>
+            <p class="sui-lead">用法： <code>&lt;div class='sui-container'&gt;&lt;/div&gt;</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
               /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

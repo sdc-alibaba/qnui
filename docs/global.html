@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>全局样式</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>全局样式</title>
     <link href="assets/css/animate.css" rel="stylesheet">
     <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
     <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
@@ -111,7 +111,6 @@
                 <li><a><i class="docs-icon">&nbsp;</i>表格</a>
                   <ul class="sui-nav nav-stacked docs-nav">
                     <li><a href="tables.html">表格</a></li>
-                    <li><a href="carousel.html">幻灯片</a></li>
                   </ul>
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>导航和提醒</a>
@@ -124,6 +123,8 @@
                     <li><a href="tab.html">标签页 - 样式</a></li>
                     <li><a href="tab-js.html">标签页 - JS</a></li>
                     <li><a href="intro.html">新手指引</a></li>
+                    <li><a href="navlist.html">导航列表</a></li>
+                    <li><a href="carousel.html">幻灯片</a></li>
                   </ul>
                 </li>
                 <li><a><i class="docs-icon">&nbsp;</i>弹层</a>
@@ -183,6 +184,11 @@
               <li><a href="#">下载psd文件</a></li>
             </ul>
             <h2 class="sui-page-header">开发者文档</h2>
+            <p class="sui-lead">
+              <ul class="unstyled">
+                <li><strong>更新 v1.5.0：增加了不同颜色大小的文本和链接样式。</strong></li>
+              </ul>
+            </p>
             <h2>基础字体和颜色</h2>
             <ul class="sui-nav nav-tabs nav-large">
               <li class="active"><a href="#demo1" data-toggle="tab">示例</a></li>
@@ -201,7 +207,28 @@
                   <h3>标题三</h3>
                   <h4>标题四</h4>
                   <h5>标题五</h5>
-                  <p><a href="#">链接颜色</a></p>
+                  <p>默认字号</p>
+                  <p class="sui-text-large">大字号 sui-text-large</p>
+                  <p class="sui-text-xlarge">更大字号 sui-text-xlarge</p>
+                  <p class="sui-text-xxlarge">超大字号 sui-text-xxlarge</p>
+                  <h2>文本色</h2>
+                  <ul class="unstyled">
+                    <li><span>默认文本颜色</span></li>
+                    <li><span class="sui-text-success">成功色</span></li>
+                    <li><span class="sui-text-warning">警告色</span></li>
+                    <li><span class="sui-text-danger">危险色</span></li>
+                    <li><span class="sui-text-info">提示色</span></li>
+                    <li><span class="sui-text-disabled">禁用色</span></li>
+                  </ul>
+                  <h2>链接色</h2>
+                  <ul class="unstyled">
+                    <li><a>默认链接颜色</a></li>
+                    <li><a class="sui-text-success">成功色</a></li>
+                    <li><a class="sui-text-warning">警告色</a></li>
+                    <li><a class="sui-text-danger">危险色</a></li>
+                    <li><a class="sui-text-info">提示色</a></li>
+                    <li><a class="sui-text-disabled">禁用色</a></li>
+                  </ul>
                 </div>
               </div>
               <div id="code1" class="tab-pane">
