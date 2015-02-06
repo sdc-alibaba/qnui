@@ -294,10 +294,10 @@
             <ul class="demo-operations clearfix">
               <li><a href="javascript:void(0)" data-target="#demo2" class="copy-btn">复制代码</a></li>
             </ul>
-            <h2>如何实现工具栏固定在顶部</h2><a name="fixed-top" class="hidden-achor"></a>
+            <h2 id="toolbar-practice">如何实现工具栏固定在顶部</h2><a name="fixed-top" class="hidden-achor"></a>
             <p class="sui-lead">添加 <code>.navbar-fixed-top</code> 可以让工具栏固定在顶部（因为是position:fixed实现的，注意需要在body上加一个 <code>padding-top: 62px</code>)。 <br>但是因为设计规范要求滚动条应该在工具栏下面出现，所以最好不要直接通过添加 <code>.navbar-fixed-top</code>来实现工具栏固定顶部，而是通过页面的布局来实现只有内容区滚动。<br>可以参考这个例子：<a href='examples/layout-demo.html'>工具栏固定顶部布局</a></p>
             <h2>如何实现导航换肤</h2>
-            <p><b style="color: red;">重要更新：</b><b>从千牛3.0开始，换肤比之前多提供3个less变量：</b><code>@theme-bg-url</code><code>@theme-bg-x</code><code>@title-bar-height</code><b>，用于能够平滑升级背景图片的对齐。</b></p>
+            <p><b style="color: red;">重要更新：</b><b>从千牛3.0开始，换肤比之前多提供3个less变量：</b><code>@theme-bg-url</code><code>@theme-bg-x</code><code>@title-bar-height</code><b>，用于能够平滑升级背景图片的对齐。2.x版本<code>@theme-bg-x</code>的值为<code>left</code>，3.x版本<code>@theme-bg-x</code>的值和客户端保持一致，开发者只需使用即可。<a href="#qn-theme-example">示例</a></b></p>
             <p style="color: red;">注意：从千牛3.0开始，换肤不再需要为背景图片覆盖一层0.15透明度的白色蒙层。</p>
             <h4>换肤可以使用的less变量（以蓝色主题为例）：
               <pre class="prettyprint linenums">@color-base: #56b6f2;
@@ -337,10 +337,10 @@
               <pre class="prettyprint linenums">@color-lightness: lightness(@color-base, 0.8);
 @color-lighten: lighten(@palette-color-3, 4%);</pre>
             </p>
-            <p>现在，正式开始编写换肤样式，先创建theme.less，在theme.less头部先声明要使用的变量，参照以下代码。</p>
+            <p id="qn-theme-example">现在，正式开始编写换肤样式，先创建theme.less，在theme.less头部先声明要使用的变量，参照以下代码。</p>
             <p>这些变量的值会在编译时被主题提供的变量值覆盖。如：<code>@color-base: #ffffff;</code>的值切换到蓝色主题时会被覆盖成<code>@color-base: #56b6f2;</code></p>
             <p><b>注意：必须先声明要使用的变量，否则less编译时会报变量<code>undefined</code>的错误。</b></p>
-            <p>以下代码实现的是简单的窗口背景图片换肤</p>
+            <p><b>示例：</b>实现简单的窗口背景图片换肤</p>
             <div>
               <pre class="prettyprint linenums">// 在文件头部先书写需要使用的变量，否则less编译时会报变量undefined的错误
 @color-base: #ffffff;
