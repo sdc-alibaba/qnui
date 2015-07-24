@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 进度条
@@ -13,7 +13,6 @@ block sidebar
   +sidebar('progress')
 
 block content
-  h1 进度条
 
   h2.sui-page-header 设计规范
 
@@ -84,37 +83,6 @@ block content
   ul.demo-operations.clearfix
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo12>div') 复制代码
-
-  h2 文字居中
-  ul.sui-nav.nav-tabs.nav-large
-    li.active
-      a(href='#demo11', data-toggle='tab') 示例
-    li
-      a(href='#code11', data-toggle='tab') 代码
-  div.tab-content
-    div.tab-pane.active#demo11
-      div.bs-docs-example
-        div.sui-progress.progress-small
-          div.bar(style="width: 30%;")
-          div.bar-text 30%
-        div.sui-progress
-          div.bar(style="width: 40%;")
-          div.bar-text 40%
-        div.sui-progress.progress-large
-          div.bar(style="width: 50%;")
-          div.bar-text 50%
-        div.sui-progress.progress-xlarge
-          div.bar(style="width: 60%;")
-          div.bar-text 60%
-
-    div.tab-pane#code11
-      pre.prettyprint.linenums(data-target='#demo11>div')
-
-  ul.demo-operations.clearfix
-    li
-      a.copy-btn(href='javascript:void(0)', data-target='#demo11>div') 复制代码
-
-
 
   h2 带条纹
   ul.sui-nav.nav-tabs.nav-large

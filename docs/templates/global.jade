@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 全局样式
@@ -9,7 +9,6 @@ block sidebar
 block content
   - var SIZES = ['xlarge', 'large', '', 'small']
   - var ROLES = ["", "primary", "success", "info", "warning", "danger", "inverse"]
-  h1 全局样式
 
   h2.sui-page-header 设计规范
 
@@ -23,21 +22,16 @@ block content
   h2.sui-page-header 开发者文档
 
   p.sui-lead
-    | 建议正文、链接等部分使用12号字体，标题部分使用14号字体加粗。<br />
-    | 建议中文使用微软雅黑、宋体，英文使用Tahoma,Arial等字体。<br />
-    | 行高为字体的150%,文字间距为字体大小的180%，段落间距为字体的200%。<br />
-    | 默认文本颜色为 <code>#333</code>，默认链接颜色为 <code>#08c</code>。<br />
-    | SUI 默认定义了一些基本全局样式，包括基础字体、链接色、段落和列表样式等。
-    | 我们使用 <a href='http://necolas.github.com/normalize.css/'>normalize.css</a> 对全局样式进行了一些重载，并且针对我们的需求做了一些修改。
+    ul.unstyled
+      li
+        strong 更新 v1.5.0：增加了不同颜色大小的文本和链接样式。
 
-  h2 1. 基础字体和颜色
+  h2 基础字体和颜色
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
     li
       a(href='#code1', data-toggle='tab') 代码
-    li
-      a(href='#doc1', data-toggle='tab') 文档
 
   div.tab-content
     div.tab-pane.active#demo1
@@ -54,34 +48,46 @@ block content
         h5 标题五
 
         p
-          a(href='#') 链接颜色
+          默认字号
+        p.sui-text-large
+          大字号 sui-text-large
+        p.sui-text-xlarge
+          更大字号 sui-text-xlarge
+        p.sui-text-xxlarge
+          超大字号 sui-text-xxlarge
+
+        h2 文本色
+        ul.unstyled
+          li
+            span 默认文本颜色
+          li
+            span.sui-text-success 成功色
+          li
+            span.sui-text-warning 警告色
+          li
+            span.sui-text-danger 危险色
+          li
+            span.sui-text-info 提示色
+          li
+            span.sui-text-disabled 禁用色
+
+        h2 链接色
+        ul.unstyled
+          li
+            a 默认链接颜色
+          li
+            a.sui-text-success 成功色
+          li
+            a.sui-text-warning 警告色
+          li
+            a.sui-text-danger 危险色
+          li
+            a.sui-text-info 提示色
+          li
+            a.sui-text-disabled 禁用色
+        
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
-    div.tab-pane#doc1
-      h4 全局样式的修改主要包含以下几点
-      ul.unstyled
-        li 
-          strong 字体：
-          code
-            | font-family: Arial, "微软雅黑", "宋体", sans-serif; font-size: 12px; line-height: 18px; color: #333333;
-        li
-          strong 链接颜色：
-          | 修改了默认的链接颜色，默认颜色改为 <code>#06c</code>, hover 状态颜色改为 <code>#004080</code>
-        li
-          strong 移除了body元素的margin
-        li
-          strong 标题：
-          | 从 <code>h1</code> 至 <code>h5</code> 的 <code>font-size</code>分别是：24px,22px,20px,14px,12px，行高是文字大小的1.5倍，上下margin都是9px
-        li
-          strong 段落：
-          | 默认段落之间的间距是默认的行高 18px
-        li
-          strong 列表：
-          | 移除了 <code>ul</code> 和 <code>ol</code> 的默认margin和padding
-
-      p
-        | 除此之外，还对 <code>small</code>, <code>strong</code>, <code>blockquote</code>等样式进行了调整。<br />
-        | 对于 form，table 等的样式设置大部分都被封装在了对应的class之下，不会影响全局样式。
 
   ul.demo-operations.clearfix
     li

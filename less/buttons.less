@@ -18,6 +18,7 @@
   vertical-align: middle;
   cursor: pointer;
   .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark);
+  border-color: #ececec;
   .border-radius(@borderRadiusMini);
   .user-select(none);
 
@@ -52,10 +53,13 @@
     .user-select(none);
   }
 
+  .sui-icon {
+    line-height: 1;
+  }
+
   .sui-icon:after {
     content: " ";
   }
-
 }
 
 
@@ -173,29 +177,107 @@ input[type="submit"].btn {
 // --------------------------------------------------
 
 // Make a button look and behave like a link
-.btn-link,
-.btn-link:active,
-.btn-link[disabled] {
-  border-color: transparent;
-  background-color: transparent;
-  background-image: none;
-  .box-shadow(none);
-}
 .btn-link {
-  border-color: transparent;
-  cursor: pointer;
-  color: @linkColor;
-  .border-radius(0);
+  &, 
+  &:active,
+  &[disabled] {
+    border-color: transparent;
+    background-color: transparent;
+    background-image: none;
+    .box-shadow(none);
+  }
+  & {
+    border-color: transparent;
+    cursor: pointer;
+    color: @linkColor;
+    .border-radius(0);
+  }
+  &:hover,
+  &:focus {
+    color: @linkHoverColor;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+  }
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: @grayDark;
+    text-decoration: none;
+  }
+  &:active {
+    color: #1e8ccf;
+  }
+}
+
+.btn-text {
+  .btn-link;
+  color: #666;
+  text-decoration: none!important;
+  .sui-icon {
+    color: #999;
+  }
+  &:hover, &:active {
+    .sui-icon {
+      color: inherit;
+    }
+    border-color: transparent;
+    cursor: pointer;
+    color: @linkColor;
+    .border-radius(0);
+  }
 }
 .btn-link:hover,
 .btn-link:focus {
-  color: @linkColorHover;
+  color: @linkHoverColor;
   text-decoration: underline;
   background-color: transparent;
   border-color: transparent;
 }
-.btn-link[disabled]:hover,
-.btn-link[disabled]:focus {
-  color: @grayDark;
-  text-decoration: none;
+.btn-link[disabled], .btn-link.disabled,
+.btn-text[disabled], .btn-text.disabled {
+  &, &:hover, &:focus {
+    color: @btnDisabledColor;
+    text-decoration: none;
+    background: none;
+    border: none;
+  }
+}
+
+
+// bordered btn
+.sui-btn {
+  &.btn-bordered {
+    background-color: transparent;
+    .buttonBorderedBackground(#999, #666);
+    &.btn-primary {
+      .buttonBorderedBackground(@btnPrimaryBackground, @btnPrimaryBackgroundHighlight);
+    }
+    // Warning appears are orange
+    &.btn-warning {
+      .buttonBorderedBackground(@btnWarningBackground, @btnWarningBackgroundHighlight);
+    }
+    // Danger and error appear as red
+    &.btn-danger {
+      .buttonBorderedBackground(@btnDangerBackground, @btnDangerBackgroundHighlight);
+    }
+    // Success appears as green
+    &.btn-success {
+      .buttonBorderedBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+    }
+    // Info appears as a neutral blue
+    &.btn-info {
+      .buttonBorderedBackground(@btnInfoBackground, @btnInfoBackgroundHighlight);
+    }
+    // Inverse appears as dark gray
+    &.btn-inverse {
+      .buttonBorderedBackground(@btnInverseBackground, @btnInverseBackgroundHighlight);
+    }
+    &.disabled, &[disabled] {
+      &, &:hover, &:focus {
+        border-color: @btnDisabledColor;
+        color: @btnDisabledColor;
+        background: @btnDisabledBackground;
+      }
+    }
+  }
 }

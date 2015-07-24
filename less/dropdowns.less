@@ -20,10 +20,8 @@
 
   &.dropdown-bordered > .dropdown-inner {
     > .sui-dropdown-menu {
-      top: 0;
       left: 0;
       margin: 0; // override default ul
-      padding-top: 24px;
       z-index: 9;
     }
   }
@@ -68,17 +66,16 @@
     
   a {
     outline: 0;
-    > .sui-icon {
-      float: right;
-    }
   }
 
 // Place the caret
   .caret {
-    .sui-icon;
-    font-size: 120%;
+    font-family: "icon-pc";
+    font-style: normal;
+    vertical-align: -1px; //对齐，修复默认的iconfont会改变容器行高的bug
+    line-height: 1;
     &:before {
-      content: "\e6eb";
+      content: "\c611";
     }
   }
 
@@ -88,6 +85,7 @@
     vertical-align: middle;
     display: inline-block;
     padding: 0;
+    height: 24px;
     .dropdown-inner {
       border: 1px solid @dropdownBorder;
       display: inline-block;
@@ -95,45 +93,57 @@
       a {
         color: #666;
         min-width: 82px;  //总宽度100px
-        display: inline-block;
+        display: block;
         padding: @basePadding;
         padding-left: 8px;
         padding-right: 8px;
       }
+      .disabled > a {
+        color: #999!important;
+      }
       .caret {
         float: right;
         margin-left: 4px;
+        line-height: 1.5;
       }
 
       > .sui-dropdown-menu {
         margin: 0;
-        width: 100%;
+        min-width: 100%;
         .box-sizing(border-box);
+        .border-radius(0 0 @borderRadiusMini @borderRadiusMini);
+      }
+    }
+    &.open {
+      .dropdown-inner {
+        > a {
+          position: relative;
+          z-index: 10;
+        }
       }
     }
   }
-  &.open {
+
+  &.disabled {
     .dropdown-inner {
-      border-color: @dropdownOpenColor;
-      > a > .caret {
-        color: @dropdownOpenColor;
-      }
-      > a {
-        position: relative;
-        z-index: 10;
-        margin-bottom: -1px;  //避免增加一像素border改变了高度
+      a {
+        color: @dropdownDisabledColor;
       }
     }
-  }
-  &.dropdown-bordered.open > .dropdown-inner {
-    > a {
-      border-bottom: 1px solid @dropdownBorder;
+    &.dropdown-bordered a {
+      background-color: @dropdownDisabledBgColor;
     }
   }
   input {
     border: 0;
     width: 100px;
     color: #666;
+  }
+
+  &.align-right > .dropdown-inner > .sui-dropdown-menu,
+  &.align-right > .sui-dropdown-menu {
+    right: 0;
+    left: auto;
   }
 }
 
@@ -148,7 +158,7 @@
   background-color: @dropdownBackground;
   border: 1px solid @dropdownBorder;
   .border-radius(2px);
-  .box-shadow(0 0px 2px 2px rgba(0,0,0,.1));
+  .box-shadow(2px 2px 0px 0px rgba(0,0,0,.1));
   -webkit-background-clip: padding-box;
      -moz-background-clip: padding;
           background-clip: padding-box;
@@ -163,6 +173,12 @@
   .divider {
     .nav-divider(@dropdownDividerTop, @dropdownDividerBottom);
     margin: 5px 1px;
+  }
+
+  //group title
+  .group-title {
+    color: #999;
+    padding: 2px 6px;
   }
 
   // Links within the dropdown menu
@@ -189,6 +205,10 @@
   }
 }
 
+.sui-dropup .sui-dropdown-menu {
+  .box-shadow(2px -2px 0px 0px rgba(0,0,0,.1));
+}
+
 // Hover/Focus state
 // -----------
 .sui-dropdown-menu > li > a:hover,
@@ -196,7 +216,7 @@
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
   text-decoration: none;
-  color: @dropdownLinkColorHover;
+  color: @dropdownLinkHoverColor;
   background-color: lighten(@dropdownLinkBackgroundActive, 5%);
 }
 
@@ -218,6 +238,7 @@
   > .disabled > a {
     &, &:hover, &:focus {
       color: @grayLight;
+      background-color: @white;
     }
   }
 // Nuke hover/focus effects
@@ -248,12 +269,11 @@
 }
 
 // different size
-.sui-dropdown.dropdown-bordered {
+.sui-dropdown.dropdown-bordered,
+.sui-dropup.dropdown-bordered {
   // xLarge
   &.dropdown-xlarge {
-    &.open > .dropdown-inner > .sui-dropdown-menu {
-      padding-top: 32px;
-    }
+    height: 32px;
     > .dropdown-inner  a {
       padding: @paddingXLarge;
       line-height: @lineHeightLarge;
@@ -263,9 +283,7 @@
 
   // Large
   &.dropdown-large {
-    &.open > .dropdown-inner > .sui-dropdown-menu {
-      padding-top: 28px;
-    }
+    height: 28px;
     > .dropdown-inner a {
       padding: @paddingLarge;
       line-height: @lineHeightLarge;
@@ -275,9 +293,7 @@
 
   // Small
   &.dropdown-small {
-    &.open > .dropdown-inner > .sui-dropdown-menu {
-      padding-top: 20px;
-    }
+    height: 20px;
     > .dropdown-inner a {
       padding: @paddingSmall;
       line-height: @lineHeightSmall;
@@ -323,17 +339,14 @@
 // TODO: abstract this so that the navbar fixed styles are not placed here?
 .sui-dropup,
 .navbar-fixed-bottom .sui-dropdown {
-  // Reverse the caret
-  .caret {
-    border-top: 0;
-    border-bottom: 4px solid @black;
-    content: "";
-  }
   // Different positioning for bottom up menu
   .sui-dropdown-menu {
     top: auto;
     bottom: 100%;
     margin-bottom: 1px;
+  }
+  .dropdown-toggle > .caret:before {
+    content: "\c60e";
   }
 }
 
@@ -351,4 +364,49 @@
   z-index: 1051;
   margin-top: 2px; // give it some space to breathe
   .border-radius(@baseBorderRadius);
+}
+
+//dropdownmenu scrollbar style
+.sui-dropdown-menu {
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 8px;
+    height: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    .border-radius(2px);
+    background-color: transparent;
+    &:hover::-webkit-scrollbar-thumb {
+      background-color: #d5d5d5; 
+    }
+  }
+  &::-webkit-scrollbar-thumb {
+    .border-radius(4px);
+    background-color: #e1e1e1;
+    width: 6px;
+    height: 6px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+    &:hover {
+      background-color: #d5d5d5;
+    }
+    &:active {
+      background-color: #c8c8c8;
+    }
+  }
+}
+
+//simple input but looks like dropdown
+.sui-dropdown-like {
+  position: relative;
+  display: inline-block;
+  input {
+    padding-right: 20px!important;
+  }
+  .sui-icon {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    margin-top: -6px;
+  }
 }

@@ -19,14 +19,44 @@
     }
     $sidenav.find(".active").removeClass("active")
     $li.addClass("active")
+    changeHeight();
   })
+
+  setTimeout(function() {
+    var $globalMsg = $(".sui-layout > .sui-msg");
+    if($globalMsg[0] && $globalMsg.is(":visible")) {
+      var $sidebar = $("body > .sui-layout > div > .sidebar");
+      $sidebar.css({position: "static"});
+      var positionSidebar = function(dirTop) {
+        var scrolltop = $(window).scrollTop(),
+            navbarHeight = parseInt($(document.body).css("padding-top").replace(/px/, "")),
+            top = $sidebar.offset().top - scrolltop;
+        if(dirTop && top <= navbarHeight) {
+          $sidebar.css({position: "fixed", top: navbarHeight + "px"});
+        } else if( !dirTop && scrolltop < navbarHeight) {
+          $sidebar.css({position: "static"});
+        }
+      };
+      var lastScrolltop = 0;
+      $(document).on("scroll", function(e) {
+        var scrolltop = $(window).scrollTop()
+        positionSidebar(scrolltop > lastScrolltop);
+        lastScrolltop = scrolltop;
+      });
+      positionSidebar(true);
+    }
+  }, 100);
 
   //代码高亮
   $('.prettyprint').each(function() {
     var $this = $(this)
     var $target = $($this.data("target"))
-    if(!$target[0]) return;
-    $this.text(parseCode($target.html()))
+    if($target[0]) {
+      $this.text(parseCode($target.html()))  
+    } else {
+      $this.text(parseCode($this.text()))
+    }
+    
   })
   $(function() {
     // make code pretty
@@ -52,4 +82,19 @@
       })
     })
   })
+
+  //换肤
+  var $themesInput = $("#themes-input").change(function() {
+    var themes = $themesInput.val();
+    var themesFile = 'sui.css';
+    var themesAppendFile = 'sui-append.css';
+    if(!(themes === 'default')) {
+      themesFile = 'sui-themes-' + themes + ".css";
+      themesAppendFile = 'sui-themes-' + themes + "-append.css";
+    }
+    $("#sui-css").attr('href', "../.package/css/" + themesFile);
+    $("#sui-css-append").attr('href', "../.package/css/" + themesAppendFile);
+    localStorage.setItem("themes-name", themes);
+    $("#themes-select").find(" > a > span")[0].className = themes;
+  });
 })(window.jQuery)

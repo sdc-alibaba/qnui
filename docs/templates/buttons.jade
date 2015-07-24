@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 按钮
@@ -8,9 +8,7 @@ block sidebar
 
 block content
   - var SIZES = ['xlarge', 'large', '', 'small']
-  - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"], ["link", "链接"]]
-
-  h1 按钮
+  - var ROLES = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["danger", "危险"], ["link", "链接"], ["text", "文字按钮"]]
 
   h2.sui-page-header 设计规范
 
@@ -30,11 +28,16 @@ block content
       li 比较重要的操作或者需要用户明显注意到的地方使用蓝色按钮。
       li 黄色按钮请谨慎使用，在非常重要和特殊的情况下需要用户迅速发现并立即处理的时候使用，一个页面不能超过一个黄色按钮。
 
+  p.sui-lead
+    ul.unstyled
+      li
+        strong 更新 v1.2.1：修复了 btn-bordered 的禁用状态样式。
+
   ul.demo-operations.clearfix
     li
       a(href='#') 下载psd文件
 
-  h2 1. 不同大小和功能的按钮
+  h2 不同大小和功能的按钮
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo1', data-toggle='tab') 示例
@@ -58,6 +61,12 @@ block content
             | 
           br
           br
+        each r in ROLES
+          - var classname = 'sui-btn disabled'
+          if r[0] 
+            - classname += ' btn-' + r[0]
+          | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}禁用</a> &nbsp;
+
     div.tab-pane#code1
       pre.prettyprint.linenums(data-target='#demo1>div')
     div.tab-pane#doc1
@@ -69,8 +78,41 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo1>div') 复制代码
 
+  h2 只有描边的按钮
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo11', data-toggle='tab') 示例
+    li
+      a(href='#code11', data-toggle='tab') 代码
 
-  h2 2.带图标的按钮 
+  div.tab-content
+    div.tab-pane.active#demo11
+      div.bs-docs-example
+        - var borderedRoles = [["", "默认"], ["primary", "首要"], ["success", "成功"], ["info", "信息"], ["warning", "警告"], ["danger", "危险"]]
+        each s in SIZES
+          each r in borderedRoles
+            - var classname = 'sui-btn btn-bordered'
+            if s
+              - classname += ' btn-' + s
+            if r[0] 
+              - classname += ' btn-' + r[0]
+            | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}</a>
+            | 
+          br
+          br
+        each r in borderedRoles
+          - var classname = 'sui-btn btn-bordered disabled'
+          if r[0] 
+            - classname += ' btn-' + r[0]
+          | <a href='javascript:void(0);' class='#{classname}'>#{r[1]}禁用</a>&nbsp;
+    div.tab-pane#code11
+      pre.prettyprint.linenums(data-target='#demo11>div')
+
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo11>div') 复制代码
+
+  h2 带图标的按钮 
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo2', data-toggle='tab') 示例
@@ -97,7 +139,7 @@ block content
     li
       a.copy-btn(href='javascript:void(0)', data-target='#demo2>div') 复制代码
 
-  h2 3. 块级按钮
+  h2 块级按钮
   ul.sui-nav.nav-tabs.nav-large
     li.active
       a(href='#demo3', data-toggle='tab') 示例

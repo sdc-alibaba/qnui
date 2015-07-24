@@ -1,4 +1,4 @@
-extends base
+extends _base
 
 block title
   title 表单
@@ -18,7 +18,6 @@ block head
 block sidebar
   +sidebar('form')
 block content
-  h1 表单
 
   h2.sui-page-header 设计规范
 
@@ -31,6 +30,12 @@ block content
 
   h2.sui-page-header 开发者文档
 
+  p.sui-lead
+    ul.unstyled
+      li
+        strong 更新 v1.5.0：control-label 设置默认的 <code>line-height: 24px</code>，去掉了 <code>margin-bottom: 5px</code>。
+      li
+        strong 更新 v1.1.10：修复了在chrome下，水平表单布局可能出现布局错乱的bug。
   h3 按宽度分类
   p
     <code>select</code> 元素同样适用
@@ -424,32 +429,12 @@ block content
     div.tab-pane.active#demo10
       div.bs-docs-example
         form.sui-form.form-horizontal
-          div.control-group.warning
-            label.control-label(for="inputWarning") 警示输入框：
-            div.controls
-              <input type="text" id="inputWarning" />
-              <span class="help-inline">警示文案</span>
-          div.control-group.error
-            label.control-label(for="inputError") 错误输入框：
-            div.controls
-              <input type="text" id="inputError" />
-              <span class="help-inline">出错文案</span>
-          div.control-group.success
-            label.control-label(for="inputSuccess") 成功输入框：
-            div.controls
-              <input type="text" id="inputSuccess" />
-              <span class="help-inline">成功文案</span>
-          div.control-group.info
-            label.control-label(for="inputInfo") 帮助输入框：
-            div.controls
-              <input type="text" id="inputInfo" />
-              <span class="help-inline">帮助文案</span>
 
           div.control-group.warning
             label.control-label(for="inputWarning") 警示输入框：
             div.controls
               <input type="text" id="inputWarning" />
-              div.sui-msg.msg-naked.msg-tips
+              div.sui-msg.msg-naked.msg-warning
                 i.msg-icon
                 .msg-con 警告
           div.control-group.error
@@ -561,13 +546,13 @@ block content
           div.control-group
             label.control-label(for="inputPassword") 密码：
             div.controls
-              <input type="password" id="inputPassword" placeholder="Password" />
+              input(type="password" id="inputPassword" placeholder="Password")
           div.control-group
-            label.control-label()
+            label.control-label
             div.controls
-            label.checkbox-pretty.inline(data-toggle='checkbox')
-              input(type='checkbox' name='remember-me')
-              span 记住我
+              label.checkbox-pretty.inline(data-toggle='checkbox')
+                input(type='checkbox' name='remember-me')
+                span 记住我
 
           div.control-group
             label.control-label()
@@ -788,6 +773,7 @@ block content
             div.controls
               textarea.input-block-level(rows="3")
           div.control-group
+            label.control-label
             div.controls
               button.sui-btn.btn-primary(type="submit") 提交审核
               button.sui-btn(type="reset") 重置
@@ -896,18 +882,18 @@ block content
                 label.radio-pretty.inline.checked(data-toggle='radio')
                   input(type='radio' checked='checked' name='qudao')
                   span 商家中心
-                label.radio-pretty.inline.checked(data-toggle='radio')
-                  input(type='radio' checked='checked' name='qudao')
+                label.radio-pretty.inline(data-toggle='radio')
+                  input(type='radio' name='qudao')
                   span 旺旺弹窗
-                label.radio-pretty.inline.checked(data-toggle='radio')
-                  input(type='radio' checked='checked' name='qudao')
+                label.radio-pretty.inline(data-toggle='radio')
+                  input(type='radio' name='qudao')
                   span 站内信
 
                 div.sui-msg.msg-tips.msg-default.msg-clear.help-block
                   div.msg-con
                     是否向子账号发送消息：
-                    label.radio-pretty.inline.checked(data-toggle='radio')
-                      input(type='radio' checked='checked' name='zzh' value='1')
+                    label.radio-pretty.inline(data-toggle='radio')
+                      input(type='radio' name='zzh' value='1')
                       span 是
                     label.radio-pretty.inline.checked(data-toggle='radio')
                       input(type='radio' checked='checked' name='zzh' value='0')
@@ -941,6 +927,7 @@ block content
                     li.active(role="presentation")
                       a(role="menuitem" tabindex="-1" href="javascript:void(0);" value='1') 管理员
           div.control-group
+            label.control-label
             div.controls
               button.sui-btn.btn-primary(type="submit") 提交审核
               button.sui-btn(type="reset") 重置

@@ -19,6 +19,7 @@
     .sui-icon;
     font-size: 14px;
     font-family: 'icon-pc';
+    font-style: normal;
     text-decoration: none;
   }
   &.msg-error > .msg-icon {
@@ -65,11 +66,17 @@
 
 	> .msg-con {
 		.border-radius(@msgBorderRadius);
-		p {
-      font-weight: normal;
-      margin-bottom: 0;
-      margin-top: @baseLineHeight / 2;
-    }
+	  p {
+        font-weight: normal;
+        margin-bottom: 0;
+        margin-top: @baseLineHeight / 2;
+      }
+      .sui-close {
+        float: none;
+        position: absolute;
+        top: 11px;
+        right: 11px;
+      }
 	}
 	> .msg-icon {
 		display: inline-block;
@@ -77,6 +84,7 @@
 		*zoom: 1;
 		position: absolute;
 	}
+
 }
 
 // 小尺寸（默认尺寸）
@@ -89,75 +97,102 @@
 		top: 3px;
 		left: 6px;
 	}
+  .sui-close {
+    font-size: 18px;
+    font-weight: normal;
+    color: inherit;
+  }
 
   // 大尺寸
   &.msg-large {
     font-size: @fontSizeLarge;
     line-height: @lineHeightLarge;
     font-weight: bold;
-    > .msg-con { padding: 11px 11px 11px 44px; }
+    > .msg-con {
+      font-size: 12px;
+      font-weight: normal;
+      padding: 6px 15px 6px 36px;
+    }
+    .sui-close {
+      font-size: 20px;
+    }
     > .msg-icon {
-      top: 12px;
+      top: 7px;
       left: 11px;
-      font-size: 24px;
+      font-size: 18px;
     }
   }
 
   // Msgs类型
-  &.msg-error {
-    color: #ea4a36;
+  &.msg-error,
+  &.msg-stop,
+  {
+    color: #bb4944;
     > .msg-con {
-      border: 1px solid #ffe3e0;
-      background-color: #fff2f2;
-    }
-  }
-  &.msg-stop {
-    color: #ea4a36;
-    > .msg-con {
-      border: 1px solid #ffe3e0;
-      background-color: #fff2f2;
+      border: 1px solid #f3dfdf;
+      background-color: #f9e5e5;
     }
   }
   &.msg-success {
-    color: #4ab933;
+    color: #498844;
     > .msg-con {
-      border: 1px solid #dcf9d6;
-      background-color: #edffe9;
+      border: 1px solid #dbfad5;
+      background-color: #e6f5e0;
     }
   }
   &.msg-warning {
-    color: #cf700b;
+    color: #d16f00;
     > .msg-con {
-      border: 1px solid #fee8d7;
-      background-color: #fef1e3;
+      border: 1px solid #ffebdc;
+      background-color: #fff1e2;
     }
   }
-  &.msg-notice {
-    color: #ee9f28;
+  &.msg-notice,
+  &.msg-tips,
+  {
+    color: #cd9c4f;
     > .msg-con {
-      border: 1px solid #faf1d7;
-      background-color: #fffff1;
+      border: 1px solid #faf5da;
+      background-color: #fdf8df;
     }
   }
-  &.msg-tips {
-    color: #ee9f28;
-    > .msg-con {
-      border: 1px solid #faf1d7;
-      background-color: #fffff1;
-    }
-  }
+
   &.msg-info {
-    color: #3a9ed5;
+    color: #3387ae;
     > .msg-con {
-      border: 1px solid #e4f3fd;
-      background-color: #f2faff;
+      border: 1px solid #e1f0f8;
+      background-color: #e4f2fa;
     }
   }
   &.msg-question {
     color: #333;
     > .msg-con {
       border: 1px solid #eaeaea;
-      background-color: #f7f7f7;
+      background-color: #f2f0f0;
+    }
+    .msg-icon {
+      color: #999;
+    }
+  }
+
+  //无背景下，文字颜色会变浅
+  &.msg-naked {
+    &.msg-error,
+    &.msg-stop,
+    {
+      color: #ea4a36;
+    }
+    &.msg-success {
+      color: #22cd6e;
+    }
+    &.msg-warning,
+    &.msg-notice,
+    &.msg-tips {
+      color: #ff7300;
+    }
+
+    &.msg-info {
+      color: #76b8ea;
     }
   }
 
@@ -177,9 +212,11 @@
     }
   }
 
-  // 默认字体颜色
+  // 默认字体颜色(icon仍保留彩色)
   &.msg-default {
-    color: @msgDefaultColor;
+    .msg-con {
+      color: @msgDefaultColor;
+    }
   }
 
   // 去边框和底色
@@ -189,5 +226,9 @@
       border: none;
       background-color: transparent;
     }
+  }
+
+  &.remember {
+    display: none;
   }
 }

@@ -80,6 +80,13 @@
     .divider {
       .nav-divider();
     }
+    &.nav-large .nav-header {
+      padding: @navPaddingLarge;
+    }
+    &.nav-xlarge .nav-header {
+      padding: @navPaddingXLarge;
+      font-size: @fontSizeLarge * 1.15;
+    }
   }
 
 
@@ -115,10 +122,10 @@
     font-size: @fontSizeLarge * 1.15;
   }
 
-// TABS
-// ----
+  // TABS
+  // ----
 
-// Give the tabs something to sit on
+  // Give the tabs something to sit on
   &.nav-tabs {
     border-bottom: 1px solid @navTabsBorderColor;
     padding-left: 5px;
@@ -129,6 +136,7 @@
         color: @navTabsColor;
         line-height: @baseLineHeight;
         .border-radius(@borderRadiusSmall @borderRadiusSmall 0 0);
+        border: 1px solid transparent;
       }
       & > a:hover {
         background-color: transparent;  // reset hover
@@ -243,7 +251,7 @@
     }
     &.tab-navbar {
       display: inline-block;
-      border: 1px solid #ddd;
+      border: 1px solid @navTabsBorderColor;
       border-radius: @borderRadiusSmall;
       padding-left: 0;
       > li {
@@ -270,24 +278,135 @@
           border-radius: 0 @borderRadiusSmall @borderRadiusSmall 0;
         }
       }
+      &.tab-light {
+        li.active > a {
+          margin-top: 0;
+          margin-bottom: 0;
+          border-top: 0;
+          border-bottom: 0;
+        }
+        li.active > a,
+        li > a:hover {
+          background-color: #f3f3f3;
+          color: #666;
+        }
+        li + li {
+          > a {
+            border-left: 1px solid @navTabsBorderColor;
+          }
+        }
 
+        &.tab-vertical {
+          li {
+            margin: 0;
+            a, &:first-child > a {
+              border: 0;
+              margin: 0;
+            }
+
+            // last-child ie8不支持，和上面的写在一起会导致上面的也失效，所以单独写
+            &:last-child > a {
+              border: 0;
+              margin: 0;
+            }
+            &.active > a {
+              border-bottom: 0;
+            }
+            + li > a {
+              border-top: 1px solid @navTabsBorderColor!important;
+            }
+          }
+        }
+      }
       &.tab-vertical {
         > li {
           a {
             border: 0;
           }
-          &:first-child > a {
-            border-radius: @borderRadiusSmall @borderRadiusSmall 0 0;
-          }
-          &:last-child > a {
-            border-radius: 0 0 @borderRadiusSmall @borderRadiusSmall;
-          }
+
           &.active a {
             margin-top: 0;
             margin-bottom: 0;
           }
+          &:first-child > a {
+            border-radius: @borderRadiusSmall @borderRadiusSmall 0 0;
+            margin-top: -1px;
+          }
+          &:last-child > a {
+            border-radius: 0 0 @borderRadiusSmall @borderRadiusSmall;
+            margin-bottom: -1px;
+          }
           margin-left: -1px;
           margin-right: -1px;
+        }
+      }
+    }
+    &.tab-wraped {
+      padding-left: 0;
+      margin-bottom: 0;
+      border: 1px solid @navTabsBorderColor;
+      border-top: 0;
+      > li {
+        margin-left: 0;
+        width: 25%;
+        > a {
+          color: @navTabsColor;
+          padding: 20px;
+          border-radius: 0;
+          background: #fcfcfc;
+          margin-left: 0;
+          border: 0;
+          border-top: 1px solid @navTabsBorderColor;
+          border-bottom: 1px solid @navTabsBorderColor;
+          &:hover {
+            background: @white;
+          }
+        }
+        + li {
+          > a {
+            border-left: 1px solid @navTabsBorderColor;
+          }
+        }
+        &.active > a {
+          background: @white;
+          font-weight: normal;
+          border-bottom: 1px solid @white;
+          border-top: 3px solid @linkColor;
+          padding-top: 18px; //和其他标签对齐
+        }
+
+        h3 {
+          text-align: center;
+          color: @textColor;
+        }
+
+        ul {
+          margin: auto;
+        }
+        li {
+          margin: 5px 0;
+        }
+        strong {
+          font-size: 120%;
+          vertical-align: middle;
+        }
+        label {
+          color: @grayLight;
+          display: inline-block;
+          width: 70px;
+          text-align: right;
+          margin-right: 10px;
+          cursor: pointer;
+        }
+      }
+      &.column3 {
+        > li {
+          width: 33.333%;
+        }
+      }
+      &.column5 {
+        > li {
+          width: 20%;
         }
       }
     }
@@ -407,31 +526,10 @@
 
 // Default dropdown links
 // -------------------------
-// Make carets use linkColor to start
-.sui-nav .dropdown-toggle .caret {
-  border-top-color: @linkColor;
-  border-bottom-color: @linkColor;
-  margin-top: 6px;
-}
-.sui-nav .dropdown-toggle:hover .caret,
-.sui-nav .dropdown-toggle:focus .caret {
-  border-top-color: @linkColorHover;
-  border-bottom-color: @linkColorHover;
-}
+
 /* move down carets for tabs */
 .nav-tabs .dropdown-toggle .caret {
   margin-top: 8px;
-}
-
-// Active dropdown links
-// -------------------------
-.sui-nav .active .dropdown-toggle .caret {
-  border-top-color: #fff;
-  border-bottom-color: #fff;
-}
-.nav-tabs .active .dropdown-toggle .caret {
-  border-top-color: @gray;
-  border-bottom-color: @gray;
 }
 
 // Active:hover/:focus dropdown links
@@ -451,14 +549,7 @@
   background-color: @grayLight;
   border-color: @grayLight;
 }
-.sui-nav li.sui-dropdown.open .caret,
-.sui-nav li.sui-dropdown.open.active .caret,
-.sui-nav li.sui-dropdown.open a:hover .caret,
-.sui-nav li.sui-dropdown.open a:focus .caret {
-  border-top-color: @white;
-  border-bottom-color: @white;
-  .opacity(100);
-}
+
 
 // Dropdowns in stacked tabs
 .tabs-stacked .open > a:hover,
@@ -480,7 +571,8 @@
   .clearfix();
 }
 .tab-content {
-  overflow: auto; // prevent content from running below tabs
+  // this will cause dropdown scroll bug
+  //overflow: auto; // prevent content from running below tabs
 }
 
 // Remove border on bottom, left, right
@@ -500,6 +592,11 @@
   display: block;
 }
 
+.tab-content.tab-wraped {
+  border: 1px solid @navTabsBorderColor;
+  border-top: 0;
+  padding: @baseMargin;
+}
 
 // BOTTOM
 // ------
@@ -598,3 +695,4 @@
   background-color: transparent;
   cursor: default;
 }
+

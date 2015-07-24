@@ -1,17 +1,33 @@
-
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8"/>
-    <title>SUI</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link href="assets/css/animate.css" rel="stylesheet"/>
-    <link href="../.package/css/sui.css" rel="stylesheet"/>
-    <link href="assets/css/docs.css" rel="stylesheet"/>
-    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet"/>
-    <link rel="shortcut icon" href="pictures/logo.png"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QNUI</title>
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="pictures/logo.png?r=2014.06.18">
     <script src="../js/lib/jquery.js"></script>
-    <script src="../.package/js/sui.js"></script>
+    <script>
+      var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
+      var selected = localStorage.getItem("themes-name");
+      if(selected && !(selected == 'default')) {
+        themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
+        $(function() {
+          var $select = $("#themes-select");
+          var $current = $select.find("[value='"+selected+"']");
+          $current.parent().addClass("active");
+          $select.find(">a > span").html($current.text())[0].className = $current[0].className;
+        });
+      }
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
+    </script>
+    <script src="../.package/js/sui.js?r=2014.06.30"></script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -22,84 +38,44 @@
       ga('send', 'pageview');
     </script>
     <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="assets/css/index.css"/>
+    <link rel="stylesheet" href="assets/css/index.css">
     <script src="assets/js/index.js"></script>
   </head>
   <body>
-        <div class="sui-navbar navbar-inverse navbar-fixed-top">
+        <div class="sui-navbar navbar-fixed-top navbar-inverse">
           <div class="navbar-inner">
-            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>SUI</a>
-              <ul class="sui-nav">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>QNUI</a>
+              <ul class="sui-nav nav-links">
                 <li class="active"><a href="./index.html">首页</a></li>
-                <li><a href="./global.html">组件库</a></li>
+                <li><a href="./tutorial.html">快速入门</a></li>
+                <li><a href="./gallery.html">组件库</a></li>
                 <li><a href="./examples.html">案例</a></li>
-                <li><a href="./tutorial.html">教程</a></li>
                 <li><a href="./download.html">下载</a></li>
+                <li><a href="./themes.html">换肤</a></li>
+                <li><a href="./customize.html">自定义</a></li>
+                <li><a href="./changelog.html">更新日志</a></li>
                 <li><a href="./about.html">关于</a></li>
+                <li><a href="http://m.sui.taobao.org/components/" target="_blank">SUI Mobile <sup style="font-size: 13px; display: inline-block;" class="sui-text-danger">新</sup></a></li>
+              </ul>
+              <ul style="margin: 0;" class="sui-nav pull-right">
+                <li id="themes-select" class="sui-dropdown select themes-select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                    <input value="sui.css" name="themes" type="hidden" id="themes-input"><span>换肤</span></a>
+                  <ul role="menu" aria-labelledby="drop4" style="top: 100%; width: 95px;" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="default" class="default">默认</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="green" class="green">自然绿</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="pink" class="pink">卖萌粉</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="dark-green" class="dark-green">深绿</a></li>
+                  </ul>
+                </li>
               </ul>
             </div>
           </div>
         </div>
-    <div class="jumbotron intro">
-      <div class="sui-container brand-intro">
-        <h1>SUI</h1>
-        <p class="sui-lead">SUI 是一套基于bootstrap开发的前端组件库，同时她也是一套设计规范。<br/>通过SUI，可以非常方便的设计和实现精美的页面。</p>
-        <p class="btn-wrap bounceInDown animated"><a href="download.html" class="sui-btn btn-success btn-lead">立即下载 SUI V1.0</a></p>
-      </div>
-    </div>
-    <div class="jumbotron components">
+    <div class="brand-intro">
       <div class="sui-container">
-        <div class="sui-row">
-          <div class="span4">
-            <div class="details center">
-              <h2>丰富的组件库</h2>
-              <ul class="unstyled">
-                <li>响应式栅格</li>
-                <li>icon font 字体图标</li>
-                <li>按钮，表单，表格，提示</li>
-                <li>标签页，步骤条，面包屑</li>
-                <li>对话框，Tooltip，分页器</li>
-                <li>更多组件敬请期待...</li>
-              </ul>
-            </div>
-          </div>
-          <div class="span8 center"><a href="global.html"><img src="pictures/index-demo-components.png"/></a></div>
-        </div>
-      </div>
-    </div>
-    <div class="jumbotron features">
-      <div class="sui-container">
-        <div class="sui-row">
-          <div class="span4">
-            <div class="details center">
-              <h2>为现代浏览器设计</h2>
-              <ul class="unstyled">
-                <li>扁平化设计</li>
-                <li>响应式布局</li>
-                <li>icon font</li>
-                <li>CSS 特效</li>
-                <li>兼容chrome,firfox,safari,ie8+等主流浏览器</li>
-              </ul>
-            </div>
-          </div>
-          <div class="span8 center"><img src="pictures/index-demo-browsers.png"/></div>
-        </div>
-      </div>
-    </div>
-    <div class="jumbotron bootstrap">
-      <div class="sui-container">
-        <div class="sui-row">
-          <div class="span4">
-            <div class="details center">
-              <h2>基于 bootstrap 2.3</h2>
-              <ul class="unstyled">
-                <li>基于 boostrap 2.3 ，有良好的代码结构和丰富的文档及示例</li>
-                <li>引入了 icon font, grunt, jade 等新技术</li>
-              </ul>
-            </div>
-          </div>
-          <div class="span8 center"><img src="pictures/bootstrap-logo.png" class="bootstrap-logo"/></div>
-        </div>
+        <h1>简单易用、功能强大的UI库</h1>
+        <p class="sui-lead">QNUI 是一套基于bootstrap开发的前端组件库，同时她也是一套设计规范。<br>通过QNUI，可以非常方便的设计和实现精美的页面。</p>
+        <p class="btn-wrap"><a href="/sui/docs/tutorial.html" class="sui-btn btn-lead">SUI总库</a><a href="/qnui/docs/tutorial.html" class="sui-btn btn-lead">千牛UI</a><a href="/wqui/docs/tutorial.html" class="sui-btn btn-lead">旺起UI</a></p>
       </div>
     </div>
     <div class="footer">
@@ -111,6 +87,6 @@
     <script src="assets/js/google-code-prettify/prettify.js"></script>
     <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
     <script src="assets/js/application.js"></script>
-    <script src="http://localhost:3456/livereload.js"></script>
+    <script src="http://localhost:3457/livereload.js"></script>
   </body>
 </html>

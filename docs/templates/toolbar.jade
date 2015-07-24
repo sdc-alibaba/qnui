@@ -1,0 +1,200 @@
+extends _base
+
+block title
+  title 工具栏
+
+block sidebar
+  +sidebar('toolbar')
+
+block head
+  style.
+    .sui-navbar {
+      z-index: 99999;
+    }
+
+    .sui-layout .sui-navbar .navbar-inner {
+      background: #6da467;
+    }
+
+    #demo2 .sui-nav .icon {
+      background: url(assets/imgs/toolbar.png) no-repeat;
+      height: 28px;
+      width: 28px;
+    }
+
+    #demo2 .sui-nav .active .icon {
+      background-position-x: -28px;
+    }
+    #demo2 .sui-nav .icon-bookmark {
+      background-position: 0 -28px;
+    }
+    #demo2 .sui-nav .icon-gift {
+      background-position: 0 -56px;
+    }
+
+    .tab-content .sui-navbar {
+      width: 790px;
+    }
+
+
+
+block content
+
+  h2.sui-page-header 设计规范
+
+  div.docs-description
+      img(src='pictures/docs/toolbar.png?2014.06.10')
+
+  ul.demo-operations.clearfix
+    li
+      a(href='#') 下载psd文件
+
+  h2.sui-page-header 开发者文档
+
+  p.sui-lead
+    ul.unstyled
+      li 工具栏默认背景是透明的，一般看到的背景是整个插件的默认背景。当然也可以自己重载背景。
+      li 为了和插件容器的顶部更好融合，工具栏里的内容距顶部没有间距，在demo中不是很好看，但是放入千牛容器就会很好看。
+      li 工具栏如何实现固定顶部？看这里 <a href='#fixed-top'>固定顶部布局</a>
+      
+
+  h2 纯文本
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo1', data-toggle='tab') 示例
+    li
+      a(href='#code1', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo1(style='padding-bottom: 50px;')
+      header.sui-navbar
+        div.navbar-inner
+          a.sui-brand(href='#') 
+            img(src='http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png')
+            | 千牛云盘
+          ul.sui-nav
+            li.active.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
+                | 文件管理
+                i.sui-icon.icon-pc-chevron-bottom
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 我的文件
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 共享文件
+            li
+              a(href='#') 数据统计
+            li
+              a(href='javascript:void(0);') 数据分析
+
+          ul.sui-nav.pull-right.nav-links
+
+            li.active
+              a(href='#')
+                i.sui-icon.icon-pc-list
+                | &nbsp;日志
+            li
+              a(href='#')
+                i.sui-icon.icon-pc-settings
+                | &nbsp;设置
+            li
+              a(href='#')
+                i.sui-icon.icon-pc-question-circle
+                | &nbsp;帮助
+
+
+    div.tab-pane#code1
+      pre.prettyprint.linenums(data-target='#demo1')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo1') 复制代码
+
+  h2 带图标的导航
+
+  ul.sui-nav.nav-tabs.nav-large
+    li.active
+      a(href='#demo2', data-toggle='tab') 示例
+    li
+      a(href='#code2', data-toggle='tab') 代码
+
+  div.tab-content
+    div.tab-pane.active#demo2(style='padding-bottom: 50px;')
+      header.sui-navbar
+        div.navbar-inner
+          a.sui-brand(href='#')
+            img(src='http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png')
+            | 旺铺数据
+          ul.sui-nav.nav-withicon
+            li.active.sui-dropdown
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
+                i.icon.icon-user
+                | 文件管理
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 我的文件
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 共享文件
+            li
+              a(href='#')
+                i.icon.icon-bookmark
+                | 渠道管理
+            li
+              a(href='#')
+                i.icon.icon-gift
+                | 顾客数据
+
+          ul.sui-nav.pull-right.nav-links
+
+            li.sui-dropdown.align-right
+              a.dropdown-toggle(href='javascript:void(0);' data-toggle='dropdown' data-trigger='hover')
+                i.sui-icon.icon-pc-question-circle
+                | &nbsp;帮助
+              ul.sui-dropdown-menu(role='menu')
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 关于
+                li(role="presentation")
+                  a(role="menuitem" tabindex="-1" href="#") 版权
+
+    div.tab-pane#code2
+      pre.prettyprint.linenums(data-target='#demo2')
+  ul.demo-operations.clearfix
+    li
+      a.copy-btn(href='javascript:void(0)', data-target='#demo2') 复制代码
+
+
+  h2 如何实现工具栏固定在顶部
+  a.hidden-achor(name='fixed-top')
+
+  p.sui-lead
+    | 添加 <code>.navbar-fixed-top</code> 可以让工具栏固定在顶部（因为是position:fixed实现的，注意需要在body上加一个 <code>padding-top: 62px</code>)。 
+    br
+    | 但是因为设计规范要求滚动条应该在工具栏下面出现，所以最好不要直接通过添加 <code>.navbar-fixed-top</code>来实现工具栏固定顶部，而是通过页面的布局来实现只有内容区滚动。
+    br 
+    | 可以参考这个例子：<a href='examples/layout-demo.html'>工具栏固定顶部布局</a>
+
+  h2 如何实现导航换肤
+  p 创建theme.less，加入以下代码
+  div
+    pre.prettyprint.linenums.
+      @color-base: #ffffff;
+      @theme-background-image: url(#);
+      body {
+          background: @theme-background-image @color-base 0px -30px no-repeat;
+      }
+  p 在页面中引入theme.less以及千牛的jssdk.js和less.js
+  div
+    pre.prettyprint.linenums
+      = '<link rel="stylesheet/less" href="path/to/theme.less">\n<script type="text/javascript" charset="utf-8" src="http://g.alicdn.com/sj/qn/??jssdk.js,lib/js/less.js"></script>'
+  p 调用jssdk的换肤初始化代码
+  div
+    pre.prettyprint.linenums.
+      $(window).on('load', function() {
+          QN.initTheme();
+      });
+  h3 换肤注意事项
+  p 如果您使用了cdn，资源文件存放的位置和页面的域不一样，则需要给你您的cdn服务器进行一些配置，在response header 里加上 <code>Access-Control-Allow-Origin: *</code> 以保证您的less文件可以通过ajax访问得到。
+  p 引用theme.less时，其的<code>rel</code>属性值必须为<code>stylesheet/less</code>，才能被less识别。
+  p 如果你的服务器不支持<code>.less</code>扩展名的文件，你可以将theme.less改为theme.css或其他您的服务器支持的扩展名。
+  p 更多换肤参考和注意事项，请阅读
+    a(target='_blank', href="https://github.com/coderlambda/QNThemeHelper/blob/master/README.md") 千牛换肤文档。

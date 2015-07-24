@@ -1,4 +1,4 @@
-extends base_index
+extends _base_index
 
 block title
   title 下载
@@ -14,19 +14,43 @@ block header
 
 block content_wrap
   .sui-container
-    h1.sui-page-header 下载 SUI
+    h1.sui-page-header 下载 QNUI
+
+    .sui-msg.msg-block.msg-tips.msg-large
+      .msg-con
+        strong 注意
+        ol(style='margin-left: 2em;')
+          li 从2014-07-02开始，采用递增版本号发布，每一次更新都会用新的版本号；为了保证代码的稳定，请大家尽量采用最新的版本号(每个组件的也会在更新日志上注明版本号,本页面总是会提供最新版本的地址)。
+          li 由于CDN系统的改进，CDN域名从 g.tbcdn.cn 变更为 g.alicdn.com，代码并没有变化，两个域名同时可用。
+          li 最好上面提供的CDN地址，不要直接用我们sui.taobao.org域名下面的css和js，这只是给官网用的。
+      .msg-icon
+
+    .sui-msg.msg-block.msg-tips.msg-large
+      .msg-con
+        strong 注意: 从版本 1.4.0 开始，sui.css文件被拆分成 sui.css 和 sui-append.css两个文件，部分非常用组件必须先引用 sui-append.css文件。
+          
+      .msg-icon
+
+    .sui-msg.msg-block.msg-tips.msg-large
+      .msg-con
+        | jquery CDN地址已经更新，大家尽量用新的地址 <code>http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js</code>，以前的地址已经废弃不会再更新。
+      .msg-icon
 
     h2 直接引用CDN文件
     p
       | 最简单使用方式是直接引用我们的CDN，不需要下载任何文件:
     ul.unstyled
       li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/css/sui.min.css
+        a(href='http://g.alicdn.com/sj/qnui/#{version}/css/sui.min.css', target='_blank') g.alicdn.com/sj/qnui/#{version}/css/sui.min.css
       li
-        a(href='http://g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js', target='_blank') g.tbcdn.cn/sj/dpl/1.0.0/js/sui.min.js
+        a(href='http://g.alicdn.com/sj/qnui/#{version}/css/sui-append.min.css', target='_blank') g.alicdn.com/sj/qnui/#{version}/css/sui-append.min.css
+      li
+        a(href='http://g.alicdn.com/sj/qnui/#{version}/js/sui.min.js', target='_blank') g.alicdn.com/sj/qnui/#{version}/js/sui.min.js
+    p
+      | 注意在引用sui.min.js之前必须先引用 jquery，可以直接使用我们的CDN <a href='http://g.alicdn.com/sj/lib/jquery/dist/jquery.min.js' target='_blank'>http://g.tbcdn.cn/sj/lib/jquery/dist/jquery.min.js</a>。
 
     p
-      | 注意在引用sui.min.js之前必须先引用 jquery。
+      | sui-append.min.css 包含了新手引导、自动补全、幻灯片、时间日期选择器四个组件和iconmoon免费图标，如果你有用到这些组件，请手动引入这个文件。
 
     h2 下载zip文件
 
@@ -34,14 +58,14 @@ block content_wrap
       | 包括所有的源代码和文档。
 
     p
-      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='https://github.com/sdc-alibaba/sui/archive/build.zip', target="_blank")
+      a.sui-btn.btn-primary.btn-xlarge.btn-huge(href='https://github.com/sdc-alibaba/qnui/archive/build.zip', target="_blank")
         i.sui-icon.icon-download
-        | download SUI-1.0.source.zip
+          | download QNUI-#{version}.source.zip
 
     h2 获取最新源码
 
     p.sui-lead
       |可以从 <strong>github</strong> 上直接获取最新的代码，项目地址：
-    a.sui-btn.btn-success.btn-huge(href='https://github.com/sdc-alibaba/sui', target="_blank")
+    a.sui-btn.btn-success.btn-huge(href='https://github.com/sdc-alibaba/qnui', target="_blank")
       i.sui-icon.icon-github-alt
-      | view SUI on github
+      | view QNUI on github
