@@ -66,11 +66,17 @@
 
 	> .msg-con {
 		.border-radius(@msgBorderRadius);
-		p {
-      font-weight: normal;
-      margin-bottom: 0;
-      margin-top: @baseLineHeight / 2;
-    }
+	  p {
+        font-weight: normal;
+        margin-bottom: 0;
+        margin-top: @baseLineHeight / 2;
+      }
+      .sui-close {
+        float: none;
+        position: absolute;
+        top: 11px;
+        right: 11px;
+      }
 	}
 	> .msg-icon {
 		display: inline-block;
