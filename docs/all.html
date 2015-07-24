@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>全部组件</title>
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link id="docs-css" href="assets/css/docs.css?r=2014.06.30" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link rel="shortcut icon" href="pictures/logo.png?r=2014.06.18">
+    <script src="../js/lib/jquery.js"></script>
+    <script>
+      var themesUrl = "../.package/css/sui.css";
+      var themesAppendUrl = "../.package/css/sui-append.css";
+      var selected = localStorage.getItem("themes-name");
+      if(selected && !(selected == 'default')) {
+        themesUrl = '../.package/css/sui-themes-' + selected + ".css";
+        themesAppendUrl = '../.package/css/sui-themes-' + selected + "-append.css";
+        $(function() {
+          var $select = $("#themes-select");
+          var $current = $select.find("[value='"+selected+"']");
+          $current.parent().addClass("active");
+          $select.find(">a > span").html($current.text())[0].className = $current[0].className;
+        });
+      }
+      $('<link href="' + themesUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css" charset="utf-8">').insertBefore($("#docs-css"));
+      $('<link href="' + themesAppendUrl + '?r=2014.09.11" rel="stylesheet" id="sui-css-append" charset="utf-8">').insertBefore($("#docs-css"));
+    </script>
+    <script src="../.package/js/sui.js?r=2014.06.30"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'UA-50817062-1', 'taobao.org');
+      ga('send', 'pageview');
+    </script>
+    <!--[if lt IE 9]><script src="assets/js/html5shiv.js"></script><![endif]-->
+    <style>
+      input:not([type="image"]) {
+        box-sizing: content-box;
+      }
+    </style>
+  </head>
+  <body>
+        <div class="sui-navbar navbar-fixed-top navbar-inverse">
+          <div class="navbar-inner">
+            <div class="sui-container"><a href="./index.html" class="sui-brand"><i class="sui-icon icon-github-alt">&nbsp;</i>QNUI</a>
+              <ul class="sui-nav nav-links">
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./tutorial.html">快速入门</a></li>
+                <li><a href="./gallery.html">组件库</a></li>
+                <li><a href="./examples.html">案例</a></li>
+                <li><a href="./download.html">下载</a></li>
+                <li><a href="./themes.html">换肤</a></li>
+                <li><a href="./customize.html">自定义</a></li>
+                <li><a href="./changelog.html">更新日志</a></li>
+                <li class="active"><a href="./about.html">关于</a></li>
+                <li><a href="http://m.sui.taobao.org/components/" target="_blank">SUI Mobile <sup style="font-size: 13px; display: inline-block;" class="sui-text-danger">新</sup></a></li>
+              </ul>
+              <ul style="margin: 0;" class="sui-nav pull-right">
+                <li id="themes-select" class="sui-dropdown select themes-select"><a id="select" role="button" href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">
+                    <input value="sui.css" name="themes" type="hidden" id="themes-input"><span>换肤</span></a>
+                  <ul role="menu" aria-labelledby="drop4" style="top: 100%; width: 95px;" class="sui-dropdown-menu">
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="default" class="default">默认</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="green" class="green">自然绿</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="pink" class="pink">卖萌粉</a></li>
+                    <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="dark-green" class="dark-green">深绿</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+    <div class="sui-container">
+      <h1 class="sui-page-header">工具栏</h1>
+      <header style="background: #6da467;" class="sui-navbar">
+        <div class="navbar-inner"><a href="#" class="sui-brand"><img src="http://gtms01.alicdn.com/tps/i1/T1c8xfFBFhXXcTHKnj-56-44.png">千牛云盘</a>
+          <ul class="sui-nav">
+            <li class="active sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">文件管理<i class="sui-icon icon-pc-chevron-bottom"></i></a>
+              <ul role="menu" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">我的文件</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">共享文件</a></li>
+              </ul>
+            </li>
+            <li><a href="#">数据统计</a></li>
+            <li><a href="javascript:void(0);">数据分析</a></li>
+          </ul>
+          <ul class="sui-nav pull-right nav-links">
+            <li class="active"><a href="#"><i class="sui-icon icon-pc-list"></i>&nbsp;日志</a></li>
+            <li><a href="#"><i class="sui-icon icon-pc-settings"></i>&nbsp;设置</a></li>
+            <li><a href="#"><i class="sui-icon icon-pc-question-circle"></i>&nbsp;帮助</a></li>
+          </ul>
+        </div>
+      </header>
+      <h1 class="sui-page-header">表单</h1>
+      <form class="sui-form form-horizontal">
+        <div class="control-group">
+          <label class="control-label v-top"><b style="color: #f00;">*</b> 
+            地点：
+          </label>
+          <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                  <input value="hz" name="city" type="hidden"><i class="caret"></i><span>杭州</span></a>
+                <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                  <li role="presentation" class="divider"></li>
+                  <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="hz">杭州</a></li>
+                </ul></span></span>
+            <div class="sui-msg msg-error msg-clear help-block">
+              <div class="msg-con">该项为必填项</div>
+              <s class="msg-icon"></s>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label v-top"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">主</span>题：</label>
+          <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                  <input value="1" name="zt" type="hidden"><i class="caret"></i><span>吃喝玩乐</span></a>
+                <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                  <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">吃喝玩乐</a></li>
+                </ul></span></span>
+            <input type="text" value="" class="input-xlarge">
+            <div class="sui-msg msg-error msg-clear help-block">
+              <div class="msg-con">该项为必填项</div>
+              <s class="msg-icon"></s>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label v-top"><b style="color: #f00;">*</b> <span style="padding:0 24px 0 0;">内</span>容：</label>
+          <div class="controls">
+            <textarea style="height: 190px;" class="input-xxlarge"></textarea>
+            <div style="vertical-align: top;" class="sui-msg msg-tips msg-default">
+              <div class="msg-con">
+                <p style="margin-bottom: 8px; font-weight: bold;">消息渠道发送字数提示：</p>
+                <p>短信：&nbsp;&nbsp;61个汉字为一条短信，超过分多条发送</p>
+                <p>旺旺：&nbsp;&nbsp;系统文本对话消息XXXX个汉字</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浮出消息XXXX汉字</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Html系统对话消息XXX个汉字</p>
+                <p>站内信：XXXX个汉字</p>
+              </div>
+              <s class="msg-icon"></s>
+            </div>
+            <div class="sui-msg msg-error msg-clear help-block">
+              <div class="msg-con">该项为必填项</div>
+              <s class="msg-icon"></s>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><span style="padding:0 24px 0 0;">链</span> 
+            接：
+          </label>
+          <div class="controls">
+            <input type="text" value="" class="input-xxlarge">
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label v-top"><b style="color: #f00;">*</b> 
+            发送渠道：
+          </label>
+          <div class="controls">
+            <div class="row-fluid">
+              <label data-toggle="radio" class="radio-pretty inline checked">
+                <input type="radio" checked="checked" name="qudao"><span>商家中心</span>
+              </label>
+              <label data-toggle="radio" class="radio-pretty inline">
+                <input type="radio" name="qudao"><span>旺旺弹窗</span>
+              </label>
+              <label data-toggle="radio" class="radio-pretty inline">
+                <input type="radio" name="qudao"><span>站内信</span>
+              </label>
+              <div class="sui-msg msg-tips msg-default msg-clear help-block">
+                <div class="msg-con">是否向子账号发送消息：
+                  <label data-toggle="radio" class="radio-pretty inline">
+                    <input type="radio" name="zzh" value="1"><span>是</span>
+                  </label>
+                  <label data-toggle="radio" class="radio-pretty inline checked">
+                    <input type="radio" checked="checked" name="zzh" value="0"><span>否</span>
+                  </label>
+                </div>
+                <s class="msg-icon"></s>
+              </div>
+            </div>
+            <div class="row-fluid">
+              <label class="checkbox inline">
+                <input name="m1" type="checkbox" value="1" checked> 
+                短信发送给店长
+              </label>
+            </div>
+            <div class="row-fluid">
+              <label class="checkbox inline">
+                <input name="m1" type="checkbox" value="2" checked> 
+                短信发送给电商决策人
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"><b style="color: #f00;">*</b> 
+            审<span style="padding: 0 6px;">核</span>人：
+          </label>
+          <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a id="drop4" role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                  <input value="1" name="zt" type="hidden"><i class="caret"></i><span>管理员</span></a>
+                <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                  <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="1">管理员</a></li>
+                </ul></span></span></div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls">
+            <button type="submit" class="sui-btn btn-primary">提交审核</button>
+            <button type="reset" class="sui-btn">重置</button>
+          </div>
+        </div>
+      </form>
+      <h1 class="sui-page-header">按钮</h1><a href='javascript:void(0);' class='sui-btn btn-xlarge'>默认</a>
+       <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-primary'>首要</a>
+       <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-success'>成功</a>
+       <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-danger'>危险</a>
+       <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-link'>链接</a>
+       <a href='javascript:void(0);' class='sui-btn btn-xlarge btn-text'>文字按钮</a>
+       <br><br><a href='javascript:void(0);' class='sui-btn btn-large'>默认</a>
+       <a href='javascript:void(0);' class='sui-btn btn-large btn-primary'>首要</a>
+       <a href='javascript:void(0);' class='sui-btn btn-large btn-success'>成功</a>
+       <a href='javascript:void(0);' class='sui-btn btn-large btn-danger'>危险</a>
+       <a href='javascript:void(0);' class='sui-btn btn-large btn-link'>链接</a>
+       <a href='javascript:void(0);' class='sui-btn btn-large btn-text'>文字按钮</a>
+       <br><br><a href='javascript:void(0);' class='sui-btn'>默认</a>
+       <a href='javascript:void(0);' class='sui-btn btn-primary'>首要</a>
+       <a href='javascript:void(0);' class='sui-btn btn-success'>成功</a>
+       <a href='javascript:void(0);' class='sui-btn btn-danger'>危险</a>
+       <a href='javascript:void(0);' class='sui-btn btn-link'>链接</a>
+       <a href='javascript:void(0);' class='sui-btn btn-text'>文字按钮</a>
+       <br><br><a href='javascript:void(0);' class='sui-btn btn-small'>默认</a>
+       <a href='javascript:void(0);' class='sui-btn btn-small btn-primary'>首要</a>
+       <a href='javascript:void(0);' class='sui-btn btn-small btn-success'>成功</a>
+       <a href='javascript:void(0);' class='sui-btn btn-small btn-danger'>危险</a>
+       <a href='javascript:void(0);' class='sui-btn btn-small btn-link'>链接</a>
+       <a href='javascript:void(0);' class='sui-btn btn-small btn-text'>文字按钮</a>
+       <br><br>
+      <h1 class="sui-page-header">选框</h1>
+      <h3>复选框</h3>
+      <label class="checkbox-pretty inline checked">
+        <input type="checkbox" checked="checked"><span>鸣人</span>
+      </label>
+      <label class="checkbox-pretty inline">
+        <input type="checkbox"><span>佐助</span>
+      </label>
+      <h3>单选框</h3>
+      <label class="radio-pretty inline checked">
+        <input type="radio" checked="checked" name="radio"><span>服装</span>
+      </label>
+      <label class="radio-pretty inline">
+        <input type="radio" name="radio"><span>电器</span>
+      </label>
+      <label class="radio-pretty inline">
+        <input type="radio" name="radio"><span>美食</span>
+      </label>
+      <h3>半选</h3>
+      <label class="checkbox-pretty inline halfchecked">
+        <input type="checkbox"><span>半选</span>
+      </label>
+      <h3>禁用</h3>
+      <label class="checkbox-pretty inline checked disabled">
+        <input type="checkbox" checked="checked" disabled><span>不可选</span>
+      </label>
+      <h1 class="sui-page-header">下拉菜单</h1>
+      <h3>默认样式</h3><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+          <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+          </ul></span></span>
+      <h3>带边框</h3><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
+          <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a>
+              <ul role="menu" aria-labelledby="drop2" class="sui-dropdown-menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
+              </ul>
+            </li>
+          </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-large"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>北京</a>
+          <ul id="menu1" role="menu" aria-labelledby="drop2" class="sui-dropdown-menu">
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+          </ul></span></span><span class="sui-dropdown dropdown-bordered dropdown-xlarge"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>更大一点的</a>
+          <ul role="menu" aria-labelledby="drop3" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">圣彼得堡</a></li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">莫斯科</a></li>
+          </ul></span></span>
+      <h3>点击触发</h3><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+          <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation"></li>
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+          </ul></span></span><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="caret"></i>杭州</a>
+          <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+          </ul></span></span>
+      <h3>hover触发</h3><span class="sui-dropdown"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+          <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation"></li>
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+          </ul></span></span><span class="sui-dropdown dropdown-bordered"><span class="dropdown-inner"><a role="button" href="javascript:void(0);" data-toggle="dropdown" data-trigger="hover" class="dropdown-toggle">杭州 <i class='caret'></i></a>
+          <ul role="menu" aria-labelledby="drop1" class="sui-dropdown-menu">
+            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">北京</a></li>
+            <li role="presentation" class="active"><a role="menuitem" tabindex="-1" href="#">杭州</a></li>
+          </ul></span></span>
+      <h1 class="sui-page-header">表单校验</h1>
+      <form class="sui-form form-horizontal sui-validate">
+        <div class="control-group">
+          <label for="inputEmail" class="control-label">邮箱：</label>
+          <div class="controls">
+            <input type="text" id="inputEmail" name="name" placeholder="邮箱" data-rules="required|email">
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="inputPassword" class="control-label">密码：</label>
+          <div class="controls">
+            <input type="password" id="inputPassword" name="password" placeholder="密码" data-rules="required" title="密码">
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="inputRepassword" class="control-label">重复密码：</label>
+          <div class="controls">
+            <input type="password" id="inputRepassword" name="repassword" placeholder="重复密码" data-rules="required|match=password">
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="inputGender" class="control-label">性别：</label>
+          <div class="controls">
+            <label data-toggle="radio" class="radio-pretty inline">
+              <input type="radio" name="gender" value="1" data-rules="required"><span>男</span>
+            </label>
+            <label data-toggle="radio" class="radio-pretty inline">
+              <input type="radio" name="gender" value="2" data-rules="required"><span>女</span>
+            </label>
+          </div>
+        </div>
+        <div class="control-group">
+          <label for="inputGender" class="control-label">地址：</label>
+          <div class="controls"><span class="sui-dropdown dropdown-bordered select"><span class="dropdown-inner"><a role="button" data-toggle="dropdown" href="#" class="dropdown-toggle">
+                  <input name="city" type="hidden" data-rules="required"><i class="caret"></i><span>请选择</span></a>
+                <ul id="menu4" role="menu" aria-labelledby="drop4" class="sui-dropdown-menu">
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="bj">北京</a></li>
+                  <li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:void(0);" value="sb">圣彼得堡</a></li>
+                </ul></span></span></div>
+        </div>
+        <div class="control-group">
+          <label for="inputDes" class="control-label v-top">自我介绍：</label>
+          <div class="controls">
+            <textarea id="inputDes" name="des" placeholder="自我介绍" data-rules="required"></textarea>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label"></label>
+          <div class="controls">
+            <button type="submit" class="sui-btn btn-primary">立即注册</button>
+          </div>
+        </div>
+      </form>
+      <h1 class="sui-page-header">日历和时间选择器</h1>
+      <form class="sui-form">
+        <input type="text" data-toggle="datepicker" data-date-timepicker="true" value="2013-01-01">
+      </form>
+      <h1 class="sui-page-header">自动补全</h1>
+      <form class="sui-form">
+        <input type="text" id="auto-init-2" value="" data-toggle="autocomplete" data-lookup="[&quot;aaa&quot;, &quot;bbb&quot;, &quot;ccc&quot;, &quot;ddd&quot;, &quot;edfa&quot;, &quot;wdasda&quot;, &quot;tueiyhgk&quot;, &quot;vjflcjx&quot;]" class="input-large">
+      </form>
+      <h1 class="sui-page-header">分页器</h1>
+      <div class="sui-pagination pagination-small">
+        <ul>
+          <li class="prev disabled"><a href="#">«</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li class="next"><a href="#">»</a></li>
+        </ul>
+      </div>
+      <div class="sui-pagination pagination">
+        <ul>
+          <li class="prev disabled"><a href="#">«</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li class="next"><a href="#">»</a></li>
+        </ul>
+      </div>
+      <div class="sui-pagination">
+        <ul>
+          <li class="prev disabled"><a href="#">«上一页</a></li>
+          <li class="active"><a href="#">1</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li class="dotted"><span>...</span></li>
+          <li class="next"><a href="#">下一页»</a></li>
+        </ul>
+        <div><span>共10页&nbsp;</span><span>
+            到
+            <input type="text" class="page-num"/><button class="page-confirm" onclick="alert(1)">确定</button>
+            页</span></div>
+      </div>
+      <h1 class="sui-page-header">图标</h1>
+      <style>
+        .icons-wrap i {
+          font-size: 24px;
+          margin-left: 10px;
+        }
+      </style>
+      <p class="icons-wrap"><i class="sui-icon icon-pc-loading"></i><i class="sui-icon icon-pc-enter"></i><i class="sui-icon icon-pc-ww"></i><i class="sui-icon icon-pc-sound"></i><i class="sui-icon icon-pc-settings"></i><i class="sui-icon icon-pc-right"></i><i class="sui-icon icon-pc-right-circle"></i><i class="sui-icon icon-pc-refresh"></i><i class="sui-icon icon-pc-question-circle"></i><i class="sui-icon icon-pc-prev"></i><i class="sui-icon icon-pc-next"></i><i class="sui-icon icon-pc-list"></i><i class="sui-icon icon-pc-light"></i><i class="sui-icon icon-pc-info-circle"></i><br><i class="sui-icon icon-touch-ww"></i><i class="sui-icon icon-touch-ww-sign"></i><i class="sui-icon icon-touch-users2"></i><i class="sui-icon icon-touch-users2-sign"></i><i class="sui-icon icon-touch-users"></i><i class="sui-icon icon-touch-users-sign"></i><i class="sui-icon icon-touch-meeting"></i><i class="sui-icon icon-touch-meeting-sign"></i><i class="sui-icon icon-touch-user3"></i><i class="sui-icon icon-touch-user3-sign"></i><i class="sui-icon icon-touch-user2"></i><i class="sui-icon icon-touch-user2-sign"></i><i class="sui-icon icon-touch-user"></i><i class="sui-icon icon-touch-user-sign"></i><i class="sui-icon icon-touch-user-remove"></i><i class="sui-icon icon-touch-user-remove-sign"></i><i class="sui-icon icon-touch-user-info"></i><i class="sui-icon icon-touch-user-info-sign"></i></p>
+      <h1 class="sui-page-header">标签</h1>
+      <style>
+        .labels-wrap {
+          overflow: hidden;
+        }
+        .labels-wrap li {
+          float: left;
+          margin-left: 10px;
+        }
+      </style>
+      <ul class="unstyled labels-wrap">
+        <li><span class="sui-label label-">默认</span></li>
+        <li><span class="sui-label label-success">上升</span></li>
+        <li><span class="sui-label label-warning">持平</span></li>
+        <li><span class="sui-label label-danger">下降</span></li>
+        <li><span class="sui-label label-info">公告</span></li>
+      </ul>
+      <ul class="unstyled labels-wrap">
+        <li><span>默认文本</span></li>
+        <li><span class="sui-text-">默认</span></li>
+        <li><span class="sui-text-success">上升</span></li>
+        <li><span class="sui-text-warning">持平</span></li>
+        <li><span class="sui-text-danger">下降</span></li>
+        <li><span class="sui-text-info">公告</span></li>
+      </ul>
+      <ul class="sui-tag tag-selected">
+        <li>Normal</li>
+        <li class="tag-selected">logo设计</li>
+        <li>店铺装修达人</li>
+        <li class="tag-selected">艺术</li>
+        <li>公sdf告</li>
+        <li class="tag-selected">注意afs</li>
+      </ul>
+      <h1 class="sui-page-header">表格</h1>
+            <table class="sui-table">
+              <thead>
+                <tr>
+                  <th>＃</th>
+                  <th>待付款</th>
+                  <th>宝宝数量</th>
+                  <th>交易金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>所有交易</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>待付款</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已发货</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已成功</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="sui-table table-bordered">
+              <thead>
+                <tr>
+                  <th>＃</th>
+                  <th>待付款</th>
+                  <th>宝宝数量</th>
+                  <th>交易金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>所有交易</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>待付款</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已发货</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已成功</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="sui-table table-nobordered">
+              <thead>
+                <tr>
+                  <th>＃</th>
+                  <th>待付款</th>
+                  <th>宝宝数量</th>
+                  <th>交易金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>所有交易</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>待付款</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已发货</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已成功</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+              </tbody>
+            </table>
+            <table class="sui-table table-primary">
+              <thead>
+                <tr>
+                  <th>＃</th>
+                  <th>待付款</th>
+                  <th>宝宝数量</th>
+                  <th>交易金额</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>所有交易</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>待付款</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已发货</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+                <tr>
+                  <td>已成功</td>
+                  <td>9999.00</td>
+                  <td>999</td>
+                  <td>99999.00</td>
+                </tr>
+              </tbody>
+            </table>
+      <h1 class="sui-page-header">提示消息</h1>
+      <div class="sui-msg msg-error">
+        <div class="msg-con">错误信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-stop">
+        <div class="msg-con">禁止信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-success">
+        <div class="msg-con">成功信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-warning">
+        <div class="msg-con">警示信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-notice">
+        <div class="msg-con">公告信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-tips">
+        <div class="msg-con">提示信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-info">
+        <div class="msg-con">提醒信息提示</div>
+        <s class="msg-icon"></s>
+      </div><br /><br />
+      <div class="sui-msg msg-question">
+        <div class="msg-con">疑问信息提示</div>
+        <s class="msg-icon"></s>
+      </div>
+      <h1 class="sui-page-header">步骤条</h1>
+      <div class="sui-steps steps-auto">
+        <div class="wrap">
+          <div class="finished">
+            <label><span class="round"><i class="sui-icon icon-pc-right"></i></span><span>第一步 #4AA4D5</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="current">
+            <label><span class="round">2</span><span>第二步 #333333</span></label><i class="triangle-right-bg"></i><i class="triangle-right"></i>
+          </div>
+        </div>
+        <div class="wrap">
+          <div class="todo">
+            <label><span class="round">3</span><span>第三步 #999999</span></label>
+          </div>
+        </div>
+      </div>
+      <div class="sui-steps-round steps-round-auto">
+        <div class="finished">
+          <div class="wrap">
+            <div class="round">1</div>
+            <div class="bar"></div>
+          </div>
+          <label>文文字描述文字描述文字描述文字描述字描述文字</label>
+        </div>
+        <div class="current">
+          <div class="wrap">
+            <div class="round">1</div>
+            <div class="bar"></div>
+          </div>
+          <label>文字描述</label>
+        </div>
+        <div class="todo">
+          <div class="wrap">
+            <div class="round">1</div>
+            <div class="bar"></div>
+          </div>
+          <label>文字描述</label>
+        </div>
+        <div style="width:5%" class="todo">
+          <div class="wrap">
+            <div class="round">3</div>
+          </div>
+          <label>文字描述</label>
+        </div>
+      </div>
+      <h1 class="sui-page-header">标签页</h1>
+      <ul class="sui-nav nav-tabs">
+        <li class="active"><a>标签一</a></li>
+        <li><a href="#">标签二</a></li>
+        <li><a href="#">标签二</a></li>
+      </ul>
+      <ul class="sui-nav nav-tabs nav-large">
+        <li><a>语文</a></li>
+        <li class="active"><a href="#">数学</a></li>
+        <li><a href="#">英语</a></li>
+      </ul>
+      <ul class="sui-nav nav-tabs nav-xlarge">
+        <li><a>语文</a></li>
+        <li class="active"><a href="#">数学</a></li>
+        <li><a href="#">英语</a></li>
+      </ul>
+      <h3>垂直</h3>
+      <ul class="sui-nav nav-tabs nav-large tab-vertical">
+        <li><a>语文</a></li>
+        <li class="active"><a href="#">数学</a></li>
+        <li><a href="#">英语</a></li>
+      </ul>
+      <ul class="sui-nav nav-tabs nav-primary">
+        <li class="active"><a>标签一</a></li>
+        <li><a href="#">标签二</a></li>
+        <li><a href="#">标签二</a></li>
+      </ul>
+      <ul class="sui-nav nav-tabs nav-large nav-primary">
+        <li><a>语文</a></li>
+        <li class="active"><a href="#">数学</a></li>
+        <li><a href="#">英语</a></li>
+      </ul>
+      <ul class="sui-nav nav-tabs nav-xlarge nav-primary">
+        <li><a>前端</a></li>
+        <li class="active"><a href="#">后端</a></li>
+        <li><a href="#">运维</a></li>
+      </ul>
+      <h3>垂直</h3>
+      <ul class="sui-nav nav-tabs nav-primary nav-large tab-vertical">
+        <li><a>标签一</a></li>
+        <li class="active"><a href="#">标签二</a></li>
+        <li><a href="#">标签二</a></li>
+      </ul>
+      <h1 class="sui-page-header">新手引导</h1>
+      <h1 data-step="1" data-intro="Hello all! :) 第一步：This project's called Intro.js." style="text-align:center">1.Intro.js</h1>
+      <p data-step="4" data-intro="第四步:Let's try it. It's free and open-source." class="lead">4.更好的介绍网站和功,以便逐步为您指导项目。</p>
+      <div class="introjs-content">
+        <div data-step="2" data-intro="第二步:Ok, wasn't that fun?" data-position="right" class="divcont">
+          <h4>2.容易使用</h4>
+          <p>包括js和css文件， 调价"data-step" 和 "data-intro" 到你的代码。</p>
+        </div>
+        <div data-step="3" data-intro="第三步：More features, more fun." data-position="left" class="divcont">
+          <h4>3.键盘 + 鼠标 控制 </h4>
+          <p>用鼠标, 或键盘  "←"控制后退, "→"控制前进, "ENTER" 和 "ESC" 控制退出.</p>
+        </div>
+        <div data-step="5" data-intro="第五步:Get it, use it." class="divcont">
+          <h4>5.快 &amp; 小</h4>
+          <p>仅需4 KB JavaScript 和 2.5 KB CSS (gzip).</p>
+        </div>
+        <div data-step="6" data-intro="第六步:Last step." class="divcont">
+          <h4>6.跨浏览器兼容性</h4>
+          <p>它兼容最近版本的火狐,Chrome和IE8，更好的兼容性需要进一步开发。</p>
+        </div><a href="javascript:void(0);" class="sui-btn btn-xlarge btn-primary">展示操作</a>
+      </div>
+      <script>
+        $(".btn-primary").click(function(){
+            $.introJs().start();
+        })
+        
+        
+        
+      </script>
+      <h1 class="sui-page-header">对话框</h1>
+      <button data-toggle="modal" data-target="#myModal" data-keyboard="false" class="sui-btn btn-primary btn-lg">对话框已写入html</button>
+      <!-- Modal-->
+      <div id="myModal" tabindex="-1" role="dialog" data-hasfoot="false" class="sui-modal hide fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" data-dismiss="modal" aria-hidden="true" class="sui-close">&times;</button>
+              <h4 id="myModalLabel" class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">我是内容body</div>
+            <div class="modal-footer">
+              <button type="button" data-ok="modal" class="sui-btn btn-primary btn-large">可自定ok</button>
+              <button type="button" data-dismiss="modal" class="sui-btn btn-default btn-large">可自定dismiss</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="sui-page-header">tooltip</h1>
+      <style>
+        .example {
+          overflow: hidden;
+        }
+        .example li {
+          float: left;
+          margin-left: 10px;
+        }
+      </style>
+      <ul class="example unstyled">
+        <li><a href="#" data-placement="top" data-toggle="tooltip" title="浮出在&lt;b&gt;top&lt;/b&gt;的tooltip">看top</a></li>
+        <li><a href="#" data-placement="right" data-toggle="tooltip" title="浮出在&lt;b&gt;right&lt;/b&gt;的tooltip">看right</a></li>
+        <li><a href="#" data-placement="bottom" data-toggle="tooltip" title="浮出在&lt;b&gt;bottom&lt;/b&gt;的tooltip">看bottom</a></li>
+        <li><a href="#" data-placement="left" data-toggle="tooltip" title="浮出在&lt;b&gt;left&lt;/b&gt;的tooltip">看left</a></li>
+        <li><a href="#" data-placement="bottom" data-toggle="tooltip" title="浮出在&lt;b&gt;bottom&lt;/b&gt;的tooltip">看bottom</a></li>
+      </ul>
+      <ul class="example unstyled">
+        <li><a href="#" data-placement="top" data-toggle="tooltip" title="默认类型的tooltip">默认类型</a></li>
+        <li><a href="#" data-placement="top" data-toggle="tooltip" data-type="primary" title="类型为&lt;b&gt;primary&lt;/b&gt;的tooltip">看primary</a></li>
+        <li><a href="#" data-placement="top" data-toggle="tooltip" data-type="info" title="类型为&lt;b&gt;info&lt;/b&gt;的tooltip">看info</a></li>
+        <li><a href="#" data-placement="top" data-toggle="tooltip" data-type="attention" title="类型为&lt;b&gt;attention&lt;/b&gt;的tooltip">看attention</a></li>
+      </ul>
+      <h1 class="sui-page-header">进度条</h1>
+      <div class="sui-progress">
+        <div style="width: 20%;" class="bar">20%</div>
+      </div>
+      <div class="sui-progress progress-danger">
+        <div style="width: 40%;" class="bar">40%</div>
+      </div>
+      <div class="sui-progress progress-success">
+        <div style="width: 60%;" class="bar">60%</div>
+      </div>
+      <div class="sui-progress progress-warning">
+        <div style="width: 80%;" class="bar">80%</div>
+      </div>
+      <div class="sui-progress progress-info">
+        <div style="width: 100%;" class="bar">100%</div>
+      </div>
+    </div>
+    <div class="footer">
+      <ul class="unstyled">
+        <li>@time 2014.03.07</li>
+        <li>@author 商家业务事业部-电商服务支撑平台-UED团队</li>
+      </ul>
+    </div>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/zeroclipboard/ZeroClipboard.js"></script>
+    <script src="assets/js/application.js"></script>
+    <script src="http://localhost:3457/livereload.js"></script>
+  </body>
+</html>
